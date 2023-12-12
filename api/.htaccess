@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# auth rewrites
+RewriteRule ^ads/list ads/list.php [L]

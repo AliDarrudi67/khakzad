@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "bootstrap/dist/css/bootstrap.min.css";
+@font-face {
+  font-display: swap;
+  font-family: vazir;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/font/Vazirmatn-Regular.woff2') format("woff"),
+  url(/assets/font/Vazirmatn-Regular.ttf) format("truetype")
+}
+body{
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+}
+*{
+  font-family: vazir, serif;
+  letter-spacing: normal !important
+}
+ul{
+  list-style: none;
+}
+.mat-mdc-form-field-subscript-wrapper{
+  height: 0 !important;
+}

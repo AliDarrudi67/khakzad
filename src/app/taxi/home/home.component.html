@@ -1,0 +1,82 @@
+<div class="container">
+  <section dir="rtl" class="p-3 block lg:flex justify-between w-full">
+    <section class="overflow-auto">
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold">آگهی های مسافر</mat-button-toggle>
+        <mat-button-toggle value="italic">آگهی های راننده</mat-button-toggle>
+        <mat-button-toggle value="italic">تمامی اگهی ها</mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
+
+    <button class="mt-3 lg:mt-0" mat-raised-button color="primary" routerLink="/ads">ثبت آگهی</button>
+
+  </section>
+  <section class="grid lg:grid-cols-3 gap-3 p-3">
+    <section class="border p-2 text-end rounded" *ngFor="let item of [].constructor(3)">
+      <div class="text-center">
+        <div class="d-inline-block border rounded-full p-2 bg-body-secondary">
+          <app-icon [icon]="'taxi'"></app-icon>
+        </div>
+      </div>
+      <p>
+        <b>نام راننده:</b>
+        علی اسماعیلی
+      </p>
+      <p>
+        <b>زمان حرکت:</b>
+         8 شب
+      </p>
+      <p>
+        <b>تعداد مسافر:</b>
+         4 نفر جا دارد
+      </p>
+      <p>
+        <b>مبدا:</b>
+        درود
+      </p>
+      <p>
+        <b>مقصد :</b>
+        مشهد
+      </p>
+      <p>
+        <b>شماره تماس:</b>
+        09370042409
+      </p>
+
+    </section>
+
+    <section class="border p-2 text-end rounded" *ngFor="let item of [].constructor(3)">
+      <div class="text-center">
+        <div class="d-inline-block border rounded-full p-2 bg-info-subtle">
+          <app-icon [icon]="'passenger'"></app-icon>
+        </div>
+      </div>
+      <p>
+        <b>نام مسافر:</b>
+        زهرا برزگر
+      </p>
+      <p>
+        <b>زمان حرکت:</b>
+        8 شب
+      </p>
+      <p>
+        <b>تعداد مسافر:</b>
+        1 نفر هستم
+      </p>
+      <p>
+        <b>مبدا:</b>
+        درود
+      </p>
+      <p>
+        <b>مقصد :</b>
+        مشهد
+      </p>
+      <p>
+        <b>شماره تماس:</b>
+        09370042409
+      </p>
+
+    </section>
+  </section>
+
+</div>
