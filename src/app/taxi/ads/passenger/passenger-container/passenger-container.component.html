@@ -1,12 +1,12 @@
-<form class="flex flex-col gap-3 w-50 mt-3 mx-auto" dir="rtl">
+<form class="flex flex-col gap-3 w-50 mt-3 mx-auto" dir="rtl" [formGroup]="form" (ngSubmit)="submitForm()">
   <mat-form-field appearance="outline">
     <mat-label>نام مسافر</mat-label>
-    <input matInput>
+    <input matInput formControlName="name">
   </mat-form-field>
 
   <section class="flex justify-between gap-3">
     <mat-form-field appearance="outline" class="w-6/12" dir="rtl">
-      <input readonly matInput placeholder="انتخاب تاریخ"
+      <input readonly matInput placeholder="انتخاب تاریخ" formControlName="date"
              (dateChange)="onDateChanged($event)" [matDatepicker]="pickerFromDate">
       <mat-datepicker-toggle matSuffix [for]="pickerFromDate"></mat-datepicker-toggle>
       <mat-datepicker #pickerFromDate></mat-datepicker>
@@ -14,13 +14,13 @@
     <section class="flex justify-between gap-3 w-6/12">
       <mat-form-field appearance="outline">
         <mat-label>ساعت</mat-label>
-        <mat-select>
+        <mat-select formControlName="hour">
           <mat-option [value]="i+1" *ngFor="let hour of [].constructor(24);let i=index">{{i+1}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>دقیقه</mat-label>
-        <mat-select>
+        <mat-select formControlName="minute">
           <mat-option [value]="i+1" *ngFor="let minute of [].constructor(60);let i=index">{{i+1}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -30,12 +30,12 @@
 
   <mat-form-field appearance="outline">
     <mat-label>تعداد مسافر</mat-label>
-    <input matInput>
+    <input matInput formControlName="passengerCount">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>مبدا</mat-label>
-    <mat-select>
+    <mat-select formControlName="source">
       <mat-option [value]="'mashhad'">مشهد</mat-option>
       <mat-option [value]="'darrud'">دررود</mat-option>
       <mat-option [value]="'neyshabour'">نیشابور</mat-option>
@@ -44,7 +44,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>مقصد</mat-label>
-    <mat-select>
+    <mat-select formControlName="destination">
       <mat-option [value]="'mashhad'">مشهد</mat-option>
       <mat-option [value]="'darrud'">دررود</mat-option>
       <mat-option [value]="'neyshabour'">نیشابور</mat-option>
@@ -53,11 +53,11 @@
 
   <mat-form-field appearance="outline">
     <mat-label>شماره تماس</mat-label>
-    <input matInput>
+    <input matInput formControlName="mobile">
   </mat-form-field>
 
   <section class="flex gap-3">
     <button mat-raised-button color="primary">ثبت اگهی</button>
-    <button mat-raised-button color="warn" routerLink="/ads">انصراف</button>
+    <button mat-raised-button color="warn" type="button" routerLink="/ads">انصراف</button>
   </section>
 </form>
