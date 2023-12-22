@@ -16,7 +16,7 @@ export class HomeComponent {
   }
 
   getAds() {
-    this.adsService.getAds().subscribe(
+    this.adsService.get('ads/list').subscribe(
       (response) => {
         this.ads = response?.data
       }

@@ -7,12 +7,16 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AdsService {
-  baseUrl = environment.baseUrl
+  apiUrl = environment.apiUrl
 
   constructor(private http:HttpClient) {
   }
 
-  getAds():Observable<any>{
-    return this.http.get(this.baseUrl+'api/ads/list')
+  get(endPoint:string):Observable<any>{
+    return this.http.get(this.apiUrl+endPoint)
+  }
+
+  post(endPoint:string,data:any):Observable<any> {
+    return this.http.post(this.apiUrl+endPoint,data)
   }
 }
