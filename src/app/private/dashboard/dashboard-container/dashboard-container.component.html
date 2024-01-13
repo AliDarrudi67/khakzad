@@ -1,0 +1,44 @@
+<section class="flex justify-end">
+  <div class="w-[300px]">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="flex-1">
+    <div id="header" class="flex justify-between p-3">
+      <ul class="flex gap-2 items-center">
+        <li>
+          <a href="#">
+            <app-icon [icon]="'faFlag'"></app-icon>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <app-icon [icon]="'enFlag'"></app-icon>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="flex gap-2 items-center">
+        <button mat-button [matMenuTriggerFor]="menu" class="border">
+          <p class="flex gap-2 items-center">
+            <app-icon [icon]="'account'"></app-icon>
+            <span>حساب کاربری</span>
+          </p>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>تغییر رمز عبور</button>
+          <button mat-menu-item>اطلاعات شخصی</button>
+        </mat-menu>
+
+        <button mat-button class="border">
+          <p class="flex gap-2 items-center">
+            <app-icon [icon]="'logout'"></app-icon>
+            <span>خروج</span>
+          </p>
+        </button>
+      </ul>
+    </div>
+    <div class="p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

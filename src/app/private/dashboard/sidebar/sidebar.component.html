@@ -1,0 +1,56 @@
+<!--<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">-->
+<!--  &lt;!&ndash; This is the tree node template for leaf nodes &ndash;&gt;-->
+<!--  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>-->
+<!--    &lt;!&ndash; use a disabled button to provide padding for tree leaf &ndash;&gt;-->
+
+<!--    <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--      <path d="M15 6L9 12L15 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--    </svg>-->
+<!--    {{node.name}}-->
+<!--  </mat-tree-node>-->
+<!--  &lt;!&ndash; This is the tree node template for expandable nodes &ndash;&gt;-->
+<!--  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>-->
+<!--    <button mat-icon-button matTreeNodeToggle-->
+<!--            [attr.aria-label]="'Toggle ' + node.name">-->
+<!--      <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path d="M15 6L9 12L15 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--      </svg>-->
+<!--    </button>-->
+<!--    {{node.name}}-->
+<!--  </mat-tree-node>-->
+<!--</mat-tree>-->
+<div id="sidebar" class="bg-blue-950 fixed right-0 top-0 h-screen w-[300px] text-white">
+  <div id="sideHeader">
+    <div class="flex flex-col gap-3 justify-center items-center" id="userInfo">
+      <img src="/assets/img/avatar.jpg" class="mx-auto rounded-full w-[100px] h-[100px]" alt=""/>
+      <p>مدیر سایت</p>
+    </div>
+  </div>
+
+  <ul class="mt-[100px] flex flex-col">
+    <li class="active p-2">
+      <a href="#" class="flex gap-2 items-center">
+        <app-icon [icon]="'dashboard'"></app-icon>
+        <span>داشبورد</span>
+      </a>
+    </li>
+    <li class="p-2">
+      <a routerLink="/dashboard/servers" class="flex gap-2 items-center">
+        <app-icon [icon]="'server'"></app-icon>
+        <span>سرورها</span>
+      </a>
+    </li>
+    <li class="p-2">
+      <a href="#" class="flex gap-2 items-center">
+        <app-icon [icon]="'help'"></app-icon>
+        <span>راهنما</span>
+      </a>
+    </li>
+    <li class="p-2">
+      <a href="#" class="flex gap-2 items-center">
+        <app-icon [icon]="'application'"></app-icon>
+        <span>اپلیکیشن ها</span>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "bootstrap/dist/css/bootstrap.min.css";
 @font-face {
   font-display: swap;
   font-family: vazir;
@@ -14,6 +13,7 @@ body{
   width: 100%;
   height: 100%;
   overflow-x:hidden;
+  direction: rtl;
 }
 *{
   font-family: vazir, serif;
@@ -24,4 +24,72 @@ ul{
 }
 .mat-mdc-form-field-subscript-wrapper{
   height: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+.body{
+  background:#ebedef!important;
+}
+
+*, .mdc-list-item__primary-text {
+  font-family: vazir, serif !important;
+  letter-spacing: unset !important;
+}
+
+mat-form-field:not(.custom-input) .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 12px;
+}
+
+mat-form-field:not(.custom-input) .mdc-notched-outline__notch {
+  display: flex;
+  flex-basis: content;
+}
+
+mat-form-field .mdc-notched-outline__notch, mat-form-field .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: #eee !important;
+}
+
+mat-form-field:not(.custom-input) .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+}
+
+mat-form-field:not(.custom-input) .mat-mdc-form-field-flex {
+  margin-top: -7px !important;
+}
+
+mat-form-field:not(.custom-input) .mat-mdc-form-field:not(.mat-focused) .mat-mdc-text-field-wrapper.mdc-text-field .mdc-notched-outline__notch {
+  display: flex;
+  flex-basis: fit-content;
+}
+
+mat-form-field:not(.custom-input) [dir=rtl] .mdc-notched-outline--notched .mdc-notched-outline__notch {
+  padding-left: 0 !important;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+router-outlet + * {
+  display: block; /* Change display inline to block */
+  animation: fade 0.5s;
+}
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
 }
