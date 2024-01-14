@@ -1,0 +1,75 @@
+<app-card>
+  <section class="flex flex-col gap-3">
+    <h1 class="border-b pb-2">مدیریت پروفایل های سرور</h1>
+    <mat-tab-group>
+      <mat-tab label="لیست پروفایل ها">
+        <div class="p-5">
+          <form class="mb-3" dir="rtl">
+            <mat-form-field appearance="outline">
+              <mat-label>جستجو...</mat-label>
+              <input matInput (keyup)="applyFilter($event)" #input>
+            </mat-form-field>
+          </form>
+
+          <table mat-table [dataSource]="dataSource" matSort
+                 class="mat-elevation-z8 mb-5" dir="rtl">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="row">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+                ردیف
+              </th>
+              <td mat-cell *matCellDef="let element"> 1 </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                نام
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="protocol">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                پروتکل
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.protocol}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="operator">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                اپراتور
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.operator}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="op">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                عملیات
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="flex gap-2">
+                  <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>
+                  <app-icon [icon]="'details'" class="cursor-pointer"></app-icon>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" dir="rtl"
+                         showFirstLastButtons
+                         aria-label="Select page of periodic elements">
+          </mat-paginator>
+        </div>
+      </mat-tab>
+      <mat-tab label="ثبت گروهی پروفایل ها"> Content 2 </mat-tab>
+      <mat-tab label="ثبت پروفایل جدید"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </section>
+</app-card>

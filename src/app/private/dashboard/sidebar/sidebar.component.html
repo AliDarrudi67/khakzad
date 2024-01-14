@@ -28,25 +28,25 @@
   </div>
 
   <ul class="mt-[100px] flex flex-col">
-    <li class="active p-2">
-      <a href="#" class="flex gap-2 items-center">
+    <li class="p-2" [ngClass]="url==='/dashboard'?'active':''">
+      <a routerLink="/dashboard" class="flex gap-2 items-center">
         <app-icon [icon]="'dashboard'"></app-icon>
         <span>داشبورد</span>
       </a>
     </li>
-    <li class="p-2">
+    <li class="p-2" routerLinkActive="active">
       <a routerLink="/dashboard/servers" class="flex gap-2 items-center">
         <app-icon [icon]="'server'"></app-icon>
         <span>سرورها</span>
       </a>
     </li>
-    <li class="p-2">
+    <li class="p-2" routerLinkActive="active">
       <a href="#" class="flex gap-2 items-center">
         <app-icon [icon]="'help'"></app-icon>
         <span>راهنما</span>
       </a>
     </li>
-    <li class="p-2">
+    <li class="p-2" routerLinkActive="active">
       <a href="#" class="flex gap-2 items-center">
         <app-icon [icon]="'application'"></app-icon>
         <span>اپلیکیشن ها</span>

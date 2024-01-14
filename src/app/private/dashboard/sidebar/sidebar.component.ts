@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener} from "@angular/material/tree";
 import {FlatTreeControl} from '@angular/cdk/tree';
+import {Router} from "@angular/router";
 
 const TREE_DATA: any[] = [
   {
@@ -21,15 +22,22 @@ const TREE_DATA: any[] = [
     ],
   },
 ];
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  url = '';
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.dataSource.data = TREE_DATA;
+    this.router.events.subscribe((event) => {
+      this.url = location.pathname
+    })
   }
 
   private _transformer = (node: any, level: number) => {
@@ -55,5 +63,4 @@ export class SidebarComponent {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   hasChild = (_: number, node: any) => node.expandable;
-
 }
