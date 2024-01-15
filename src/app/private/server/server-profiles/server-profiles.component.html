@@ -68,8 +68,53 @@
           </mat-paginator>
         </div>
       </mat-tab>
-      <mat-tab label="ثبت گروهی پروفایل ها"> Content 2 </mat-tab>
-      <mat-tab label="ثبت پروفایل جدید"> Content 3 </mat-tab>
+      <mat-tab label="ثبت گروهی پروفایل ها">
+        <div class="flex flex-col gap-3 p-5 justify-center items-center">
+          <div class="success-alert" role="alert">
+            برای ثبت گروهی ابتدا فایل نمونه را دانلود کرده و از طریق نرم افزار اکسل باز کنید سپس در هر سطر کانفیگ و اطلاعات مورد نظر را وارد کرده سپس میتوانید با کلیک روی دکمه ثبت پروفایل ، فایل مورد نظر خود را اپلود کنید.
+          </div>
+
+          <div>
+            <button mat-raised-button color="primary">اپلود پروفایل ها</button>
+          </div>
+          <a href="#" class="text-blue-600">دانلود نمونه پروفایل CSV</a>
+        </div>
+      </mat-tab>
+      <mat-tab label="ثبت پروفایل جدید">
+        <form dir="rtl" class="flex flex-col gap-3 p-5">
+          <div class="grid grid-cols-3 gap-3">
+            <mat-form-field appearance="outline">
+              <mat-label> نام</mat-label>
+              <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label> پروتکل</mat-label>
+              <mat-select>
+                <mat-option>گزینه 1</mat-option>
+                <mat-option>گزینه 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label> اپراتور</mat-label>
+              <mat-select>
+                <mat-option>گزینه 1</mat-option>
+                <mat-option>گزینه 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline">
+            <mat-label>آدرس</mat-label>
+            <input matInput/>
+          </mat-form-field>
+
+          <div>
+            <button mat-raised-button color="primary">ثبت پروفایل</button>
+          </div>
+        </form>
+      </mat-tab>
     </mat-tab-group>
   </section>
 </app-card>

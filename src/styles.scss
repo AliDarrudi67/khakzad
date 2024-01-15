@@ -26,14 +26,6 @@ ul{
   height: 0 !important;
 }
 
-
-
-
-
-
-
-
-
 .body{
   background:#ebedef!important;
 }
@@ -92,4 +84,7 @@ table {
 
 th.mat-sort-header-sorted {
   color: black;
+}
+.success-alert{
+  @apply p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400
 }
