@@ -1,0 +1,121 @@
+<form dir="rtl" class="flex flex-col gap-3 p-5">
+  <div class="grid grid-cols-2 gap-5">
+    <mat-form-field appearance="outline">
+      <mat-label>تلگرام</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>اینستاگرام</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-5">
+    <mat-form-field appearance="outline">
+      <mat-label>یوتیوب</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>لینک گوگل پلی</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-5">
+    <mat-form-field appearance="outline">
+      <mat-label>ایمیل</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>محدودیت اتصال کاربر (برحسب دقیقه و ساعت)</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-5">
+    <mat-form-field appearance="outline">
+      <mat-label>کانکت دیلی (برحسب ثانیه)</mat-label>
+      <input matInput type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>دیس کانکت دیلی (برحسب ثانیه)</mat-label>
+      <input matInput type="number">
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-5 items-center">
+    <div>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>تشخیص لوکیشن با</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <section class="flex flex-col gap-3">
+      <mat-slide-toggle>فورس VPN برای نمایش تبلیغ در ایران</mat-slide-toggle>
+      <mat-slide-toggle>فورس VPN برای نمایش تبلیغ در خارج</mat-slide-toggle>
+      <mat-slide-toggle>فورس VPN به صورت کلی</mat-slide-toggle>
+    </section>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>لینک حریم شخصی</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>لینک درباره ما</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <h1 class="font-bold">
+    بروزرسانی اپلیکیشن
+  </h1>
+
+  <div class="grid grid-cols-2 gap-5 items-center">
+    <mat-form-field appearance="outline">
+      <mat-label>ورژن اپلیکیشن</mat-label>
+      <input matInput type="number">
+    </mat-form-field>
+
+    <section>
+      <mat-slide-toggle>فورس اپدیت</mat-slide-toggle>
+    </section>
+  </div>
+
+    <section class="flex flex-col gap-3">
+      <mat-slide-toggle>اگر می‌خواهید ورژن‌های قدیمی را کاملا از کار بیاندازید این تیک را بزنید.</mat-slide-toggle>
+      <section class="flex flex-col gap-3 hidden">
+        <div class="danger-alert">
+          برای فعال سازی این قابلیت در زیر باید یک ورژن را ثبت کنید تا ورژن‌های کوچکتر از آن بلاک شوند، در نسخه‌های
+          قدیمی دیالوگ بروزسانی وجود ندارد با فعال سازی این قابلیت عملا نسخه‌هایی که دیالوگ بروزرسانی ندارند کاملا از
+          کار خواهند افتاد.
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>بلاک کن ورژن‌های کوچکتر از</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+      </section>
+      <mat-slide-toggle>غیرفعال سازی ارسال کانفیگ به ربات‌ها</mat-slide-toggle>
+      <mat-slide-toggle>تنظیمات را به صورت کد شده به اپلیکیشن ارسال کن</mat-slide-toggle>
+      <mat-slide-toggle>اتصال اتوماتیک</mat-slide-toggle>
+    </section>
+
+    <mat-form-field appearance="outline">
+      <mat-label>متن اپدیت</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>متن اپدیت انگلیسی</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary">ثبت تنظیمات</button>
+    </div>
+</form>

@@ -16,6 +16,11 @@ const routes: Routes = [
         path:'help',
         loadChildren: () =>
           import('../helps/helps.module').then(m => m.HelpsModule)
+      },
+      {
+        path:'applications',
+        loadChildren: () =>
+          import('../application/application.module').then(m => m.ApplicationModule)
       }
     ]
   },

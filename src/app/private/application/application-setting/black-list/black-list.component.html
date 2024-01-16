@@ -1,0 +1,90 @@
+<section class="p-5">
+  <mat-tab-group>
+    <mat-tab label="بلاک ورژن جدید">
+      <form dir="rtl" class="flex flex-col p-3 gap-3">
+        <mat-form-field appearance="outline">
+          <mat-label>نسخه‌ای که می‌خواهید بلاک کنید را انتخاب کنید</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <div>
+          <button mat-raised-button color="primary">بلاک کن</button>
+        </div>
+      </form>
+    </mat-tab>
+
+    <mat-tab label="لیست ورژن ها">
+      <div class="p-3 flex flex-col gap-3 w-full">
+        <form dir="rtl" class="w-full">
+          <mat-form-field appearance="outline">
+            <mat-label>جستجو...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+          </mat-form-field>
+        </form>
+
+        <table mat-table [dataSource]="dataSource" matSort
+               class="mat-elevation-z8 w-full" dir="rtl">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="row">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+              ردیف
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.row}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="application">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+              اپلیکیشن
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.application}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+              موقعیت
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="server">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+              نام سرور
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.server}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="op">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+              عملیات
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="flex gap-2">
+                <app-icon [icon]="'edit'" class="cursor-pointer"></app-icon>
+                <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>
+                <app-icon [icon]="'details'" class="cursor-pointer" (click)="serverDetails()"></app-icon>
+                <app-icon [icon]="'diamond'" class="cursor-pointer" routerLink="profiles/1"></app-icon>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" dir="rtl"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="لیست ورژن های بلاک شده">
+
+    </mat-tab>
+  </mat-tab-group>
+
+</section>
