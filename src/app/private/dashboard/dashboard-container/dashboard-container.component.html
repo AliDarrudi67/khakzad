@@ -24,9 +24,9 @@
             <span>حساب کاربری</span>
           </p>
         </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>تغییر رمز عبور</button>
-          <button mat-menu-item>اطلاعات شخصی</button>
+        <mat-menu #menu="matMenu" dir="rtl">
+          <button mat-menu-item dir="rtl" routerLink="/dashboard/user/changePassword">تغییر رمز عبور</button>
+          <button mat-menu-item dir="rtl" routerLink="/dashboard/user/profile">اطلاعات شخصی</button>
         </mat-menu>
 
         <button mat-button class="border">

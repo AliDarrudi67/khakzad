@@ -1,0 +1,93 @@
+<div class="p-3 flex flex-col gap-3 w-full">
+  <div>
+    <button mat-raised-button color="primary" (click)="showForm=true" *ngIf="!showForm">ثبت دستگاه جدید</button>
+  </div>
+
+  <form class="flex flex-col gap-3" dir="rtl" *ngIf="showForm">
+    <mat-form-field appearance="outline">
+      <mat-label>شناسه یونیک دستگاه</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>توکن فایربیس</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>اپلیکیشن</mat-label>
+      <mat-select>
+        <mat-option>گزینه 1</mat-option>
+        <mat-option>گزینه 2</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="flex gap-3">
+      <button mat-raised-button color="primary">ثبت دستگاه</button>
+      <button mat-raised-button color="accent" (click)="showForm=false">انصراف</button>
+    </div>
+  </form>
+  <form dir="rtl" class="w-full">
+    <mat-form-field appearance="outline">
+      <mat-label>جستجو...</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+  </form>
+
+  <table mat-table [dataSource]="dataSource" matSort
+         class="mat-elevation-z8 w-full" dir="rtl">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="row">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        ردیف
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.row}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="application">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+        اپلیکیشن
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.application}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+        برند دستگاه
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="server">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+        شناسه یونیک دستگاه
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.server}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="op">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+        عملیات
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="flex gap-2">
+          <app-icon [icon]="'edit'" class="cursor-pointer"></app-icon>
+          <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>
+          <app-icon [icon]="'details'" class="cursor-pointer" (click)="deviceDetails()"></app-icon>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" dir="rtl"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
