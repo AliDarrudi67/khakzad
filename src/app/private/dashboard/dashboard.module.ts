@@ -9,6 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {SharedModule} from "../../shared/shared.module";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -16,14 +17,15 @@ import {MatMenuModule} from "@angular/material/menu";
     DashboardContainerComponent,
     SidebarComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    MatTreeModule,
-    MatButtonModule,
-    MatIconModule,
-    SharedModule,
-    MatMenuModule
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        MatTreeModule,
+        MatButtonModule,
+        MatIconModule,
+        SharedModule,
+        MatMenuModule,
+        MatInputModule
+    ]
 })
 export class DashboardModule { }

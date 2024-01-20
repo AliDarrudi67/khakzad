@@ -3,39 +3,64 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="flex-1">
-    <div id="header" class="flex justify-between p-3">
-      <ul class="flex gap-2 items-center">
-        <li>
-          <a href="#">
-            <app-icon [icon]="'faFlag'"></app-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <app-icon [icon]="'enFlag'"></app-icon>
-          </a>
-        </li>
-      </ul>
+    <div id="header" class="p-3 bg">
+      <div class="flex justify-between mx-[50px]">
+        <ul class="flex gap-3 items-center">
+          <app-icon [icon]="'calendarTwo'"></app-icon>
+          <span>{{today}}</span>
+          <app-icon [icon]="'clock'"></app-icon>
+          <span>{{time}}</span>
+        </ul>
 
-      <ul class="flex gap-2 items-center">
-        <button mat-button [matMenuTriggerFor]="menu" class="border">
-          <p class="flex gap-2 items-center">
-            <app-icon [icon]="'account'"></app-icon>
-            <span>حساب کاربری</span>
-          </p>
-        </button>
-        <mat-menu #menu="matMenu" dir="rtl">
-          <button mat-menu-item dir="rtl" routerLink="/dashboard/user/changePassword">تغییر رمز عبور</button>
-          <button mat-menu-item dir="rtl" routerLink="/dashboard/user/profile">اطلاعات شخصی</button>
-        </mat-menu>
+        <mat-form-field appearance="outline" dir="rtl" class="relative">
+          <mat-label>جستجو...</mat-label>
+          <input matInput/>
+          <app-icon [icon]="'search'" class="absolute left-0 top-[14px]"></app-icon>
+        </mat-form-field>
+<!--        <ul class="flex gap-2 items-center">-->
+<!--          <li>-->
+<!--            <a href="#">-->
+<!--              <app-icon [icon]="'faFlag'"></app-icon>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#">-->
+<!--              <app-icon [icon]="'enFlag'"></app-icon>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
 
-        <button mat-button class="border">
-          <p class="flex gap-2 items-center">
-            <app-icon [icon]="'logout'"></app-icon>
-            <span>خروج</span>
-          </p>
-        </button>
-      </ul>
+        <ul class="flex gap-2 items-center">
+          <button mat-button [matMenuTriggerFor]="menu" class="border">
+            <p class="flex gap-2 items-center">
+              <app-icon [icon]="'account'"></app-icon>
+              <span>حساب کاربری</span>
+            </p>
+          </button>
+          <mat-menu #menu="matMenu" dir="rtl">
+            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/changePassword">تغییر رمز عبور</button>
+            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/profile">اطلاعات شخصی</button>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menuLang" class="border">
+            <p class="flex gap-2 items-center">
+              <app-icon [icon]="'faFlag'"></app-icon>
+              <span>فارسی</span>
+            </p>
+          </button>
+          <mat-menu #menuLang="matMenu" dir="rtl">
+            <button mat-menu-item dir="rtl">انگلیسی</button>
+            <button mat-menu-item dir="rtl">فارسی</button>
+          </mat-menu>
+
+          <button mat-button class="border">
+            <p class="flex gap-2 items-center">
+              <app-icon [icon]="'logout'"></app-icon>
+              <span>خروج</span>
+            </p>
+          </button>
+        </ul>
+      </div>
     </div>
     <div class="p-5">
       <router-outlet></router-outlet>

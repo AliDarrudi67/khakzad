@@ -21,42 +21,48 @@
 <!--</mat-tree>-->
 <div id="sidebar" class="bg-blue-950 fixed right-0 top-0 h-screen w-[300px] text-white">
   <div id="sideHeader">
-    <div class="flex flex-col gap-3 justify-center items-center" id="userInfo">
-      <img src="/assets/img/avatar.jpg" class="mx-auto rounded-full w-[100px] h-[100px]" alt=""/>
+    <div class="flex flex-col gap-3 justify-center items-center p-3" id="userInfo">
+      <img src="/assets/img/nova.png" class="mb-5" width="150"/>
+      <img src="/assets/img/avatar.jpg" id="avatar" class="mx-auto rounded-full w-[100px] h-[100px]" alt=""/>
       <p>مدیر سایت</p>
     </div>
   </div>
 
-  <ul class="mt-[100px] flex flex-col">
-    <li class="p-2" [ngClass]="url==='/dashboard'?'active':''">
+  <ul class="mt-[70px] flex flex-col gap-5">
+    <li class="p-2 pe-8 ps-8 flex justify-between" [ngClass]="url==='/dashboard'?'active':''">
       <a routerLink="/dashboard" class="flex gap-2 items-center">
         <app-icon [icon]="'dashboard'"></app-icon>
         <span>داشبورد</span>
       </a>
+      <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
-    <li class="p-2" routerLinkActive="active">
+    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
       <a routerLink="/dashboard/servers" class="flex gap-2 items-center">
         <app-icon [icon]="'server'"></app-icon>
         <span>سرورها</span>
       </a>
+      <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
-    <li class="p-2" routerLinkActive="active">
+    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
       <a routerLink="/dashboard/help" class="flex gap-2 items-center">
         <app-icon [icon]="'help'"></app-icon>
         <span>راهنما</span>
       </a>
+      <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
-    <li class="p-2" routerLinkActive="active">
+    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
       <a routerLink="/dashboard/applications" class="flex gap-2 items-center">
         <app-icon [icon]="'application'"></app-icon>
         <span>اپلیکیشن ها</span>
       </a>
+      <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
-    <li class="p-2" routerLinkActive="active">
+    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
       <a routerLink="/dashboard/devices" class="flex gap-2 items-center">
         <app-icon [icon]="'device'"></app-icon>
         <span>دستگاه ها</span>
       </a>
+      <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
   </ul>
 </div>
