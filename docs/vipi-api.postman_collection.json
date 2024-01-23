@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "c31efdfb-c65b-49db-84fe-20359e47a4f1",
+		"name": "vipi-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1010782"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "app",
+					"item": [
+						{
+							"name": "get app info by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/3f77454b-e510-484f-9776-283af52106ca/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body as JSON\r",
+									"var responseJson = pm.response.json();\r",
+									"\r",
+									"// Check if the response contains an access token\r",
+									"if (responseJson && responseJson.access_token) {\r",
+									"    // Save the access token as a global variable\r",
+									"    //pm.globals.set(\"jwtToken\", responseJson.data.access_token);\r",
+									"    pm.collectionVariables.set(\"access_token\", responseJson.data.access_token);\r",
+									"    //pm.globals.set(\"vipi_access_token\",responseJson.data.access_token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "user register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"email\":\"hamid.khakzad@gmail.com\",\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "user update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user/55f8fa4d-9f9f-443d-8818-4dbd80f32a1a"
+					},
+					"response": []
+				},
+				{
+					"name": "current user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "app",
+			"item": [
+				{
+					"name": "config",
+					"item": []
+				},
+				{
+					"name": "server",
+					"item": [
+						{
+							"name": "create new server group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"vpn server group\",\r\n    \"app_id\":\"19a1cf09-7b12-4303-acd2-a0fbf6dacbac\",\r\n    \"country_code\":\"US\",\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/"
+							},
+							"response": []
+						},
+						{
+							"name": "get app server group list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/list"
+							},
+							"response": []
+						},
+						{
+							"name": "create new vpn server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"server_group_id\":\"2969298e-27e9-4dea-9f32-3176443e84ee\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "create new super admin user",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "47eb3fb1909c9eac251b135dc4be22de",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"email\":\"hamid.khakzad@gmail.com\",\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"roles\":[\"user\"],\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/supervisor/create"
+							},
+							"response": []
+						},
+						{
+							"name": "update user info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "47eb3fb1909c9eac251b135dc4be22de",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/2f141d59-f807-4030-8c53-887114abf932/"
+							},
+							"response": []
+						},
+						{
+							"name": "get user list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/list"
+							},
+							"response": []
+						},
+						{
+							"name": "remove user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/bd3cd955-e645-45be-9610-5f682b94d67/"
+							},
+							"response": []
+						},
+						{
+							"name": "create new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"saleh shokouhi\",\r\n    \"email\":\"saleh.shokouhi@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"roles\":[\"user\"],\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/create"
+							},
+							"response": []
+						},
+						{
+							"name": "get user app list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/app/list?user_id=60a67880-e4eb-41f7-9437-af0c9aa1aa36",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"app",
+										"list"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "60a67880-e4eb-41f7-9437-af0c9aa1aa36"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "app",
+					"item": [
+						{
+							"name": "create new app",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\":\"22d2e3ac-b6f2-4397-8ed5-2979b10c3d41\",\r\n    \"en_app_name\":\"new app\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/app"
+							},
+							"response": []
+						},
+						{
+							"name": "update app info",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\":\"60a67880-e4eb-41f7-9437-af0c9aa1aa36\",\r\n    \"en_app_name\":\"new app\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"support_telegram_id\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f"
+							},
+							"response": []
+						},
+						{
+							"name": "get app info by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f"
+							},
+							"response": []
+						},
+						{
+							"name": "get all user apps",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\":\"b0eea7eb-ec8c-4bcb-8f9a-8b935e94f2ad\",\r\n    \"en_app_name\":\"new app\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir.com\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/user/app/list"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiM2Q0YjUyNi0xNTZiLTQ2NTctOWVmNi05MDM5MGU5N2NhZTYiLCJlbWFpbCI6InNhbGVoLnNob2tvdWhpQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic2FsZWguc2hva291aGkiLCJpYXQiOjE3MDYwMTM3MDMsImV4cCI6MTcwNjcwNDkwM30.EirwmGiHv_r4tIG4_1rtcfBn7akrs63hY3P_Nd5zKao"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}

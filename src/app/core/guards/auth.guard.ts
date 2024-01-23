@@ -1,19 +1,33 @@
 import {CanActivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
-import {UserService} from "../services/user.service";
+import {MainService} from "../services/main.service";
+import {ApiEndpoints} from "../config/apiEndpoints";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private userService: UserService,
+  constructor(private mainService: MainService,
               private router: Router) {
   }
 
   // @ts-ignore
   canActivate(): boolean {
-    // this.navigateToLogin()
-    // return false
-    return true
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const formData = new FormData()
+        formData.append('token', token)
+        this.mainService.get(ApiEndpoints.user.getUserById(token)).subscribe(
+          (response) => {
+            if (!response.result)
+              this.navigateToLogin()
+            return response.result
+          }
+        )
+      }
+    } else {
+      this.navigateToLogin()
+    }
   }
 
   navigateToLogin() {

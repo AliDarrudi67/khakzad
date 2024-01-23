@@ -1,15 +1,17 @@
 <div class="body h-screen flex flex-col items-center justify-center ">
-  <form class="login bg-white rounded flex flex-col lg:flex-row justify-between gap-5 w-11/12 lg:w-6/12 mx-auto p-5" dir="rtl">
+  <form [formGroup]="form" (ngSubmit)="submitForm()"
+        class="login bg-white rounded flex flex-col lg:flex-row justify-between gap-5 w-11/12 lg:w-6/12 mx-auto p-5"
+        dir="rtl">
     <div class="flex flex-col gap-3  lg:w-full">
       <h2>ورود به پنل مدیریت</h2>
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>ایمیل یا نام کاربری</mat-label>
-        <input matInput/>
+        <input matInput formControlName="username"/>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>رمز عبور</mat-label>
-        <input matInput type="password"/>
+        <input matInput type="password" formControlName="password"/>
       </mat-form-field>
 
       <button class="w-full btn btn-primary">ورود</button>
