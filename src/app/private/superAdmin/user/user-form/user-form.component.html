@@ -1,0 +1,39 @@
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+  <mat-form-field appearance="outline">
+    <mat-label>نام کاربری</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ایمیل</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>نام </mat-label>
+    <input matInput formControlName="first_name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>نام خانوادگی</mat-label>
+    <input matInput formControlName="last_name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>سطح دسترسی</mat-label>
+    <mat-select formControlName="roles" multiple>
+      <mat-option value="user">کاربر</mat-option>
+      <mat-option value="admin">ادمین</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>رمز عبور</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <div class="flex justify-between">
+    <button mat-raised-button color="primary">ثبت</button>
+    <button type="button" mat-raised-button color="accent">بستن</button>
+  </div>
+</form>

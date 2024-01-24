@@ -8,6 +8,14 @@ import {Observable} from "rxjs";
 })
 export class MainService {
   baseUrl = environment.baseUrl
+  defaultDialogConfig = {
+    disableClose: true,
+    autoFocus: false,
+    minWidth: '360px',
+    maxHeight: '80vh',
+    panelClass: 'custom-dialog',
+    data: {}
+  }
 
   constructor(
     private http: HttpClient,

@@ -1,7 +1,6 @@
 import {CanActivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {MainService} from "../services/main.service";
-import {ApiEndpoints} from "../config/apiEndpoints";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -15,15 +14,16 @@ export class AuthGuard implements CanActivate {
     if (localStorage.getItem('token')) {
       const token = localStorage.getItem('token');
       if (token) {
-        const formData = new FormData()
-        formData.append('token', token)
-        this.mainService.get(ApiEndpoints.user.getUserById(token)).subscribe(
-          (response) => {
-            if (!response.result)
-              this.navigateToLogin()
-            return response.result
-          }
-        )
+        // const formData = new FormData()
+        // formData.append('token', token)
+        // this.mainService.get(ApiEndpoints.user.getUserById(token)).subscribe(
+        //   (response) => {
+        //     if (!response.result)
+        //       this.navigateToLogin()
+        //     return response.result
+        //   }
+        // )
+        return true
       }
     } else {
       this.navigateToLogin()

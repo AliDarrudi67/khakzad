@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import * as moment from "jalali-moment";
+
 @Component({
   selector: 'app-dashboard-container',
   templateUrl: './dashboard-container.component.html',
@@ -10,8 +11,7 @@ export class DashboardContainerComponent {
   time = '';
   date: any
 
-  constructor(
-  ) {
+  constructor() {
     this.today = moment(new Date()).locale('fa').format('dddd YYYY/MM/DD');
     this.timeInterval()
   }
@@ -30,5 +30,10 @@ export class DashboardContainerComponent {
     const hours = this.date.getHours();
     const minutes = this.date.getMinutes();
     this.time = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  }
+
+  logout() {
+    localStorage.clear()
+    window.location.href = '/'
   }
 }

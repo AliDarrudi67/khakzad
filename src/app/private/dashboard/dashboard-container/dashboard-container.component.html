@@ -53,7 +53,7 @@
             <button mat-menu-item dir="rtl">فارسی</button>
           </mat-menu>
 
-          <button mat-button class="border">
+          <button mat-button class="border" (click)="logout()">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'logout'"></app-icon>
               <span>خروج</span>

@@ -43,6 +43,8 @@ import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
       multi: true,
     },
   ],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
