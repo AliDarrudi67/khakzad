@@ -42,6 +42,14 @@ export class MainService {
     return this.http.post(this.baseUrl+endPoint,data)
   }
 
+  delete(endPoint:string) {
+    return this.http.delete(this.baseUrl+endPoint)
+  }
+
+  put(endPoint: string, data:any) {
+    return this.http.put(this.baseUrl+endPoint,data)
+  }
+
   getFormData(form: any) {
     const fields = Object.keys(form.value)
     const formData = new FormData()
@@ -59,5 +67,6 @@ export class MainService {
     })
     return formData
   }
+
 
 }

@@ -6,6 +6,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {UserFormComponent} from "../user-form/user-form.component";
+import {ConfirmDialogComponent} from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-user-container',
@@ -45,13 +46,30 @@ export class UserContainerComponent {
       })
   }
 
-  userForm() {
+  userForm(data={}) {
     const dialogConfig = this.mainService.defaultDialogConfig
+    dialogConfig.data=data
     const dialog = this.dialog.open(UserFormComponent, dialogConfig)
     dialog.afterClosed().subscribe(
       (response) => {
         if (response?.result) {
           this.getUsers()
+        }
+      }
+    )
+  }
+
+  removeUser(id: string) {
+    const dialogConfig=this.mainService.defaultDialogConfig
+    const dialog = this.dialog.open(ConfirmDialogComponent,dialogConfig)
+    dialog.afterClosed().subscribe(
+      (response) => {
+        if (response?.result) {
+          this.mainService.delete(ApiEndpoints.user.remove(id)).subscribe(
+            (result) => {
+              this.getUsers()
+            }
+          )
         }
       }
     )

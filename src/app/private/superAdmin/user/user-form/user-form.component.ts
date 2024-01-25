@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../../core/services/main.service";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-form',
@@ -11,35 +11,45 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class UserFormComponent {
   form!: FormGroup
+  formStatus = 'add'
 
   constructor(
     private formBuilder: FormBuilder,
     private mainService: MainService,
-    private matDialogRef: MatDialogRef<UserFormComponent>
+    private matDialogRef: MatDialogRef<UserFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.groupForm()
+    this.groupForm(data)
+    this.formStatus = data?.username ? 'edit' : 'add'
   }
 
-  groupForm() {
+  groupForm(data: any) {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      roles: ['', Validators.required],
-      password: ['', Validators.required]
+      username: [data?.username, Validators.required],
+      email: [data?.email, [Validators.required, Validators.email]],
+      first_name: [data?.first_name, Validators.required],
+      last_name: [data?.last_name, Validators.required],
+      roles: [data?.roles, Validators.required],
+      password: [data?.password, Validators.required]
     })
   }
 
   submitForm() {
     console.log(this.form.value)
     if (this.form.valid) {
-      this.mainService.post(ApiEndpoints.user.add, this.form.value).subscribe(
-        (response) => {
-          console.log(response)
-          this.matDialogRef.close({result: true})
-        }
-      )
+      if (this.formStatus == 'add') {
+        this.mainService.post(ApiEndpoints.user.add, this.form.value).subscribe(
+          (response) => {
+            this.matDialogRef.close({result: true})
+          }
+        )
+      } else {
+        this.mainService.put(ApiEndpoints.user.edit(this.data?.id), this.form.value).subscribe(
+          (response) => {
+            this.matDialogRef.close({result: true})
+          }
+        )
+      }
     }
   }
 }

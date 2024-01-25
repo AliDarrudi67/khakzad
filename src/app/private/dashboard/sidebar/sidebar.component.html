@@ -30,42 +30,42 @@
 
   <ul class="mt-[70px] flex flex-col gap-5 mb-5" dir="rtl">
     <li class="p-2 pe-8 ps-8 flex justify-between" [ngClass]="url==='/dashboard'?'active':''">
-      <a routerLink="/dashboard" class="flex gap-2 items-center">
+      <a routerLink="/dashboard" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'dashboard'"></app-icon>
         <span>داشبورد</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
-      <a routerLink="/dashboard/users" class="flex gap-2 items-center">
+      <a routerLink="/dashboard/users" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'server'"></app-icon>
         <span>کاربران</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
-      <a routerLink="/dashboard/servers" class="flex gap-2 items-center">
+      <a routerLink="/dashboard/servers" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'server'"></app-icon>
         <span>سرورها</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
-      <a routerLink="/dashboard/help" class="flex gap-2 items-center">
+      <a routerLink="/dashboard/help" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'help'"></app-icon>
         <span>راهنما</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
-      <a routerLink="/dashboard/applications" class="flex gap-2 items-center">
+      <a routerLink="/dashboard/applications" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'application'"></app-icon>
         <span>اپلیکیشن ها</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
-      <a routerLink="/dashboard/devices" class="flex gap-2 items-center">
+      <a routerLink="/dashboard/devices" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'device'"></app-icon>
         <span>دستگاه ها</span>
       </a>
