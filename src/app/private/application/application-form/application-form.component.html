@@ -1,0 +1,49 @@
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+  <mat-form-field appearance="outline">
+    <mat-label>انتخاب کاربر</mat-label>
+    <mat-select formControlName="user_id">
+      <mat-option value="22d2e3ac-b6f2-4397-8ed5-2979b10c3d41">1</mat-option>
+      <mat-option value="22d2e3ac-b6f2-4397-8ed5-2979b10c3d41">2</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>نام انگلیسی</mat-label>
+    <input matInput formControlName="en_app_name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>نام فارسی</mat-label>
+    <input matInput formControlName="per_app_name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>نام پکیج</mat-label>
+    <input matInput formControlName="package_name">
+  </mat-form-field>
+
+   <mat-form-field appearance="outline">
+    <mat-label>کانال تلگرام</mat-label>
+    <input matInput formControlName="telegram_channel">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>کانال یوتیوب</mat-label>
+    <input matInput formControlName="youtube_channel">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>لینک امنیتی</mat-label>
+    <input matInput formControlName="privacy_url">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>لینک گوگل پلی</mat-label>
+    <input matInput formControlName="google_play_url">
+  </mat-form-field>
+
+  <div class="flex justify-between">
+    <button mat-raised-button color="primary">ثبت</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+  </div>
+</form>

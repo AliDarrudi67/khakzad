@@ -13,12 +13,18 @@ import {MatTableModule} from "@angular/material/table";
 import {SharedModule} from "../../shared/shared.module";
 import {MatDialogModule} from "@angular/material/dialog";
 import { ApplicationDetailsComponent } from './application-details/application-details.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { ApplicationFormComponent } from './application-form/application-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
   declarations: [
     ApplicationContainerComponent,
-    ApplicationDetailsComponent
+    ApplicationDetailsComponent,
+    ApplicationFormComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,12 @@ import { ApplicationDetailsComponent } from './application-details/application-d
     MatSortModule,
     MatTableModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule,
+    FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class ApplicationModule { }

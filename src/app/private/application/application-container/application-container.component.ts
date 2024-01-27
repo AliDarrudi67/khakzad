@@ -3,16 +3,10 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
-import {ServerFormComponent} from "../../server/server-form/server-form.component";
-import {ServerDetailsComponent} from "../../server/server-details/server-details.component";
 import {ApplicationDetailsComponent} from "../application-details/application-details.component";
-
-const ELEMENT_DATA: any[] = [
-  {row: 1, name: 'Hydrogen', package: 1.0079, applicationAdmin: 'H', apiKey: 'dsad3232khjk32j32'},
-  {row: 2, name: 'Hydrogen', package: 1.0079, applicationAdmin: 'H', apiKey: 'dsad3232khjk32j32'},
-  {row: 3, name: 'Hydrogen', package: 1.0079, applicationAdmin: 'H', apiKey: 'dsad3232khjk32j32'},
-  {row: 4, name: 'Hydrogen', package: 1.0079, applicationAdmin: 'H', apiKey: 'dsad3232khjk32j32'},
-];
+import {MainService} from "../../../core/services/main.service";
+import {ApiEndpoints} from "../../../core/config/apiEndpoints";
+import {ApplicationFormComponent} from "../application-form/application-form.component";
 
 @Component({
   selector: 'app-application-container',
@@ -20,21 +14,18 @@ const ELEMENT_DATA: any[] = [
   styleUrls: ['./application-container.component.scss']
 })
 export class ApplicationContainerComponent {
-  displayedColumns: string[] = ['row', 'name', 'package', 'applicationAdmin','apiKey', 'op'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'youtube_channel', 'support_telegram_id', 'google_play_url', 'privacy_url', 'is_active', 'op'];
+  dataSource = new MatTableDataSource();
 
   constructor(
+    private mainService: MainService,
     private dialog: MatDialog
   ) {
+    this.getItems()
   }
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -48,5 +39,28 @@ export class ApplicationContainerComponent {
       autoFocus: false,
       disableClose: true
     })
+  }
+
+  getItems() {
+    this.mainService.get(ApiEndpoints.application.list).subscribe(
+      (response) => {
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+        this.dataSource = new MatTableDataSource(response?.data);
+      }
+    )
+  }
+
+  showForm(data = {}) {
+    const dialogConfig = this.mainService.defaultDialogConfig
+    dialogConfig.data = data
+    const dialog = this.dialog.open(ApplicationFormComponent, dialogConfig)
+    dialog.afterClosed().subscribe(
+      (response) => {
+        if (response?.result) {
+          this.getItems()
+        }
+      }
+    )
   }
 }

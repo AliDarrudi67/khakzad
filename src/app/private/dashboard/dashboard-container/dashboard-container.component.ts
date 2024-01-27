@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import * as moment from "jalali-moment";
+import {MainService} from "../../../core/services/main.service";
 
 @Component({
   selector: 'app-dashboard-container',
@@ -11,7 +12,9 @@ export class DashboardContainerComponent {
   time = '';
   date: any
 
-  constructor() {
+  constructor(
+    private mainService:MainService
+  ) {
     this.today = moment(new Date()).locale('fa').format('dddd YYYY/MM/DD');
     this.timeInterval()
   }
@@ -33,7 +36,6 @@ export class DashboardContainerComponent {
   }
 
   logout() {
-    localStorage.clear()
-    window.location.href = '/'
+    this.mainService.logout()
   }
 }

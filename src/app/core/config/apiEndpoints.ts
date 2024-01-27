@@ -6,5 +6,10 @@ export const ApiEndpoints ={
     add:'admin/user/create',
     remove:(id:string)=>`admin/user/${id}`,
     edit:(id:string)=>`admin/user/${id}`,
+  },
+  application:{
+    list:'admin/user/app/list',
+    add:'admin/app',
+    edit:(id:string)=>`admin/app/${id}`,
   }
 }

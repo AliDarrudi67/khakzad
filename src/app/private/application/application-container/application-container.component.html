@@ -2,6 +2,7 @@
   <div class="flex flex-col gap-3">
     <div class="flex justify-between">
       <h1>لیست اپلیکیشن ها</h1>
+      <button mat-raised-button color="primary" (click)="showForm()">جدید</button>
     </div>
 
     <form dir="rtl">
@@ -11,46 +12,73 @@
       </mat-form-field>
     </form>
 
-    <table mat-table [dataSource]="dataSource" matSort
-           class="mat-elevation-z8" dir="rtl">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" dir="rtl">
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="row">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-          ردیف
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.row}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="en_app_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-          نام
+          نام انگلیسی
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.en_app_name}} </td>
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="package">
+      <ng-container matColumnDef="per_app_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
-          نام پکیج
+          نام فارسی
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.package}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.per_app_name}} </td>
       </ng-container>
 
       <!-- Symbol Column -->
-      <ng-container matColumnDef="applicationAdmin">
+      <ng-container matColumnDef="package_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          ادمین اپلیکیشن
+          نام پکیج
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.applicationAdmin}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.package_name}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="apiKey">
+      <ng-container matColumnDef="api_key">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
           Api Key
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.apiKey}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.api_key}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="youtube_channel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+          کانال یوتیوب
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.youtube_channel}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="support_telegram_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+          ای دی تلگرام
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.support_telegram_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="google_play_url">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+          گوگل پلی
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.google_play_url}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="privacy_url">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+          لینک امنیتی
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.privacy_url}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="is_active">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          وضعیت
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-slide-toggle [checked]="element.is_active"></mat-slide-toggle>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="op">
@@ -59,11 +87,22 @@
         </th>
         <td mat-cell *matCellDef="let element">
           <div class="flex gap-2">
-            <app-icon [icon]="'details'" class="cursor-pointer" (click)="applicationDetails()"></app-icon>
-            <app-icon [icon]="'setting'" class="cursor-pointer" routerLink="setting/1"></app-icon>
+            <app-icon [icon]="'edit'" class="cursor-pointer" (click)="showForm(element)"></app-icon>
           </div>
         </td>
       </ng-container>
+
+<!--      <ng-container matColumnDef="op">-->
+<!--        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">-->
+<!--          عملیات-->
+<!--        </th>-->
+<!--        <td mat-cell *matCellDef="let element">-->
+<!--          <div class="flex gap-2">-->
+<!--            <app-icon [icon]="'details'" class="cursor-pointer" (click)="applicationDetails()"></app-icon>-->
+<!--            <app-icon [icon]="'setting'" class="cursor-pointer" routerLink="setting/1"></app-icon>-->
+<!--          </div>-->
+<!--        </td>-->
+<!--      </ng-container>-->
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -69,4 +69,8 @@ export class MainService {
   }
 
 
+  logout() {
+    localStorage.clear()
+    window.location.href = '/'
+  }
 }
