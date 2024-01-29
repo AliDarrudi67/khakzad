@@ -46,7 +46,7 @@ export class MainService {
     return this.http.delete(this.baseUrl+endPoint)
   }
 
-  put(endPoint: string, data:any) {
+  put(endPoint: string, data:any):Observable<any> {
     return this.http.put(this.baseUrl+endPoint,data)
   }
 

@@ -1,0 +1,26 @@
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+  <mat-form-field appearance="outline">
+    <mat-label>گروه سرور</mat-label>
+    <input matInput formControlName="server_group_id">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>کد کشور</mat-label>
+    <input matInput formControlName="country_code">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>remarks </mat-label>
+    <input matInput formControlName="remarks">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>uri </mat-label>
+    <input matInput formControlName="server_uri">
+  </mat-form-field>
+
+  <div class="flex justify-between">
+    <button mat-raised-button color="primary">ثبت</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+  </div>
+</form>

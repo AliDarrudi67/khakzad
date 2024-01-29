@@ -14,6 +14,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
+import { ServerComponent } from './server/server.component';
+import { ServerGroupComponent } from './server-group/server-group.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { ServerGroupFormComponent } from './server-group-form/server-group-form.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import { ServerFormComponent } from './server-form/server-form.component';
 
 
 @NgModule({
@@ -21,19 +29,27 @@ import {MatTableModule} from "@angular/material/table";
     ApplicationSettingContainerComponent,
     AppSettingComponent,
     AdmobSettingComponent,
-    BlackListComponent
+    BlackListComponent,
+    ServerComponent,
+    ServerGroupComponent,
+    ServerGroupFormComponent,
+    ServerFormComponent
   ],
-  imports: [
-    CommonModule,
-    ApplicationSettingRoutingModule,
-    SharedModule,
-    MatTabsModule,
-    MatInputModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule
-  ]
+    imports: [
+        CommonModule,
+        ApplicationSettingRoutingModule,
+        SharedModule,
+        MatTabsModule,
+        MatInputModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatOptionModule,
+        MatSelectModule
+    ]
 })
 export class ApplicationSettingModule { }

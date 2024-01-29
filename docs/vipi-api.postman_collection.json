@@ -29,7 +29,67 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/3f77454b-e510-484f-9776-283af52106ca/"
+								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+							},
+							"response": []
+						},
+						{
+							"name": "get user app list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/list"
+							},
+							"response": []
+						},
+						{
+							"name": "update app info",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"en_app_name\": \"new app name\",\r\n    \"per_app_name\": \"اپلیکیشن جدیدبیبیب\",\r\n    \"package_name\": \"com.safir\",\r\n    \"youtube_channel\": null,\r\n    \"support_telegram_id\": null,\r\n    \"google_play_url\": null,\r\n    \"privacy_url\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+							},
+							"response": []
+						},
+						{
+							"name": "get app server list by app id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"en_app_name\": \"new app name\",\r\n    \"per_app_name\": \"اپلیکیشن جدیدبیبیب\",\r\n    \"package_name\": \"com.safir\",\r\n    \"youtube_channel\": null,\r\n    \"support_telegram_id\": null,\r\n    \"google_play_url\": null,\r\n    \"privacy_url\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list"
 							},
 							"response": []
 						}
@@ -153,6 +213,97 @@
 						"url": "{{base_url}}/user/"
 					},
 					"response": []
+				},
+				{
+					"name": "change password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body as JSON\r",
+									"var responseJson = pm.response.json();\r",
+									"\r",
+									"// Check if the response contains an access token\r",
+									"if (responseJson && responseJson.access_token) {\r",
+									"    // Save the access token as a global variable\r",
+									"    //pm.globals.set(\"jwtToken\", responseJson.data.access_token);\r",
+									"    pm.collectionVariables.set(\"access_token\", responseJson.data.access_token);\r",
+									"    //pm.globals.set(\"vipi_access_token\",responseJson.data.access_token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\":\"Arad1398::##\",\r\n    \"new_password\":\"Arad1398::##@@\",\r\n    \"confirm_new_password\":\"Arad1398::##@@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/user/change-password"
+					},
+					"response": []
+				},
+				{
+					"name": "change special user password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body as JSON\r",
+									"var responseJson = pm.response.json();\r",
+									"\r",
+									"// Check if the response contains an access token\r",
+									"if (responseJson && responseJson.access_token) {\r",
+									"    // Save the access token as a global variable\r",
+									"    //pm.globals.set(\"jwtToken\", responseJson.data.access_token);\r",
+									"    pm.collectionVariables.set(\"access_token\", responseJson.data.access_token);\r",
+									"    //pm.globals.set(\"vipi_access_token\",responseJson.data.access_token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\":\"Arad1398::\",\r\n    \"new_password\":\"Arad1398::##\",\r\n    \"confirm_new_password\":\"Arad1398::##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/change-password?user_id=b3d4b526-156b-4657-9ef6-90390e97cae6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"change-password"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "b3d4b526-156b-4657-9ef6-90390e97cae6"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -220,6 +371,54 @@
 									}
 								},
 								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/"
+							},
+							"response": []
+						},
+						{
+							"name": "get app active server list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"server_group_id\":\"016e0082-5ebd-419c-a420-e32245aad16b\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list"
+							},
+							"response": []
+						},
+						{
+							"name": "get app server list by app key",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "cfe426a1-8b63-45e6-94ee-f0331118d956",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"server_group_id\":\"016e0082-5ebd-419c-a420-e32245aad16b\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/server/list"
 							},
 							"response": []
 						}
@@ -472,7 +671,7 @@
 	"auth": {
 		"type": "bearer",
 		"bearer": {
-			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiM2Q0YjUyNi0xNTZiLTQ2NTctOWVmNi05MDM5MGU5N2NhZTYiLCJlbWFpbCI6InNhbGVoLnNob2tvdWhpQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic2FsZWguc2hva291aGkiLCJpYXQiOjE3MDYwMTM3MDMsImV4cCI6MTcwNjcwNDkwM30.EirwmGiHv_r4tIG4_1rtcfBn7akrs63hY3P_Nd5zKao"
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMmQyZTNhYy1iNmYyLTQzOTctOGVkNS0yOTc5YjEwYzNkNDEiLCJlbWFpbCI6InNhbGVoLnNob2tvdWhpQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic2FsZWguc2hva291aGkiLCJpYXQiOjE3MDY1MjcyNDEsImV4cCI6MTcwNzIxODQ0MX0.ydimMCYN-qL999hP9pLuay7iw8s6R8YCtmkG3Iug6mI"
 		}
 	},
 	"event": [
