@@ -27,8 +27,9 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
 
   handleHttpError(error: HttpErrorResponse, request: any) {
     let message: any
-    if (error?.error?.message != null) {
-      message = error.error.message;
+    console.log(error)
+    if (error?.error?.message != null || error?.error?.errors != null) {
+      message = error.error.message?error.error.message:error.error.errors;
       if (typeof message !== 'string') {
         message.forEach((item: string) => {
           this.toast.error(item)

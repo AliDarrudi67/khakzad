@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import {SharedModule} from "../../shared/shared.module";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,12 +15,13 @@ import {MatButtonModule} from "@angular/material/button";
     ProfileComponent,
     ChangePasswordComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    SharedModule,
-    MatInputModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        SharedModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule
+    ]
 })
 export class UserModule { }

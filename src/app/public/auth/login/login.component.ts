@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
   form!: FormGroup
+  passwordType = 'password';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,10 @@ export class LoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required]
     })
+  }
+
+  switchPasswordType(type: string) {
+    this.passwordType = type === 'password' ? 'text' : 'password'
   }
 
   submitForm() {

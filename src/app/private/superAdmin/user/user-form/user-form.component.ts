@@ -12,6 +12,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 export class UserFormComponent {
   form!: FormGroup
   formStatus = 'add'
+  passwordType = 'password';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +31,9 @@ export class UserFormComponent {
       first_name: [data?.first_name, Validators.required],
       last_name: [data?.last_name, Validators.required],
       roles: [data?.roles, Validators.required],
-      password: [data?.password, Validators.required]
+      ...(this.formStatus === 'add' && {
+        password: [data?.password, Validators.required]
+      })
     })
   }
 
@@ -52,4 +55,9 @@ export class UserFormComponent {
       }
     }
   }
+
+  switchPasswordType(type: string) {
+    this.passwordType = type === 'password' ? 'text' : 'password'
+  }
+
 }

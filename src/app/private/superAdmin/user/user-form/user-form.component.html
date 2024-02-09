@@ -26,10 +26,10 @@
       <mat-option value="admin">ادمین</mat-option>
     </mat-select>
   </mat-form-field>
-
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="relative" *ngIf="formStatus==='add'">
     <mat-label>رمز عبور</mat-label>
-    <input matInput type="password" formControlName="password">
+    <input matInput [type]="passwordType" formControlName="password">
+    <app-icon [icon]="'showPassword'" (click)="switchPasswordType(passwordType)" class="absolute top-[16px] left-0"></app-icon>
   </mat-form-field>
 
   <div class="flex justify-between">

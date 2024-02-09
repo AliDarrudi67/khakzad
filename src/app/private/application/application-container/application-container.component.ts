@@ -63,4 +63,11 @@ export class ApplicationContainerComponent {
       }
     )
   }
+
+  changeAppStatus(application: any) {
+    this.mainService.put(ApiEndpoints.application.edit(application?.id), {is_active: !application?.is_active}).subscribe(
+      (response) => {
+      }
+    )
+  }
 }

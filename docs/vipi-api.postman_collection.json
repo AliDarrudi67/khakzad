@@ -92,6 +92,65 @@
 								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list"
 							},
 							"response": []
+						},
+						{
+							"name": "add user to app",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Parse the response body as JSON\r",
+											"var responseJson = pm.response.json();\r",
+											"\r",
+											"// Check if the response contains an access token\r",
+											"if (responseJson && responseJson.access_token) {\r",
+											"    // Save the access token as a global variable\r",
+											"    //pm.globals.set(\"jwtToken\", responseJson.data.access_token);\r",
+											"    pm.collectionVariables.set(\"access_token\", responseJson.data.access_token);\r",
+											"    //pm.globals.set(\"vipi_access_token\",responseJson.data.access_token);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\":\"hamid.khakzad\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/app//add-user"
+							},
+							"response": []
+						},
+						{
+							"name": "get app user list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/user-list"
+							},
+							"response": []
 						}
 					]
 				},
@@ -532,7 +591,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\":\"saleh shokouhi\",\r\n    \"email\":\"saleh.shokouhi@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"roles\":[\"user\"],\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"raw": "{\r\n    \"username\":\"hossein abazari \",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -560,23 +619,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{base_url}}/admin/app/list?user_id=60a67880-e4eb-41f7-9437-af0c9aa1aa36",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"app",
-										"list"
-									],
-									"query": [
-										{
-											"key": "user_id",
-											"value": "60a67880-e4eb-41f7-9437-af0c9aa1aa36"
-										}
-									]
-								}
+								"url": "{{base_url}}/admin/user/b3d4b526-156b-4657-9ef6-90390e97cae6/app/list"
 							},
 							"response": []
 						}
@@ -592,7 +635,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"user_id\":\"22d2e3ac-b6f2-4397-8ed5-2979b10c3d41\",\r\n    \"en_app_name\":\"new app\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
+									"raw": "{\r\n    \"user_id\":\"22d2e3ac-b6f2-4397-8ed5-2979b10c3d41\",\r\n    \"en_app_name\":\"new app main\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -643,7 +686,7 @@
 							"response": []
 						},
 						{
-							"name": "get all user apps",
+							"name": "get user app list",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -659,7 +702,49 @@
 										}
 									}
 								},
+								"url": "{{base_url}}/admin/user/0d6320c1-42e7-427e-a87c-ff0dc4c1ddca/app/list"
+							},
+							"response": []
+						},
+						{
+							"name": "get all app list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": "{{base_url}}/admin/user/app/list"
+							},
+							"response": []
+						},
+						{
+							"name": "get app user list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f/user-list"
 							},
 							"response": []
 						}
@@ -671,7 +756,7 @@
 	"auth": {
 		"type": "bearer",
 		"bearer": {
-			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMmQyZTNhYy1iNmYyLTQzOTctOGVkNS0yOTc5YjEwYzNkNDEiLCJlbWFpbCI6InNhbGVoLnNob2tvdWhpQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic2FsZWguc2hva291aGkiLCJpYXQiOjE3MDY1MjcyNDEsImV4cCI6MTcwNzIxODQ0MX0.ydimMCYN-qL999hP9pLuay7iw8s6R8YCtmkG3Iug6mI"
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhN2U2YTE0MC05NmNjLTQwMjItYWM4Yy03ODE1NTdhNDE1MGQiLCJlbWFpbCI6ImhhbWlkLmtoYWt6YWRAQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaGFtaWQua2hha3phZCIsImlhdCI6MTcwNzMxMTYwNSwiZXhwIjoxNzA4MDAyODA1fQ.xhocWq5ssOQgM_Y2SiwiMFXGNiypDwFPNaxhnfCQvYE"
 		}
 	},
 	"event": [

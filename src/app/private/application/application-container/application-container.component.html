@@ -77,7 +77,7 @@
           وضعیت
         </th>
         <td mat-cell *matCellDef="let element">
-          <mat-slide-toggle [checked]="element.is_active"></mat-slide-toggle>
+          <mat-slide-toggle (click)="changeAppStatus(element)" [checked]="element.is_active"></mat-slide-toggle>
         </td>
       </ng-container>
 

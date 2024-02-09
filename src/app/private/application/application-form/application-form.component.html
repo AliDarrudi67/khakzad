@@ -2,8 +2,7 @@
   <mat-form-field appearance="outline">
     <mat-label>انتخاب کاربر</mat-label>
     <mat-select formControlName="user_id">
-      <mat-option value="22d2e3ac-b6f2-4397-8ed5-2979b10c3d41">1</mat-option>
-      <mat-option value="22d2e3ac-b6f2-4397-8ed5-2979b10c3d41">2</mat-option>
+      <mat-option *ngFor="let item of users" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>
     </mat-select>
   </mat-form-field>
 

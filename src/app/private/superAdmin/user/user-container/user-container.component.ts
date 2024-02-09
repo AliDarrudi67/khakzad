@@ -7,6 +7,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {UserFormComponent} from "../user-form/user-form.component";
 import {ConfirmDialogComponent} from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {ApplicationFormComponent} from "../../../application/application-form/application-form.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-container',
@@ -23,7 +25,9 @@ export class UserContainerComponent {
 
   constructor(
     private mainService: MainService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
+    private matDialog: MatDialog
   ) {
     this.getUsers()
   }
@@ -46,9 +50,9 @@ export class UserContainerComponent {
       })
   }
 
-  userForm(data={}) {
+  userForm(data = {}) {
     const dialogConfig = this.mainService.defaultDialogConfig
-    dialogConfig.data=data
+    dialogConfig.data = data
     const dialog = this.dialog.open(UserFormComponent, dialogConfig)
     dialog.afterClosed().subscribe(
       (response) => {
@@ -60,8 +64,8 @@ export class UserContainerComponent {
   }
 
   removeUser(id: string) {
-    const dialogConfig=this.mainService.defaultDialogConfig
-    const dialog = this.dialog.open(ConfirmDialogComponent,dialogConfig)
+    const dialogConfig = this.mainService.defaultDialogConfig
+    const dialog = this.dialog.open(ConfirmDialogComponent, dialogConfig)
     dialog.afterClosed().subscribe(
       (response) => {
         if (response?.result) {
@@ -71,6 +75,29 @@ export class UserContainerComponent {
             }
           )
         }
+      }
+    )
+  }
+
+  changeUserStatus(element: any, status: any) {
+    console.log(element)
+    console.log(status.checked)
+    this.mainService.put(ApiEndpoints.user.edit(element?.id), {is_active: status.checked}).subscribe(
+      (response) => {
+        this.getUsers()
+      }
+    )
+  }
+
+  addApplication(id: string) {
+    const dialogConfig = this.mainService.defaultDialogConfig
+    dialogConfig.data = {
+      user_id:id
+    }
+    const dialog = this.matDialog.open(ApplicationFormComponent, dialogConfig)
+    dialog.afterClosed().subscribe(
+      (response) => {
+        this.router.navigate(['/dashboard/applications'])
       }
     )
   }

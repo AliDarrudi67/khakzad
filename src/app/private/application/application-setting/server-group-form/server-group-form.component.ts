@@ -13,15 +13,17 @@ import {ToastrService} from "ngx-toastr";
 export class ServerGroupFormComponent {
   form!: FormGroup
   formStatus = 'add'
+  applications: any[] = []
 
   constructor(
     private formBuilder: FormBuilder,
-    private mainService: MainService,
+    public mainService: MainService,
     private toast: ToastrService,
     private matDialogRef: MatDialogRef<ServerGroupFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.groupForm(data)
+    this.getApplications()
     this.formStatus = data?.name ? 'edit' : 'add'
     console.log(this.data)
   }
@@ -58,5 +60,13 @@ export class ServerGroupFormComponent {
         )
       }
     }
+  }
+
+  getApplications() {
+    this.mainService.get(ApiEndpoints.application.list).subscribe(
+      (response) => {
+        this.applications = response?.data
+      }
+    )
   }
 }

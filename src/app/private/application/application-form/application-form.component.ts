@@ -12,6 +12,7 @@ import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 export class ApplicationFormComponent {
   form!: FormGroup
   formStatus = 'add'
+  users:any[]=[]
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,8 +20,10 @@ export class ApplicationFormComponent {
     private matDialogRef: MatDialogRef<ApplicationFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    console.log(data)
     this.groupForm(data)
     this.formStatus = data?.username ? 'edit' : 'add'
+    this.getUsers()
   }
 
   groupForm(data: any) {
@@ -53,5 +56,13 @@ export class ApplicationFormComponent {
         )
       }
     }
+  }
+
+  getUsers() {
+    this.mainService.get(ApiEndpoints.user.list).subscribe(
+      (response)=>{
+        this.users=response?.data
+      }
+    )
   }
 }
