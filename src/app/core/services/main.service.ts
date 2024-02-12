@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -1231,6 +1231,9 @@ export class MainService {
     }
   ]
 
+  roles = signal([])
+  userInfo = signal({})
+
   constructor(
     private http: HttpClient,
   ) {
@@ -1296,4 +1299,14 @@ export class MainService {
     return apiHeader;
   }
 
+  getRoleTitle(roles: string[]) {
+    let roleString = '';
+    roles.forEach(item => {
+      if (item === 'user')
+        roleString += 'کاربر عادی - '
+      else if (item === 'admin')
+        roleString += 'مدیر - '
+    })
+    return roleString.substring(0, roleString.length - 2)
+  }
 }

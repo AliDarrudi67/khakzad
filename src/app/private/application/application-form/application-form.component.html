@@ -18,7 +18,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>نام پکیج</mat-label>
-    <input matInput formControlName="package_name">
+    <input matInput formControlName="package_name" [readonly]="data?.id" [disabled]="data?.id" [ngClass]="data?.id?'pointer-events-none opacity-50':''">
   </mat-form-field>
 
    <mat-form-field appearance="outline">

@@ -6,7 +6,9 @@ export const ApiEndpoints = {
     add: 'admin/user/create',
     remove: (id: string) => `admin/user/${id}`,
     edit: (id: string) => `admin/user/${id}`,
-    changePassword:'user/change-password'
+    changePassword:'user/change-password',
+    currentUser:'user',
+    editProfile:'user',
   },
   application: {
     list: 'admin/user/app/list',

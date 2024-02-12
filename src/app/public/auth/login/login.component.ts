@@ -37,8 +37,8 @@ export class LoginComponent {
     if (this.form.valid) {
       this.mainService.post(ApiEndpoints.user.userLogin, this.form.value).subscribe(
         (response) => {
-          console.log(response)
           if (response?.status == 200) {
+            this.mainService.roles.set(response?.data?.roles)
             localStorage.setItem('token', response?.data?.access_token)
             this.router.navigate(['/dashboard']).then()
           }

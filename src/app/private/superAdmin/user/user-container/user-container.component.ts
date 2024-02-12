@@ -24,7 +24,7 @@ export class UserContainerComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private mainService: MainService,
+    public mainService: MainService,
     private dialog: MatDialog,
     private router: Router,
     private matDialog: MatDialog

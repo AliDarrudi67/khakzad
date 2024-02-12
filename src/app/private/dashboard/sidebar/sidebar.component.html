@@ -36,7 +36,7 @@
 <!--      </a>-->
 <!--      <app-icon [icon]="'chevronLeft'"></app-icon>-->
 <!--    </li>-->
-    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
+    <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active" *ngIf="roles.includes('admin') || roles.includes('super_admin')">
       <a routerLink="/dashboard/users" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'server'"></app-icon>
         <span>کاربران</span>
