@@ -31,11 +31,11 @@ export class ApplicationFormComponent {
       user_id: [data?.user_id, Validators.required],
       en_app_name: [data?.en_app_name, Validators.required],
       per_app_name: [data?.per_app_name, Validators.required],
-      package_name: [data?.package_name, Validators.required],
-      telegram_channel: [data?.telegram_channel, Validators.required],
-      youtube_channel: [data?.youtube_channel, Validators.required],
-      privacy_url: [data?.privacy_url, Validators.required],
-      google_play_url: [data?.google_play_url, Validators.required]
+      package_name: [data?.package_name],
+      telegram_channel: [data?.telegram_channel],
+      youtube_channel: [data?.youtube_channel],
+      privacy_url: [data?.privacy_url],
+      google_play_url: [data?.google_play_url]
     })
   }
 

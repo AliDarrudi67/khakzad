@@ -91,6 +91,12 @@
             <a [routerLink]="'setting/'+element?.id">
               سرورها
             </a>
+            <a class="cursor-pointer" (click)="viewUsers(element)">
+              کاربران
+            </a>
+            <a class="cursor-pointer" [routerLink]="'config/'+element?.id">
+              پیکربندی
+            </a>
           </div>
         </td>
       </ng-container>

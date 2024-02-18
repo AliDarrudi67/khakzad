@@ -81,7 +81,38 @@ router-outlet + * {
 table {
   width: 100%;
 }
+.table {
+  thead {
+    border-bottom: 1px solid #eee;
 
+    tr {
+      th {
+        text-align: right;
+        padding: 15px 20px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #4B5563;
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+      border-bottom: 1px solid #eee;
+
+      td {
+        padding: 15px 20px;
+        color: #4B5563;
+      }
+    }
+
+    tr:last-child {
+      border-bottom: unset;
+    }
+
+  }
+}
 th.mat-sort-header-sorted {
   color: black;
 }

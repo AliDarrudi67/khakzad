@@ -1,0 +1,16 @@
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+  <mat-form-field appearance="outline">
+    <mat-label>ad_network</mat-label>
+    <input matInput formControlName="ad_network">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ad_network_app_id</mat-label>
+    <input matInput formControlName="ad_network_app_id">
+  </mat-form-field>
+
+  <div class="flex justify-between">
+    <button mat-raised-button color="primary">ثبت</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+  </div>
+</form>

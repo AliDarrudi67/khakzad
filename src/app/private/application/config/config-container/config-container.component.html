@@ -15,25 +15,18 @@
     <table mat-table [dataSource]="dataSource" matSort
            class="mat-elevation-z8" dir="rtl">
 
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="ad_network">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          نام
+          ad_network
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.ad_network}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="app_id">
+      <ng-container matColumnDef="ad_network_app_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          appId
+          ad_network_app_id
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="country_code">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          کد کشور
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.country_code}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.ad_network_app_id}} </td>
       </ng-container>
 
       <ng-container matColumnDef="is_active">
@@ -52,7 +45,7 @@
         <td mat-cell *matCellDef="let element">
           <div class="flex gap-2">
             <app-icon [icon]="'edit'" class="cursor-pointer" (click)="showForm(element)"></app-icon>
-            <app-icon [icon]="'delete'" class="cursor-pointer" (click)="removeItem(element?.id)"></app-icon>
+<!--            <app-icon [icon]="'delete'" class="cursor-pointer" (click)="removeItem(element?.id)"></app-icon>-->
           </div>
         </td>
       </ng-container>

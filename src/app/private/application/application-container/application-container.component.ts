@@ -65,9 +65,21 @@ export class ApplicationContainerComponent {
   }
 
   changeAppStatus(element: any, status: any) {
+    console.log(status)
     this.mainService.get(status.checked ? ApiEndpoints.application.unblock(element?.id) : ApiEndpoints.user.block(element?.id)).subscribe(
       (response) => {
         this.getItems()
+      }
+    )
+  }
+
+  viewUsers(element: any) {
+    this.mainService.get(ApiEndpoints.application.users(element?.id)).subscribe(
+      (response) => {
+        const dialog = this.dialog.open(ApplicationDetailsComponent, {
+          ...this.mainService.defaultDialogConfig,
+          data: response?.data
+        })
       }
     )
   }
