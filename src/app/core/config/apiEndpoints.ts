@@ -6,6 +6,8 @@ export const ApiEndpoints = {
     add: 'admin/user/create',
     remove: (id: string) => `admin/user/${id}`,
     edit: (id: string) => `admin/user/${id}`,
+    block: (id: string) => `admin/user/${id}/block`,
+    unblock: (id: string) => `admin/user/${id}/unblock`,
     changePassword:'user/change-password',
     currentUser:'user',
     editProfile:'user',
@@ -13,6 +15,8 @@ export const ApiEndpoints = {
   application: {
     list: 'admin/user/app/list',
     add: 'admin/app',
+    block: (id: string) => `app/${id}/activate`,
+    unblock: (id: string) => `app/${id}/deactivate`,
     edit: (id: string) => `admin/app/${id}`,
   },
   serverGroup: {

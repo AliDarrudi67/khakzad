@@ -82,7 +82,7 @@ export class UserContainerComponent {
   changeUserStatus(element: any, status: any) {
     console.log(element)
     console.log(status.checked)
-    this.mainService.put(ApiEndpoints.user.edit(element?.id), {is_active: status.checked}).subscribe(
+    this.mainService.get(status.checked?ApiEndpoints.user.unblock(element?.id):ApiEndpoints.user.block(element?.id)).subscribe(
       (response) => {
         this.getUsers()
       }

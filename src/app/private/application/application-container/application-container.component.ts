@@ -64,9 +64,10 @@ export class ApplicationContainerComponent {
     )
   }
 
-  changeAppStatus(application: any) {
-    this.mainService.put(ApiEndpoints.application.edit(application?.id), {is_active: !application?.is_active}).subscribe(
+  changeAppStatus(element: any, status: any) {
+    this.mainService.get(status.checked ? ApiEndpoints.application.unblock(element?.id) : ApiEndpoints.user.block(element?.id)).subscribe(
       (response) => {
+        this.getItems()
       }
     )
   }

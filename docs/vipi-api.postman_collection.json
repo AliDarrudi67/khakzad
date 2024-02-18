@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "c31efdfb-c65b-49db-84fe-20359e47a4f1",
 		"name": "vipi-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1010782"
 	},
 	"item": [
@@ -12,6 +12,103 @@
 				{
 					"name": "app",
 					"item": [
+						{
+							"name": "versions",
+							"item": [
+								{
+									"name": "Create new app version",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"version_code\": 2,\r\n    \"version_name\": \"1.0.0\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"version"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Block app version",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/list",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"version",
+												"list"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get app version list",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/list",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"version",
+												"list"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
 						{
 							"name": "get app info by id",
 							"protocolProfileBehavior": {
@@ -29,7 +126,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+								"url": {
+									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+									]
+								}
 							},
 							"response": []
 						},
@@ -50,7 +157,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/list"
+								"url": {
+									"raw": "{{base_url}}/user/app/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -68,7 +185,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+								"url": {
+									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+									]
+								}
 							},
 							"response": []
 						},
@@ -89,7 +216,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list"
+								"url": {
+									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"server",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -127,7 +266,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/app//add-user"
+								"url": {
+									"raw": "{{base_url}}/app//add-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"",
+										"add-user"
+									]
+								}
 							},
 							"response": []
 						},
@@ -148,7 +297,80 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/user-list"
+								"url": {
+									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/user-list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"user-list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/block",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/ublock",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+										"ublock"
+									]
+								}
 							},
 							"response": []
 						}
@@ -163,13 +385,11 @@
 								"exec": [
 									"// Parse the response body as JSON\r",
 									"var responseJson = pm.response.json();\r",
+									"let requestBody = pm.request.body;\r",
 									"\r",
 									"// Check if the response contains an access token\r",
-									"if (responseJson && responseJson.access_token) {\r",
-									"    // Save the access token as a global variable\r",
-									"    //pm.globals.set(\"jwtToken\", responseJson.data.access_token);\r",
-									"    pm.collectionVariables.set(\"access_token\", responseJson.data.access_token);\r",
-									"    //pm.globals.set(\"vipi_access_token\",responseJson.data.access_token);\r",
+									"if (responseJson) {\r",
+									"  pm.environment.set(\"access_token\", responseJson.data.access_token);\r",
 									"}"
 								],
 								"type": "text/javascript"
@@ -188,7 +408,16 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user/login"
+						"url": {
+							"raw": "{{base_url}}/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
 					},
 					"response": []
 				},
@@ -206,7 +435,16 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user/register"
+						"url": {
+							"raw": "{{base_url}}/user/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
 					},
 					"response": []
 				},
@@ -224,7 +462,15 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user"
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
 					},
 					"response": []
 				},
@@ -248,7 +494,16 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user/55f8fa4d-9f9f-443d-8818-4dbd80f32a1a"
+						"url": {
+							"raw": "{{base_url}}/user/55f8fa4d-9f9f-443d-8818-4dbd80f32a1a",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"55f8fa4d-9f9f-443d-8818-4dbd80f32a1a"
+							]
+						}
 					},
 					"response": []
 				},
@@ -269,7 +524,16 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user/"
+						"url": {
+							"raw": "{{base_url}}/user/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
 					},
 					"response": []
 				},
@@ -307,7 +571,16 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/user/change-password"
+						"url": {
+							"raw": "{{base_url}}/user/change-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"change-password"
+							]
+						}
 					},
 					"response": []
 				},
@@ -371,7 +644,37 @@
 			"item": [
 				{
 					"name": "config",
-					"item": []
+					"item": [
+						{
+							"name": "update app config",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ad_network\": \"ADMOB\",\r\n    \"ad_network_app_id\": 5,\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/7541a61b-25d8-41d2-96d0-7aa853e4b33c/ad/network",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"7541a61b-25d8-41d2-96d0-7aa853e4b33c",
+										"ad",
+										"network"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				},
 				{
 					"name": "server",
@@ -390,7 +693,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/"
+								"url": {
+									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"server",
+										"group",
+										""
+									]
+								}
 							},
 							"response": []
 						},
@@ -411,7 +726,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/list"
+								"url": {
+									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"server",
+										"group",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -429,7 +756,18 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/"
+								"url": {
+									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"server",
+										""
+									]
+								}
 							},
 							"response": []
 						},
@@ -450,7 +788,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list"
+								"url": {
+									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"server",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -477,7 +827,58 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/user/app/server/list"
+								"url": {
+									"raw": "{{base_url}}/user/app/server/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"app",
+										"server",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ad-network",
+					"item": [
+						{
+							"name": "create ad network",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ad_network\": \"IRON_SOURCE\",\r\n    \"ad_network_app_id\": \"FDFDFDF\",\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/7541a61b-25d8-41d2-96d0-7aa853e4b33c/ad/network",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"7541a61b-25d8-41d2-96d0-7aa853e4b33c",
+										"ad",
+										"network"
+									]
+								}
 							},
 							"response": []
 						}
@@ -514,7 +915,18 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/supervisor/create"
+								"url": {
+									"raw": "{{base_url}}/admin/user/supervisor/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"supervisor",
+										"create"
+									]
+								}
 							},
 							"response": []
 						},
@@ -541,7 +953,18 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/2f141d59-f807-4030-8c53-887114abf932/"
+								"url": {
+									"raw": "{{base_url}}/admin/user/2f141d59-f807-4030-8c53-887114abf932/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"2f141d59-f807-4030-8c53-887114abf932",
+										""
+									]
+								}
 							},
 							"response": []
 						},
@@ -562,7 +985,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/list"
+								"url": {
+									"raw": "{{base_url}}/admin/user/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -580,7 +1013,18 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/bd3cd955-e645-45be-9610-5f682b94d67/"
+								"url": {
+									"raw": "{{base_url}}/admin/user/bd3cd955-e645-45be-9610-5f682b94d67/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"bd3cd955-e645-45be-9610-5f682b94d67",
+										""
+									]
+								}
 							},
 							"response": []
 						},
@@ -591,14 +1035,24 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\":\"hossein abazari \",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"raw": "{\r\n    \"username\":\"hosseinabazari\",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/create"
+								"url": {
+									"raw": "{{base_url}}/admin/user/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"create"
+									]
+								}
 							},
 							"response": []
 						},
@@ -619,7 +1073,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/b3d4b526-156b-4657-9ef6-90390e97cae6/app/list"
+								"url": {
+									"raw": "{{base_url}}/admin/user/b3d4b526-156b-4657-9ef6-90390e97cae6/app/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"b3d4b526-156b-4657-9ef6-90390e97cae6",
+										"app",
+										"list"
+									]
+								}
 							},
 							"response": []
 						}
@@ -635,14 +1101,22 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"user_id\":\"22d2e3ac-b6f2-4397-8ed5-2979b10c3d41\",\r\n    \"en_app_name\":\"new app main\",\r\n    \"per_app_name\":\"اپلیکیشن جدید\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
+									"raw": "{\r\n    \"user_id\":\"71e54991-d5c5-461c-97fb-9e0b81b9633\",\r\n    \"en_app_name\":\"magnet vpn\",\r\n    \"per_app_name\":\"مگنت\",\r\n    \"package_name\":\"com.safir\",\r\n    \"telegram_channel\":\"com.safir\",\r\n    \"youtube_channel\":\"com.safir\",\r\n    \"privacy_url\":\"com.safir\",\r\n    \"google_play_url\":\"com.safir\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/app"
+								"url": {
+									"raw": "{{base_url}}/app",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app"
+									]
+								}
 							},
 							"response": []
 						},
@@ -660,7 +1134,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f"
+								"url": {
+									"raw": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"app",
+										"c891794f-9a86-46cd-b250-822cde3d7f9f"
+									]
+								}
 							},
 							"response": []
 						},
@@ -681,7 +1165,17 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f"
+								"url": {
+									"raw": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"app",
+										"c891794f-9a86-46cd-b250-822cde3d7f9f"
+									]
+								}
 							},
 							"response": []
 						},
@@ -702,7 +1196,19 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/0d6320c1-42e7-427e-a87c-ff0dc4c1ddca/app/list"
+								"url": {
+									"raw": "{{base_url}}/admin/user/0d6320c1-42e7-427e-a87c-ff0dc4c1ddca/app/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"0d6320c1-42e7-427e-a87c-ff0dc4c1ddca",
+										"app",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -723,7 +1229,18 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/user/app/list"
+								"url": {
+									"raw": "{{base_url}}/admin/user/app/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"app",
+										"list"
+									]
+								}
 							},
 							"response": []
 						},
@@ -744,7 +1261,80 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f/user-list"
+								"url": {
+									"raw": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f/user-list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"app",
+										"c891794f-9a86-46cd-b250-822cde3d7f9f",
+										"user-list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/7541a61b-25d8-41d2-96d0-7aa853e4b33c/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"7541a61b-25d8-41d2-96d0-7aa853e4b33c",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/7541a61b-25d8-41d2-96d0-7aa853e4b33c/deactivate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"7541a61b-25d8-41d2-96d0-7aa853e4b33c",
+										"deactivate"
+									]
+								}
 							},
 							"response": []
 						}
@@ -755,9 +1345,13 @@
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": {
-			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhN2U2YTE0MC05NmNjLTQwMjItYWM4Yy03ODE1NTdhNDE1MGQiLCJlbWFpbCI6ImhhbWlkLmtoYWt6YWRAQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaGFtaWQua2hha3phZCIsImlhdCI6MTcwNzMxMTYwNSwiZXhwIjoxNzA4MDAyODA1fQ.xhocWq5ssOQgM_Y2SiwiMFXGNiypDwFPNaxhnfCQvYE"
-		}
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
 	},
 	"event": [
 		{

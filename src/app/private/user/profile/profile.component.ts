@@ -28,6 +28,8 @@ export class ProfileComponent {
 
   groupForm() {
     this.form = this.formBuilder.group({
+      username: [this.userInfo?.username],
+      email: [this.userInfo?.email],
       firstName: [this.userInfo?.firstName, Validators.required],
       lastName: [this.userInfo?.lastName, Validators.required]
     })
