@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../../shared/shared.module";
 import { ConfigFormComponent } from './config-form/config-form.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -22,20 +23,21 @@ import {MatDialogModule} from "@angular/material/dialog";
     ConfigContainerComponent,
     ConfigFormComponent
   ],
-  imports: [
-    CommonModule,
-    ConfigRoutingModule,
-    BidiModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSlideToggleModule,
-    MatSortModule,
-    MatTableModule,
-    ReactiveFormsModule,
-    SharedModule,
-    MatDialogModule
-  ]
+    imports: [
+        CommonModule,
+        ConfigRoutingModule,
+        BidiModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSlideToggleModule,
+        MatSortModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        SharedModule,
+        MatDialogModule,
+        MatSelectModule
+    ]
 })
 export class ConfigModule { }

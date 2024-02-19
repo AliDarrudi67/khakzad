@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'config/:id',
     loadChildren: () =>
       import('./config/config.module').then(m => m.ConfigModule)
+  },
+  {
+    path: 'version/:id',
+    loadChildren: () =>
+      import('./version/version.module').then(m => m.VersionModule)
   }
 ];
 

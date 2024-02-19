@@ -8,24 +8,24 @@
       </div>
       <h2 class="text-center">مدیر سایت</h2>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="pointer-events-none opacity-50">
         <mat-label>نام کاربری</mat-label>
         <input matInput formControlName="username" [disabled]="true" [readonly]="true">
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="pointer-events-none opacity-50">
         <mat-label>ایمیل</mat-label>
         <input matInput formControlName="email" [disabled]="true" [readonly]="true">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>نام</mat-label>
-        <input matInput formControlName="firstName">
+        <input matInput formControlName="first_name">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>نام خانوادگی</mat-label>
-        <input matInput formControlName="lastName">
+        <input matInput formControlName="last_name">
       </mat-form-field>
 
 <!--      <mat-form-field appearance="outline">-->

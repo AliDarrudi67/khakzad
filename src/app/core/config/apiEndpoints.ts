@@ -24,6 +24,8 @@ export const ApiEndpoints = {
     list: (id: string) => `app/${id}/server/group/list`,
     add: (id: string) => `app/${id}/server/group/`,
     edit: (id: string) => `app/${id}/server/group/`,
+    block: (appId: string,serverGroupId:string) => `app/${appId}/server/group/${serverGroupId}/deactivate`,
+    unblock: (appId: string,serverGroupId:string) => `app/${appId}/server/group/${serverGroupId}/activate`,
   },
   server: {
     list: (id: string) => `app/${id}/server/list/`,
@@ -33,6 +35,12 @@ export const ApiEndpoints = {
     list:(appId:string)=>`app/${appId}/config`,
     add: (id: string) => `app/${id}/config`,
     edit: (id: string) => `app/${id}/config`,
+  },
+  version:{
+    list:(appId:string)=>`app/${appId}/version/list`,
+    block: (appId:string,id: string) => `app/${appId}/version/${id}/deactivate`,
+    unblock: (appId:string,id: string) => `app/${appId}/version/${id}/activate`,
+    add: (id: string) => `app/${id}/version`,
   }
 
 }

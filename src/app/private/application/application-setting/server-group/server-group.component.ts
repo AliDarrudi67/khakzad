@@ -79,4 +79,12 @@ export class ServerGroupComponent {
       }
     )
   }
+
+  changeServerGroupStatus(element: any, status: any) {
+    this.mainService.get(status.checked?ApiEndpoints.serverGroup.unblock(this.appId,element?.id):ApiEndpoints.serverGroup.block(this.appId,element?.id)).subscribe(
+      (response) => {
+        this.getItems()
+      }
+    )
+  }
 }

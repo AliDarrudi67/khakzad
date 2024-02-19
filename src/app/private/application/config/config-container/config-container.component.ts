@@ -15,7 +15,7 @@ import {ConfigFormComponent} from "../config-form/config-form.component";
 })
 export class ConfigContainerComponent {
   items: any[] = []
-  displayedColumns: string[] = ['ad_network', 'ad_network_app_id', 'is_active', 'op'];
+  displayedColumns: string[] = ['disconnect_delay_seconds', 'connect_delay_seconds', 'is_ads_enabled','latest_app_version_id','disable_old_versions','is_force_update_enabled', 'op'];
   dataSource = new MatTableDataSource();
   appId = ''
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,14 +43,29 @@ export class ConfigContainerComponent {
   getItems() {
     this.mainService.get(ApiEndpoints.config.list(this.appId)).subscribe(
       (response) => {
-        this.items = response?.data
+        this.items = [
+          {
+            connect_delay_seconds: response?.data?.connect_delay_seconds,
+            disconnect_delay_seconds: response?.data?.connect_delay_seconds,
+            is_ads_enabled: response?.data?.connect_delay_seconds,
+            disable_old_versions: response?.data?.connect_delay_seconds,
+            is_force_update_enabled: response?.data?.connect_delay_seconds,
+            latest_app_version: {
+              id: response?.data?.latest_app_version?.id,
+              versionCode: response?.data?.latest_app_version?.versionCode,
+              versionName: response?.data?.latest_app_version?.versionName
+            },
+            encrypt_configs: response?.data?.encrypt_configs
+          }
+        ]
         this.dataSource = new MatTableDataSource(this.items);
       })
   }
 
-  showForm(data: any = {}) {
+  showForm(data: any = {},mode='') {
     if (!data?.appId)
       data.appId = this.appId
+    data.formMode=data?.mode
     const dialogConfig = this.mainService.defaultDialogConfig
     dialogConfig.data = data
     const dialog = this.dialog.open(ConfigFormComponent, dialogConfig)

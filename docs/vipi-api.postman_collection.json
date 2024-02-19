@@ -22,7 +22,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"version_code\": 2,\r\n    \"version_name\": \"1.0.0\"\r\n}",
+											"raw": "{\r\n    \"version_code\": 2,\r\n    \"version_name\": \"1.0.0\",\r\n    \"is_force_update\":true,//optional\r\n    \"is_initial_version\":true, //optional\r\n    \"download_url\":\"dhttp://\",///optional\r\n    \"is_play_store_download\":true,\r\n    \"is_active\":true//optional\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -30,13 +30,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version",
+											"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/version",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"app",
-												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"718c748f-e729-435b-abec-86ea2c4feacc",
 												"version"
 											]
 										}
@@ -44,7 +44,7 @@
 									"response": []
 								},
 								{
-									"name": "Block app version",
+									"name": "activate app version",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -61,7 +61,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/list",
+											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/activate",
 											"host": [
 												"{{base_url}}"
 											],
@@ -69,7 +69,41 @@
 												"app",
 												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
 												"version",
-												"list"
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"activate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "deactivate app version",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/deactivate",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"version",
+												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"deactivate"
 											]
 										}
 									},
@@ -313,7 +347,7 @@
 							"response": []
 						},
 						{
-							"name": "Deactivate app",
+							"name": "deactivate app",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -401,7 +435,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##@@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -480,9 +514,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -646,13 +677,13 @@
 					"name": "config",
 					"item": [
 						{
-							"name": "update app config",
+							"name": "create or update app config",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"ad_network\": \"ADMOB\",\r\n    \"ad_network_app_id\": 5,\r\n    \"is_active\": true\r\n}",
+									"raw": "{\r\n    \"disconnect_delay_seconds\": 100,\r\n    \"connect_delay_seconds\": 50,\r\n    \"is_ads_enabled\": false,\r\n    \"latest_app_version_id\": \"adec2e1c-32af-4c55-ad8b-a43e94163ff1\",\r\n    \"disable_old_versions\": true,\r\n    \"is_force_update_enabled\": true\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -660,15 +691,45 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/7541a61b-25d8-41d2-96d0-7aa853e4b33c/ad/network",
+									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/config",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"7541a61b-25d8-41d2-96d0-7aa853e4b33c",
-										"ad",
-										"network"
+										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"config"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get app config",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"disconnect_delay_seconds\": 60,\r\n    \"connect_delay_seconds\": 10,\r\n    \"is_ads_enabled\": true,\r\n    \"latest_app_version_id\": \"adec2e1c-32af-4c55-ad8b-a43e94163ff1\",\r\n    \"disable_old_versions\": true,\r\n    \"is_force_update_enabled\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/config",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"config"
 									]
 								}
 							},
@@ -727,13 +788,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/group/list",
+									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/server/group/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"718c748f-e729-435b-abec-86ea2c4feacc",
 										"server",
 										"group",
 										"list"
@@ -789,12 +850,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list",
+									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"user",
 										"app",
 										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
 										"server",
@@ -828,15 +888,82 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user/app/server/list",
+									"raw": "{{base_url}}/app/server/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"user",
 										"app",
 										"server",
 										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate server group",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/server/group/fabca823-437e-449e-9959-97e56a65614f/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"server",
+										"group",
+										"fabca823-437e-449e-9959-97e56a65614f",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate server group",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/server/group/fabca823-437e-449e-9959-97e56a65614f/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"server",
+										"group",
+										"fabca823-437e-449e-9959-97e56a65614f",
+										"activate"
 									]
 								}
 							},
@@ -1084,6 +1211,70 @@
 										"b3d4b526-156b-4657-9ef6-90390e97cae6",
 										"app",
 										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unblock user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/user/984b62c6-2b5f-4269-91df-dc404d1b7a12/unblock",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"984b62c6-2b5f-4269-91df-dc404d1b7a12",
+										"unblock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "block user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"hamid\",\r\n    \"last_name\":\"khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/user/984b62c6-2b5f-4269-91df-dc404d1b7a12/block",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										"984b62c6-2b5f-4269-91df-dc404d1b7a12",
+										"block"
 									]
 								}
 							},

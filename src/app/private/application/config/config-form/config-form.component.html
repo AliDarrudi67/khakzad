@@ -1,13 +1,32 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
   <mat-form-field appearance="outline">
-    <mat-label>ad_network</mat-label>
-    <input matInput formControlName="ad_network">
+    <mat-label>disconnect_delay_seconds</mat-label>
+    <input matInput formControlName="disconnect_delay_seconds">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>ad_network_app_id</mat-label>
-    <input matInput formControlName="ad_network_app_id">
+    <mat-label>connect_delay_seconds</mat-label>
+    <input matInput formControlName="connect_delay_seconds">
   </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ورژن</mat-label>
+    <mat-select formControlName="latest_app_version_id">
+      <mat-option *ngFor="let item of versions" [value]="item?.id">{{item?.version_name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle [checked]="false" formControlName="is_ads_enabled">
+    فعال سازی تبلیغات
+  </mat-slide-toggle>
+
+  <mat-slide-toggle [checked]="false" formControlName="disable_old_versions">
+    غیرفعال کردن ورژن های قدیم
+  </mat-slide-toggle>
+
+  <mat-slide-toggle [checked]="false" formControlName="is_force_update_enabled">
+    فورس اپدیت
+  </mat-slide-toggle>
 
   <div class="flex justify-between">
     <button mat-raised-button color="primary">ثبت</button>
