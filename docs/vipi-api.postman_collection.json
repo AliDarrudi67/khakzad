@@ -16,7 +16,7 @@
 							"name": "versions",
 							"item": [
 								{
-									"name": "Create new app version",
+									"name": "create new app version",
 									"request": {
 										"method": "POST",
 										"header": [],
@@ -30,13 +30,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/version",
+											"raw": "{{base_url}}/app/71ce4ae2-3bd5-41f2-880b-47cb630f4d15/version",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"app",
-												"718c748f-e729-435b-abec-86ea2c4feacc",
+												"71ce4ae2-3bd5-41f2-880b-47cb630f4d15",
 												"version"
 											]
 										}
@@ -110,7 +110,7 @@
 									"response": []
 								},
 								{
-									"name": "Get app version list",
+									"name": "get app version list",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -127,15 +127,76 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/app/5c5f066f-d56a-4bc6-b16f-7598ae5f7b77/version/list",
+											"raw": "{{base_url}}/app/71ce4ae2-3bd5-41f2-880b-47cb630f4d15/version/list",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"app",
-												"5c5f066f-d56a-4bc6-b16f-7598ae5f7b77",
+												"71ce4ae2-3bd5-41f2-880b-47cb630f4d15",
 												"version",
 												"list"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update app version",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"version_code\": 5,\r\n    \"version_name\": \"4.0.0\",\r\n    \"is_force_update\":false,//optional\r\n    \"is_initial_version\":false, //optional\r\n    \"download_url\":\"dhttp://\",///optional\r\n    \"is_play_store_download\":false,\r\n    \"is_active\":true//optional\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/71ce4ae2-3bd5-41f2-880b-47cb630f4d15/version/51aeac4c-7b89-4d2b-97df-1434a1817498",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"71ce4ae2-3bd5-41f2-880b-47cb630f4d15",
+												"version",
+												"51aeac4c-7b89-4d2b-97df-1434a1817498"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get app version by id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/app/71ce4ae2-3bd5-41f2-880b-47cb630f4d15/version/51aeac4c-7b89-4d2b-97df-1434a1817498",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"app",
+												"71ce4ae2-3bd5-41f2-880b-47cb630f4d15",
+												"version",
+												"51aeac4c-7b89-4d2b-97df-1434a1817498"
 											]
 										}
 									},
@@ -1014,7 +1075,7 @@
 			]
 		},
 		{
-			"name": "admin",
+			"name": "super admin",
 			"item": [
 				{
 					"name": "user",
@@ -1051,6 +1112,34 @@
 										"admin",
 										"user",
 										"supervisor",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"hosseinabazari\",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"hossein\",\r\n    \"last_name\":\"abazari\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/user/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user",
 										"create"
 									]
 								}
@@ -1150,34 +1239,6 @@
 										"user",
 										"bd3cd955-e645-45be-9610-5f682b94d67",
 										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create new user",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\":\"hosseinabazari\",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"saleh\",\r\n    \"last_name\":\"shokouhi\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/admin/user/create",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"user",
-										"create"
 									]
 								}
 							},

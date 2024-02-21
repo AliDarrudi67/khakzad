@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'version/:id',
     loadChildren: () =>
       import('./version/version.module').then(m => m.VersionModule)
+  },
+  {
+    path: 'network/:id',
+    loadChildren: () =>
+      import('./network/network.module').then(m => m.NetworkModule)
   }
 ];
 

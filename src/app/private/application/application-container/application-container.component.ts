@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, effect, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSort} from "@angular/material/sort";
@@ -16,14 +16,19 @@ import {ApplicationFormComponent} from "../application-form/application-form.com
 export class ApplicationContainerComponent {
   displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'youtube_channel', 'support_telegram_id', 'google_play_url', 'privacy_url', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
+  roles:any[] = []
 
   constructor(
     private mainService: MainService,
     private dialog: MatDialog
   ) {
-    this.getItems()
   }
 
+  userData = effect(() => {
+    this.roles = this.mainService.roles()
+    console.log(this.roles)
+    this.getItems()
+  })
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -42,7 +47,7 @@ export class ApplicationContainerComponent {
   }
 
   getItems() {
-    this.mainService.get(ApiEndpoints.application.list).subscribe(
+    this.mainService.get(this.roles.includes('super_admin')?ApiEndpoints.application.list:ApiEndpoints.user.application.list).subscribe(
       (response) => {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator

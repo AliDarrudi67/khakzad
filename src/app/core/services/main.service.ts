@@ -1309,4 +1309,15 @@ export class MainService {
     })
     return roleString.substring(0, roleString.length - 2)
   }
+
+  compareForms(newValue: any, oldValue: any) {
+    const result: any = {}
+    const newData = Object.keys(newValue)
+    newData.forEach(item => {
+      if (newValue[item] !== oldValue[item]) {
+        result[item] = newValue[item]
+      }
+    })
+    return Object.keys(result)
+  }
 }
