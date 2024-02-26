@@ -1232,7 +1232,7 @@ export class MainService {
   ]
 
   roles = signal([])
-  userInfo = signal({})
+  userInfo = signal<any>({})
 
   constructor(
     private http: HttpClient,

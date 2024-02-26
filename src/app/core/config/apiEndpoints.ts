@@ -52,5 +52,12 @@ export const ApiEndpoints = {
     unblock: (appId: string, id: string) => `app/${appId}/version/${id}/activate`,
     add: (id: string) => `app/${id}/version`,
     edit: (appId: string, versionId: string) => `app/${appId}/version/${versionId}`,
+  },
+  admin:{
+    application:{
+      addUserToApp:(userId:string)=>`app/${userId}/user/add-user`,
+      // list:(id:string)=>`user/${id}/app/list`
+      list:'admin/user/current/app/list'
+    }
   }
 }

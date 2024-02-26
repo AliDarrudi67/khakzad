@@ -3,7 +3,8 @@
 		"_postman_id": "c31efdfb-c65b-49db-84fe-20359e47a4f1",
 		"name": "vipi-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1010782"
+		"_exporter_id": "1010782",
+		"_collection_link": "https://safirco.postman.co/workspace/My-Workspace~0811cc86-2111-4962-8979-cf5fb16c7219/collection/1010782-c31efdfb-c65b-49db-84fe-20359e47a4f1?action=share&source=collection_link&creator=1010782"
 	},
 	"item": [
 		{
@@ -236,7 +237,7 @@
 							"response": []
 						},
 						{
-							"name": "get user app list",
+							"name": "get current user app list",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -253,12 +254,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user/app/list",
+									"raw": "{{base_url}}/admin/user/current/app/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"admin",
 										"user",
+										"current",
 										"app",
 										"list"
 									]
@@ -273,7 +276,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"en_app_name\": \"new app name\",\r\n    \"per_app_name\": \"اپلیکیشن جدیدبیبیب\",\r\n    \"package_name\": \"com.safir\",\r\n    \"youtube_channel\": null,\r\n    \"support_telegram_id\": null,\r\n    \"google_play_url\": null,\r\n    \"privacy_url\": null\r\n}",
+									"raw": "{\r\n    \"en_app_name\": \"new app name\",\r\n    \"per_app_name\": \"اپلیکیشن جدیدبیبیب\",\r\n    \"package_name\": \"com.safir\",\r\n    \"youtube_channel\": \"Fdfdf\",\r\n    \"support_telegram_id\": \"Fdfdff\",\r\n    \"google_play_url\": \"http://fdff\",\r\n    \"privacy_url\": \"fdf\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -281,14 +284,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+									"raw": "{{base_url}}/app/648bec44-71cf-4775-9600-769c5d7825d3",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"user",
 										"app",
-										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac"
+										"648bec44-71cf-4775-9600-769c5d7825d3"
 									]
 								}
 							},
@@ -354,7 +356,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"user_id\":\"hamid.khakzad\"\r\n}",
+									"raw": "{\r\n    \"user_id\":\"017fc651-8877-44fb-8429-a9881c715de3\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -362,13 +364,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app//add-user",
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/user/add-user",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
+										"user",
 										"add-user"
 									]
 								}
@@ -393,12 +396,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/user-list",
+									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/user-list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"user",
 										"app",
 										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
 										"user-list"
@@ -496,7 +498,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##@@\"\r\n}",
+							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -744,7 +746,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"disconnect_delay_seconds\": 100,\r\n    \"connect_delay_seconds\": 50,\r\n    \"is_ads_enabled\": false,\r\n    \"latest_app_version_id\": \"adec2e1c-32af-4c55-ad8b-a43e94163ff1\",\r\n    \"disable_old_versions\": true,\r\n    \"is_force_update_enabled\": true\r\n}",
+									"raw": "{\r\n    \"disconnect_delay_seconds\": 100,\r\n    \"connect_delay_seconds\": 80,\r\n    \"is_ads_enabled\": false,\r\n    \"latest_app_version_id\": \"24962ee4-d3e2-4688-9b38-e4a0f69ed36e\",\r\n    \"disable_old_versions\": true,\r\n    \"is_force_update_enabled\": true,\r\n    \"encrypt_configs\":true\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -752,13 +754,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/config",
+									"raw": "{{base_url}}/app/36b92716-02e8-4ff5-ba74-3fce12dd47e8/config",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"36b92716-02e8-4ff5-ba74-3fce12dd47e8",
 										"config"
 									]
 								}
@@ -871,7 +873,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"server_group_id\":\"2969298e-27e9-4dea-9f32-3176443e84ee\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"raw": "{\r\n    \"server_group_id\":\"eadf782b-2a4d-43b9-bb43-93c918efbc0b\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -879,13 +881,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/",
+									"raw": "{{base_url}}/app/f2c6f65d-b52c-4e95-a6e9-af8e19f0fe1a/server/",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"f2c6f65d-b52c-4e95-a6e9-af8e19f0fe1a",
 										"server",
 										""
 									]
@@ -1069,6 +1071,367 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get ad network list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate ad network",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/78ede6bf-0470-43b2-b56d-3400c1a3a4e1/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"78ede6bf-0470-43b2-b56d-3400c1a3a4e1",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate ad network",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/78ede6bf-0470-43b2-b56d-3400c1a3a4e1/deactivate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"78ede6bf-0470-43b2-b56d-3400c1a3a4e1",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update ad network",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ad_network\": \"IRON_SOURCE\",\r\n    \"is_active\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/78ede6bf-0470-43b2-b56d-3400c1a3a4e1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"78ede6bf-0470-43b2-b56d-3400c1a3a4e1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ad-placement",
+					"item": [
+						{
+							"name": "create ad placement",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"unit_id\":\"dsdds5555dff\",\r\n    \"unit_type\": \"BANNER\",\r\n    \"interval_second\": 50,\r\n    \"ad_network_id\": \"748699dd-f44d-4d75-b5d7-a68adf706431\",\r\n    \"is_active\":false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/69216808-9d87-4b43-9b2b-607a652fdc03/ad/network/748699dd-f44d-4d75-b5d7-a68adf706431/ad-place/a597f8ce-4122-491b-8f07-d73d097106d7",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"69216808-9d87-4b43-9b2b-607a652fdc03",
+										"ad",
+										"network",
+										"748699dd-f44d-4d75-b5d7-a68adf706431",
+										"ad-place",
+										"a597f8ce-4122-491b-8f07-d73d097106d7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get ad placement list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/748699dd-f44d-4d75-b5d7-a68adf706431/ad-place/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"748699dd-f44d-4d75-b5d7-a68adf706431",
+										"ad-place",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update ad placement",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"unit_id\":\"dsdds5555dff\",\r\n    \"unit_type\": \"BANNER\",\r\n    \"interval_second\": 50,\r\n    \"ad_network_id\": \"748699dd-f44d-4d75-b5d7-a68adf706431\",\r\n    \"is_active\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/69216808-9d87-4b43-9b2b-607a652fdc03/ad/network/748699dd-f44d-4d75-b5d7-a68adf706431/ad-place/a597f8ce-4122-491b-8f07-d73d097106d7",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"69216808-9d87-4b43-9b2b-607a652fdc03",
+										"ad",
+										"network",
+										"748699dd-f44d-4d75-b5d7-a68adf706431",
+										"ad-place",
+										"a597f8ce-4122-491b-8f07-d73d097106d7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate ad placement",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/748699dd-f44d-4d75-b5d7-a68adf706431/ad-place/09e96fb5-7dfd-4f3b-b3ee-ccb43130d7aa/deactivate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"748699dd-f44d-4d75-b5d7-a68adf706431",
+										"ad-place",
+										"09e96fb5-7dfd-4f3b-b3ee-ccb43130d7aa",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate ad placement",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/ad/network/748699dd-f44d-4d75-b5d7-a68adf706431/ad-place/09e96fb5-7dfd-4f3b-b3ee-ccb43130d7aa/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
+										"ad",
+										"network",
+										"748699dd-f44d-4d75-b5d7-a68adf706431",
+										"ad-place",
+										"09e96fb5-7dfd-4f3b-b3ee-ccb43130d7aa",
+										"activate"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -1245,7 +1608,7 @@
 							"response": []
 						},
 						{
-							"name": "get user app list",
+							"name": "get user app list by user id",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1262,14 +1625,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/user/b3d4b526-156b-4657-9ef6-90390e97cae6/app/list",
+									"raw": "{{base_url}}/admin/user/ff26a96d-6492-4f9d-b146-43120eb1a244/app/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"admin",
 										"user",
-										"b3d4b526-156b-4657-9ef6-90390e97cae6",
+										"ff26a96d-6492-4f9d-b146-43120eb1a244",
 										"app",
 										"list"
 									]
@@ -1432,7 +1795,7 @@
 							"response": []
 						},
 						{
-							"name": "get user app list",
+							"name": "get user app list by user id",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1449,14 +1812,15 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/user/0d6320c1-42e7-427e-a87c-ff0dc4c1ddca/app/list",
+									"raw": "{{base_url}}///user/f26a96d-6492-4f9d-b146-43120eb1a244/app/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"admin",
+										"",
+										"",
 										"user",
-										"0d6320c1-42e7-427e-a87c-ff0dc4c1ddca",
+										"f26a96d-6492-4f9d-b146-43120eb1a244",
 										"app",
 										"list"
 									]
@@ -1514,14 +1878,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/app/c891794f-9a86-46cd-b250-822cde3d7f9f/user-list",
+									"raw": "{{base_url}}/app/cb7e71ed-cf3d-4960-974e-85e39e025ae9/user-list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"admin",
 										"app",
-										"c891794f-9a86-46cd-b250-822cde3d7f9f",
+										"cb7e71ed-cf3d-4960-974e-85e39e025ae9",
 										"user-list"
 									]
 								}
@@ -1591,6 +1954,29 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "get client config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/client/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"client",
+								"config"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
