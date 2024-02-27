@@ -24,11 +24,17 @@ export class ApplicationFormComponent {
     this.groupForm(data)
     this.formStatus = data?.username ? 'edit' : 'add'
     this.getUsers()
+
+    this.mainService.get('admin/app/648bec44-71cf-4775-9600-769c5d7825d3').subscribe(
+      (r)=>{
+
+      }
+    )
   }
 
   groupForm(data: any) {
     this.form = this.formBuilder.group({
-      user_id: [data?.user_id, Validators.required],
+      user_id: [data?.user_id],
       en_app_name: [data?.en_app_name, Validators.required],
       per_app_name: [data?.per_app_name, Validators.required],
       package_name: [data?.package_name],

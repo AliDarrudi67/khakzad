@@ -8,6 +8,10 @@ const routes: Routes = [
     component: ApplicationContainerComponent
   },
   {
+    path: 'userApplications/:id',
+    component: ApplicationContainerComponent
+  },
+  {
     path: 'setting/:id',
     loadChildren: () =>
       import('./application-setting/application-setting.module').then(m => m.ApplicationSettingModule)

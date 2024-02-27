@@ -55,11 +55,12 @@
           وضعیت
         </th>
         <td mat-cell *matCellDef="let element">
-          <mat-slide-toggle [checked]="element.is_active" (change)="changeUserStatus(element,$event)"></mat-slide-toggle>
+          <mat-slide-toggle [checked]="element.is_active"
+                            (change)="changeUserStatus(element,$event)"></mat-slide-toggle>
         </td>
       </ng-container>
 
-       <ng-container matColumnDef="created_at">
+      <ng-container matColumnDef="created_at">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           تاریخ ایجاد
         </th>
@@ -75,6 +76,7 @@
             <app-icon [icon]="'edit'" class="cursor-pointer" (click)="userForm(element)"></app-icon>
             <app-icon [icon]="'delete'" class="cursor-pointer" (click)="removeUser(element?.id)"></app-icon>
             <a class="cursor-pointer" (click)="addApplication(element?.id)">افزودن اپلیکیشن</a>
+            <a class="cursor-pointer" [routerLink]="'/dashboard/applications/userApplications/'+element?.id">لیست اپلیکیشن ها</a>
           </div>
         </td>
       </ng-container>

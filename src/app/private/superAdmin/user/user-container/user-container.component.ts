@@ -50,8 +50,9 @@ export class UserContainerComponent {
       })
   }
 
-  userForm(data = {}) {
+  userForm(data: any = {}) {
     const dialogConfig = this.mainService.defaultDialogConfig
+    data.formStatus = data?.id ? 'edit' : 'add'
     dialogConfig.data = data
     const dialog = this.dialog.open(UserFormComponent, dialogConfig)
     dialog.afterClosed().subscribe(
@@ -82,7 +83,7 @@ export class UserContainerComponent {
   changeUserStatus(element: any, status: any) {
     console.log(element)
     console.log(status.checked)
-    this.mainService.get(status.checked?ApiEndpoints.user.unblock(element?.id):ApiEndpoints.user.block(element?.id)).subscribe(
+    this.mainService.get(status.checked ? ApiEndpoints.user.unblock(element?.id) : ApiEndpoints.user.block(element?.id)).subscribe(
       (response) => {
         this.getUsers()
       }
@@ -92,7 +93,7 @@ export class UserContainerComponent {
   addApplication(id: string) {
     const dialogConfig = this.mainService.defaultDialogConfig
     dialogConfig.data = {
-      user_id:id
+      user_id: id
     }
     const dialog = this.matDialog.open(ApplicationFormComponent, dialogConfig)
     dialog.afterClosed().subscribe(

@@ -11,12 +11,13 @@ export const ApiEndpoints = {
     changePassword: 'user/change-password',
     currentUser: 'user',
     editProfile: 'user',
-    application:{
-      list:'user/app/list'
+    application: {
+      list: 'user/app/list'
     }
   },
   application: {
     list: 'admin/user/app/list',
+    userApplications: (userId: string) => `admin/user/${userId}/app/list`,
     add: 'app',
     block: (id: string) => `app/${id}/deactivate`,
     unblock: (id: string) => `app/${id}/activate`,
@@ -53,11 +54,11 @@ export const ApiEndpoints = {
     add: (id: string) => `app/${id}/version`,
     edit: (appId: string, versionId: string) => `app/${appId}/version/${versionId}`,
   },
-  admin:{
-    application:{
-      addUserToApp:(userId:string)=>`app/${userId}/user/add-user`,
+  admin: {
+    application: {
+      addUserToApp: (userId: string) => `app/${userId}/user/add-user`,
       // list:(id:string)=>`user/${id}/app/list`
-      list:'admin/user/current/app/list'
+      list: 'admin/user/current/app/list'
     }
   }
 }

@@ -2,6 +2,7 @@ import {Injectable, signal} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -1319,5 +1320,16 @@ export class MainService {
       }
     })
     return Object.keys(result)
+  }
+
+  getFormValidationErrors(form:FormGroup) {
+    Object.keys(form.controls).forEach(key => {
+      const controlErrors: any = form.get(key)?.errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach(keyError => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+        });
+      }
+    });
   }
 }

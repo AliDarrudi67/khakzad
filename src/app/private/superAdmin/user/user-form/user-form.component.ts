@@ -20,25 +20,27 @@ export class UserFormComponent {
     private matDialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    console.log(data)
+    this.formStatus = data?.formStatus
     this.groupForm(data)
-    this.formStatus = data?.username ? 'edit' : 'add'
   }
 
   groupForm(data: any) {
     this.form = this.formBuilder.group({
-      username: [data?.username, Validators.required],
-      email: [data?.email, [Validators.required, Validators.email]],
       first_name: [data?.first_name, Validators.required],
       last_name: [data?.last_name, Validators.required],
       roles: [data?.roles, Validators.required],
       ...(this.formStatus === 'add' && {
-        password: [data?.password, Validators.required]
+        password: [data?.password, Validators.required],
+        username: [data?.username, Validators.required],
+        email: [data?.email, [Validators.required, Validators.email]],
       })
     })
   }
 
   submitForm() {
     console.log(this.form.value)
+    this.mainService.getFormValidationErrors(this.form)
     if (this.form.valid) {
       if (this.formStatus == 'add') {
         this.mainService.post(ApiEndpoints.user.add, this.form.value).subscribe(

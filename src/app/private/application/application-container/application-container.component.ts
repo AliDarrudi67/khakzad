@@ -7,91 +7,107 @@ import {ApplicationDetailsComponent} from "../application-details/application-de
 import {MainService} from "../../../core/services/main.service";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 import {ApplicationFormComponent} from "../application-form/application-form.component";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-    selector: 'app-application-container',
-    templateUrl: './application-container.component.html',
-    styleUrls: ['./application-container.component.scss']
+  selector: 'app-application-container',
+  templateUrl: './application-container.component.html',
+  styleUrls: ['./application-container.component.scss']
 })
 export class ApplicationContainerComponent {
-    displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'youtube_channel', 'support_telegram_id', 'google_play_url', 'privacy_url', 'is_active', 'op'];
-    dataSource = new MatTableDataSource();
-    roles: any[] = []
-    userId = '';
+  displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'youtube_channel', 'support_telegram_id', 'google_play_url', 'privacy_url', 'is_active', 'op'];
+  dataSource = new MatTableDataSource();
+  roles: any[] = []
+  userId = '';
+  userApplicationsId = ''
 
-    constructor(
-        private mainService: MainService,
-        private dialog: MatDialog
-    ) {
-    }
+  constructor(
+    private mainService: MainService,
+    private route: ActivatedRoute,
+    private dialog: MatDialog
+  ) {
+    this.userApplicationsId = this.route.snapshot.params['id']
+  }
 
-    userData = effect(() => {
-        this.roles = this.mainService.roles()
-        this.userId=this.mainService.userInfo()?.id
-        if (this.roles.length)
-            this.getItems()
+  userData = effect(() => {
+    this.roles = this.mainService.roles()
+    this.userId = this.mainService.userInfo()?.id
+    if (this.roles.length)
+      this.getItems()
+  })
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  applicationDetails() {
+    const dialog = this.dialog.open(ApplicationDetailsComponent, {
+      maxHeight: '80vh',
+      minWidth: '360px',
+      autoFocus: false,
+      disableClose: true
     })
-    @ViewChild(MatSort) sort!: MatSort;
-    @ViewChild(MatPaginator) paginator!: MatPaginator;
+  }
 
-    applyFilter(event: Event) {
-        const filterValue = (event.target as HTMLInputElement).value;
-        this.dataSource.filter = filterValue.trim().toLowerCase();
+  getItems() {
+    console.log(this.roles)
+    let path='';
+    if(this.roles.includes('super_admin')){
+      if(this.userApplicationsId){
+        path=ApiEndpoints.application.userApplications(this.userApplicationsId)
+      }else{
+        path=ApiEndpoints.application.list
+      }
+    }else if(this.roles.includes('admin')){
+       path=ApiEndpoints.admin.application.list
+    }else{
+      path=ApiEndpoints.user.application.list
     }
+    this.mainService.get(path).subscribe(
+      (response) => {
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator
+        this.dataSource = new MatTableDataSource(response?.data);
+      }
+    )
+  }
 
-    applicationDetails() {
+  showForm(data = {}) {
+    const dialogConfig = this.mainService.defaultDialogConfig
+    dialogConfig.data = data
+    const dialog = this.dialog.open(ApplicationFormComponent, dialogConfig)
+    dialog.afterClosed().subscribe(
+      (response) => {
+        if (response?.result) {
+          this.getItems()
+        }
+      }
+    )
+  }
+
+  changeAppStatus(element: any, status: any) {
+    console.log(status)
+    this.mainService.get(status.checked ? ApiEndpoints.application.unblock(element?.id) : ApiEndpoints.application.block(element?.id)).subscribe(
+      (response) => {
+        this.getItems()
+      }
+    )
+  }
+
+  viewUsers(element: any) {
+    this.mainService.get(ApiEndpoints.application.users(element?.id)).subscribe(
+      (response) => {
         const dialog = this.dialog.open(ApplicationDetailsComponent, {
-            maxHeight: '80vh',
-            minWidth: '360px',
-            autoFocus: false,
-            disableClose: true
+          ...this.mainService.defaultDialogConfig,
+          data: {
+            users: response?.data,
+            appId: element?.id
+          }
         })
-    }
-
-    getItems() {
-        console.log(this.roles)
-        this.mainService.get(this.roles.includes('super_admin') ? ApiEndpoints.application.list : this.roles.includes('admin') ? ApiEndpoints.admin.application.list : ApiEndpoints.user.application.list).subscribe(
-            (response) => {
-                this.dataSource.sort = this.sort;
-                this.dataSource.paginator = this.paginator
-                this.dataSource = new MatTableDataSource(response?.data);
-            }
-        )
-    }
-
-    showForm(data = {}) {
-        const dialogConfig = this.mainService.defaultDialogConfig
-        dialogConfig.data = data
-        const dialog = this.dialog.open(ApplicationFormComponent, dialogConfig)
-        dialog.afterClosed().subscribe(
-            (response) => {
-                if (response?.result) {
-                    this.getItems()
-                }
-            }
-        )
-    }
-
-    changeAppStatus(element: any, status: any) {
-        console.log(status)
-        this.mainService.get(status.checked ? ApiEndpoints.application.unblock(element?.id) : ApiEndpoints.user.block(element?.id)).subscribe(
-            (response) => {
-                this.getItems()
-            }
-        )
-    }
-
-    viewUsers(element: any) {
-        this.mainService.get(ApiEndpoints.application.users(element?.id)).subscribe(
-            (response) => {
-                const dialog = this.dialog.open(ApplicationDetailsComponent, {
-                    ...this.mainService.defaultDialogConfig,
-                    data: {
-                      users:response?.data,
-                      appId:element?.id
-                    }
-                })
-            }
-        )
-    }
+      }
+    )
+  }
 }
