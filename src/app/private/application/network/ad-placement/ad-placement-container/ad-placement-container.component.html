@@ -1,8 +1,8 @@
 <app-card>
   <div class="flex flex-col gap-3">
     <div class="flex justify-between">
-      <h1>لیست</h1>
-      <button mat-raised-button color="primary" (click)="showForm()"> جدید</button>
+      <h1>لیست تبلیغات</h1>
+      <button mat-raised-button color="primary" (click)="adPlaceForm({})">ثبت تبلیغ جدید</button>
     </div>
 
     <form dir="rtl">
@@ -15,11 +15,25 @@
     <table mat-table [dataSource]="dataSource" matSort
            class="mat-elevation-z8" dir="rtl">
 
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="unit_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          نام
+          unit_id
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.unit_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="unit_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          unit_type
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.unit_type}} </td>
+      </ng-container>
+
+       <ng-container matColumnDef="interval_second">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          interval_second
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.interval_second}} </td>
       </ng-container>
 
       <ng-container matColumnDef="is_active">
@@ -27,8 +41,8 @@
           وضعیت
         </th>
         <td mat-cell *matCellDef="let element">
-          <mat-slide-toggle [checked]="element.is_active" (change)="changeServerGroupStatus(element,$event)"></mat-slide-toggle>
-
+          <mat-slide-toggle [checked]="element.is_active"
+                            (change)="changeAdPlaceStatus(element,$event)"></mat-slide-toggle>
         </td>
       </ng-container>
 
@@ -38,8 +52,8 @@
         </th>
         <td mat-cell *matCellDef="let element">
           <div class="flex gap-2">
-            <app-icon [icon]="'edit'" class="cursor-pointer" (click)="showForm(element)"></app-icon>
-<!--            <app-icon [icon]="'delete'" class="cursor-pointer" (click)="removeItem(element?.id)"></app-icon>-->
+            <app-icon [icon]="'edit'" class="cursor-pointer" (click)="adPlaceForm(element)"></app-icon>
+<!--            <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>-->
           </div>
         </td>
       </ng-container>

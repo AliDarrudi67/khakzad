@@ -4,22 +4,6 @@
     <input matInput formControlName="name">
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>app_id</mat-label>
-    <mat-select formControlName="app_id">
-      <mat-option *ngFor="let item of applications"
-                  [value]="item?.id">{{item?.per_app_name + ' - ' + item?.id}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>کد کشور</mat-label>
-    <mat-select formControlName="country_code">
-      <mat-option *ngFor="let item of mainService.countryCodes"
-                  [value]="item?.code">{{item?.code + '-' + item?.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
   <div class="flex justify-between">
     <button mat-raised-button color="primary">ثبت</button>
     <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>

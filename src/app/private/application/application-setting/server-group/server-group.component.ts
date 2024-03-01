@@ -16,7 +16,7 @@ import {ServerGroupFormComponent} from "../server-group-form/server-group-form.c
 })
 export class ServerGroupComponent {
   items: any[] = []
-  displayedColumns: string[] = ['name', 'app_id', 'country_code', 'is_active', 'op'];
+  displayedColumns: string[] = ['name', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
   appId = ''
   @ViewChild(MatSort) sort!: MatSort;

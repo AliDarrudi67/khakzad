@@ -1,7 +1,19 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
   <mat-form-field appearance="outline">
     <mat-label>ad_network</mat-label>
-    <input matInput formControlName="ad_network">
+    <mat-select formControlName="ad_network">
+      <mat-option value="ADMOB">ADMOB</mat-option>
+      <mat-option value="IRON_SOURCE">IRON_SOURCE</mat-option>
+      <mat-option value="AD_COLONY">AD_COLONY</mat-option>
+      <mat-option value="VUNGLE">VUNGLE</mat-option>
+      <mat-option value="TAP_JOY">TAP_JOY</mat-option>
+      <mat-option value="APP_LOVIN">APP_LOVIN</mat-option>
+      <mat-option value="YANDEX">YANDEX</mat-option>
+      <mat-option value="PANGLE">PANGLE</mat-option>
+      <mat-option value="AMAZON">AMAZON</mat-option>
+      <mat-option value="UNITY">UNITY</mat-option>
+      <mat-option value="FACEBOOK">FACEBOOK</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-slide-toggle [checked]="false" formControlName="is_active">

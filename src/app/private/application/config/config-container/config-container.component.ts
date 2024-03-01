@@ -46,10 +46,10 @@ export class ConfigContainerComponent {
         this.items = [
           {
             connect_delay_seconds: response?.data?.connect_delay_seconds,
-            disconnect_delay_seconds: response?.data?.connect_delay_seconds,
-            is_ads_enabled: response?.data?.connect_delay_seconds,
-            disable_old_versions: response?.data?.connect_delay_seconds,
-            is_force_update_enabled: response?.data?.connect_delay_seconds,
+            disconnect_delay_seconds: response?.data?.disconnect_delay_seconds,
+            is_ads_enabled: response?.data?.is_ads_enabled,
+            disable_old_versions: response?.data?.disable_old_versions,
+            is_force_update_enabled: response?.data?.is_force_update_enabled,
             latest_app_version: {
               id: response?.data?.latest_app_version?.id,
               versionCode: response?.data?.latest_app_version?.versionCode,
@@ -63,6 +63,7 @@ export class ConfigContainerComponent {
   }
 
   showForm(data: any = {},mode='') {
+    console.log(data)
     if (!data?.appId)
       data.appId = this.appId
     data.formMode=data?.mode

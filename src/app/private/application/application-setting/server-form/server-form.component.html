@@ -1,23 +1,54 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>گروه سرور</mat-label>
-    <input matInput formControlName="server_group_id">
+    <mat-select formControlName="server_group_id">
+      <mat-option *ngFor="let item of serverGroups"
+                  [value]="item?.id">{{item?.name}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>کد کشور</mat-label>
-    <input matInput formControlName="country_code">
+    <mat-select formControlName="country_code">
+      <mat-option *ngFor="let item of mainService.countryCodes"
+                  [value]="item?.code">{{item?.code + '-' + item?.name}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>remarks </mat-label>
+    <mat-label>remarks</mat-label>
     <input matInput formControlName="remarks">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>uri </mat-label>
+    <mat-label>uri</mat-label>
     <input matInput formControlName="server_uri">
   </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>address</mat-label>
+    <input matInput formControlName="address">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>port</mat-label>
+    <input matInput formControlName="port">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>mnc</mat-label>
+    <input matInput formControlName="mnc">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>asn</mat-label>
+    <input matInput formControlName="asn">
+  </mat-form-field>
+
+  <div class="flex flex-col gap-3">
+    <label>custom json</label>
+    <input type="file" formControlName="custom_json">
+  </div>
 
   <div class="flex justify-between">
     <button mat-raised-button color="primary">ثبت</button>

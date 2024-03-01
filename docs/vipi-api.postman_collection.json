@@ -498,7 +498,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"hamid.khakzad\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+							"raw": "{\r\n    \"username\":\"farhaddorri\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -810,7 +810,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\":\"vpn server group\",\r\n    \"app_id\":\"19a1cf09-7b12-4303-acd2-a0fbf6dacbac\",\r\n    \"country_code\":\"US\",\r\n    \"is_active\": true\r\n}",
+									"raw": "{\r\n    \"name\":\"vpn server group\",\r\n    \"is_active\": true\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -851,13 +851,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/718c748f-e729-435b-abec-86ea2c4feacc/server/group/list",
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/group/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"718c748f-e729-435b-abec-86ea2c4feacc",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
 										"server",
 										"group",
 										"list"
@@ -913,13 +913,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/19a1cf09-7b12-4303-acd2-a0fbf6dacbac/server/list",
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
-										"19a1cf09-7b12-4303-acd2-a0fbf6dacbac",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
 										"server",
 										"list"
 									]
@@ -951,12 +951,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/app/server/list",
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"app",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
 										"server",
 										"list"
 									]
@@ -1027,6 +1028,163 @@
 										"group",
 										"fabca823-437e-449e-9959-97e56a65614f",
 										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update vpn server group",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"vpn server group fdfdf\",\r\n    \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/group/9757f673-be57-4e6c-9d71-e6a7ce3ac061",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
+										"server",
+										"group",
+										"9757f673-be57-4e6c-9d71-e6a7ce3ac061"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activate vpn server",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/bbbdf403-7f65-457c-b7b5-7979f78f0ba8/activate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
+										"server",
+										"bbbdf403-7f65-457c-b7b5-7979f78f0ba8",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate vpn server",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/bbbdf403-7f65-457c-b7b5-7979f78f0ba8/deactivate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
+										"server",
+										"bbbdf403-7f65-457c-b7b5-7979f78f0ba8",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get app all server list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"server_group_id\":\"016e0082-5ebd-419c-a420-e32245aad16b\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/27952a9b-548e-48d3-9ab8-4e5fd3c2a019/server/all",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"27952a9b-548e-48d3-9ab8-4e5fd3c2a019",
+										"server",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update new vpn server",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"server_group_id\":\"eadf782b-2a4d-43b9-bb43-93c918efbc0b\",\r\n    \"country_code\":\"us\",\r\n    \"remarks\":\"server 1\",\r\n    \"server_uri\":\"vless://e1a928be-e289-4aef-b92e-4106fabdf42f@port80--join.outline-vpn.cloud:80?path=%2F%3Fed%3D2048&security=none&encryption=none&host=mahi.kosnanatfilterchi.eu.org&type=ws#Cap+98+ID%28%40Outline_Vpn%29+%F0%9F%A7%A2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/app/f2c6f65d-b52c-4e95-a6e9-af8e19f0fe1a/server/2c63852f-4174-47e6-ae39-34c1226953d",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"app",
+										"f2c6f65d-b52c-4e95-a6e9-af8e19f0fe1a",
+										"server",
+										"2c63852f-4174-47e6-ae39-34c1226953d"
 									]
 								}
 							},
@@ -1488,7 +1646,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\":\"hosseinabazari\",\r\n    \"email\":\"hossein.abzari@gmail.com\",\r\n    \"first_name\":\"hossein\",\r\n    \"last_name\":\"abazari\",\r\n    \"password\":\"Arad1398::##\"\r\n}",
+									"raw": "{\r\n    \"username\":\"farhaddorri\",\r\n    \"email\":\"farhaddorri@gmail.com\",\r\n    \"first_name\":\"farhad\",\r\n    \"last_name\":\"dorri\",\r\n    \"roles\":[\"admin\"],\r\n    \"password\":\"Arad1398::##\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1625,14 +1783,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/user/ff26a96d-6492-4f9d-b146-43120eb1a244/app/list",
+									"raw": "{{base_url}}/admin/user/1f6f3779-9abd-4fc3-a3f5-e420ab81b46a/app/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"admin",
 										"user",
-										"ff26a96d-6492-4f9d-b146-43120eb1a244",
+										"1f6f3779-9abd-4fc3-a3f5-e420ab81b46a",
 										"app",
 										"list"
 									]
@@ -1812,13 +1970,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}///user/f26a96d-6492-4f9d-b146-43120eb1a244/app/list",
+									"raw": "{{base_url}}/admin/user/f26a96d-6492-4f9d-b146-43120eb1a244/app/list",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"",
-										"",
+										"admin",
 										"user",
 										"f26a96d-6492-4f9d-b146-43120eb1a244",
 										"app",

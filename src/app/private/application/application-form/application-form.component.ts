@@ -21,32 +21,29 @@ export class ApplicationFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log(data)
+    this.formStatus = data?.id ? 'edit' : 'add'
     this.groupForm(data)
-    this.formStatus = data?.username ? 'edit' : 'add'
     this.getUsers()
-
-    this.mainService.get('admin/app/648bec44-71cf-4775-9600-769c5d7825d3').subscribe(
-      (r)=>{
-
-      }
-    )
   }
 
   groupForm(data: any) {
     this.form = this.formBuilder.group({
-      user_id: [data?.user_id],
       en_app_name: [data?.en_app_name, Validators.required],
       per_app_name: [data?.per_app_name, Validators.required],
-      package_name: [data?.package_name],
+      package_name: [data?.package_name, Validators.required],
       telegram_channel: [data?.telegram_channel],
       youtube_channel: [data?.youtube_channel],
-      privacy_url: [data?.privacy_url],
-      google_play_url: [data?.google_play_url]
+      privacy_url: [data?.privacy_url,Validators.required],
+      google_play_url: [data?.google_play_url],
+      ...(this.formStatus === 'add' && {
+        user_id: [data?.user_id],
+      })
     })
   }
 
   submitForm() {
     console.log(this.form.value)
+    console.log(this.formStatus)
     if (this.form.valid) {
       if (this.formStatus == 'add') {
         this.mainService.post(ApiEndpoints.application.add, this.form.value).subscribe(

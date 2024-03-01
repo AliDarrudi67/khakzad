@@ -27,7 +27,8 @@
           وضعیت
         </th>
         <td mat-cell *matCellDef="let element">
-          <mat-slide-toggle [checked]="element.is_active" (change)="changeNetworkStatus(element,$event)"></mat-slide-toggle>
+          <mat-slide-toggle [checked]="element.is_active"
+                            (change)="changeNetworkStatus(element,$event)"></mat-slide-toggle>
         </td>
       </ng-container>
 
@@ -39,6 +40,7 @@
           <div class="flex gap-2">
             <app-icon [icon]="'edit'" class="cursor-pointer" (click)="networkForm(element)"></app-icon>
             <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>
+            <a [routerLink]="'ad-placement/'+element?.id">تبلیغات</a>
           </div>
         </td>
       </ng-container>

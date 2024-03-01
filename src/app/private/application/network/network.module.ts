@@ -15,6 +15,7 @@ import {MatTableModule} from "@angular/material/table";
 import {SharedModule} from "../../../shared/shared.module";
 import { NetworkFormComponent } from './network-form/network-form.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -22,21 +23,22 @@ import {MatDialogModule} from "@angular/material/dialog";
     NetworkContainerComponent,
     NetworkFormComponent
   ],
-  imports: [
-    CommonModule,
-    NetworkRoutingModule,
-    BidiModule,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSlideToggleModule,
-    MatSortModule,
-    MatTableModule,
-    ReactiveFormsModule,
-    SharedModule,
-    MatDialogModule
-  ]
+    imports: [
+        CommonModule,
+        NetworkRoutingModule,
+        BidiModule,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSlideToggleModule,
+        MatSortModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        SharedModule,
+        MatDialogModule,
+        MatSelectModule
+    ]
 })
 export class NetworkModule { }

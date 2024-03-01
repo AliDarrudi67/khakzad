@@ -6,6 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: NetworkContainerComponent
+  },
+  {
+    path:'ad-placement/:networkId',
+    loadChildren: () =>
+      import('./ad-placement/ad-placement.module').then(m => m.AdPlacementModule)
   }
 ];
 

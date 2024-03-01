@@ -1,5 +1,5 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>انتخاب کاربر</mat-label>
     <mat-select formControlName="user_id">
       <mat-option *ngFor="let item of users" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>

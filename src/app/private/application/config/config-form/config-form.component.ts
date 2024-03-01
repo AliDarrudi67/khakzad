@@ -44,7 +44,8 @@ export class ConfigFormComponent {
       is_ads_enabled: [data?.is_ads_enabled, Validators.required],
       latest_app_version_id: [data?.latest_app_version?.id, Validators.required],
       disable_old_versions: [data?.disable_old_versions, Validators.required],
-      is_force_update_enabled: [data?.is_force_update_enabled, Validators.required]
+      is_force_update_enabled: [data?.is_force_update_enabled, Validators.required],
+      encrypt_configs: [data?.encrypt_configs, Validators.required]
     })
   }
 
@@ -55,25 +56,36 @@ export class ConfigFormComponent {
         disconnect_delay_seconds:+this.form.get('disconnect_delay_seconds')?.value,
         connect_delay_seconds:+this.form.get('connect_delay_seconds')?.value,
       })
-      if (this.formStatus == 'add') {
-        this.mainService.post(ApiEndpoints.config.edit(this.data?.appId), this.form.value).subscribe(
-          (response) => {
-            if (response.status === 200)
-              this.matDialogRef.close({result: true})
-            else
-              this.toast.error(response?.message)
-          }
-        )
-      } else {
-        this.mainService.put(ApiEndpoints.config.edit(this.data?.appId), this.form.value).subscribe(
-          (response) => {
-            if (response.status === 200)
-              this.matDialogRef.close({result: true})
-            else
-              this.toast.error(response?.message)
-          }
-        )
-      }
+
+      this.mainService.post(ApiEndpoints.config.edit(this.data?.appId), this.form.value).subscribe(
+        (response) => {
+          if (response.status === 200)
+            this.matDialogRef.close({result: true})
+          else
+            this.toast.error(response?.message)
+        }
+      )
+
+      // if (this.formStatus == 'add') {
+      //   this.mainService.post(ApiEndpoints.config.edit(this.data?.appId), this.form.value).subscribe(
+      //     (response) => {
+      //       if (response.status === 200)
+      //         this.matDialogRef.close({result: true})
+      //       else
+      //         this.toast.error(response?.message)
+      //     }
+      //   )
+      // }
+      // else {
+      //   this.mainService.put(ApiEndpoints.config.edit(this.data?.appId), this.form.value).subscribe(
+      //     (response) => {
+      //       if (response.status === 200)
+      //         this.matDialogRef.close({result: true})
+      //       else
+      //         this.toast.error(response?.message)
+      //     }
+      //   )
+      // }
     }
   }
 }

@@ -16,7 +16,7 @@ import {ServerFormComponent} from "../server-form/server-form.component";
 })
 export class ServerComponent {
   items: any[] = []
-  displayedColumns: string[] = ['name', 'app_id', 'country_code', 'is_active', 'op'];
+  displayedColumns: string[] = ['country_code', 'remarks', 'server_uri', 'address', 'port', 'mnc', 'asn', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
   appId = ''
   @ViewChild(MatSort) sort!: MatSort;
@@ -44,7 +44,9 @@ export class ServerComponent {
   getItems() {
     this.mainService.get(ApiEndpoints.server.list(this.appId)).subscribe(
       (response) => {
-        this.items = response?.data
+        console.log(response)
+        this.items = response?.data.length ? response?.data[0]?.server_list : []
+        console.log(this.items)
         this.dataSource = new MatTableDataSource(this.items);
       })
   }
@@ -76,6 +78,14 @@ export class ServerComponent {
           //   }
           // )
         }
+      }
+    )
+  }
+
+  changeServerStatus(element: any, status: any) {
+    this.mainService.get(status.checked?ApiEndpoints.server.unblock(this.appId,element?.id):ApiEndpoints.server.block(this.appId,element?.id)).subscribe(
+      (response) => {
+        this.getItems()
       }
     )
   }

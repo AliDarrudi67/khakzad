@@ -23,7 +23,6 @@ export class ServerGroupFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.groupForm(data)
-    this.getApplications()
     this.formStatus = data?.name ? 'edit' : 'add'
     console.log(this.data)
   }
@@ -32,7 +31,6 @@ export class ServerGroupFormComponent {
     this.form = this.formBuilder.group({
       name: [data?.name, Validators.required],
       app_id: [data?.appId, Validators.required],
-      country_code: [data?.country_code, Validators.required],
       is_active: [data?.is_active ? data?.is_active : true, Validators.required]
     })
   }
@@ -50,7 +48,7 @@ export class ServerGroupFormComponent {
           }
         )
       } else {
-        this.mainService.put(ApiEndpoints.serverGroup.edit(this.data?.appId), this.form.value).subscribe(
+        this.mainService.put(ApiEndpoints.serverGroup.edit(this.data?.appId, this.data?.id), this.form.value).subscribe(
           (response) => {
             if (response.status === 200)
               this.matDialogRef.close({result: true})
@@ -60,13 +58,5 @@ export class ServerGroupFormComponent {
         )
       }
     }
-  }
-
-  getApplications() {
-    this.mainService.get(ApiEndpoints.application.list).subscribe(
-      (response) => {
-        this.applications = response?.data
-      }
-    )
   }
 }

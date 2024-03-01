@@ -1,0 +1,31 @@
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+  <mat-form-field appearance="outline">
+    <mat-label>unit_id</mat-label>
+    <input matInput formControlName="unit_id"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>interval_second</mat-label>
+    <input matInput formControlName="interval_second"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>unit_type</mat-label>
+    <mat-select formControlName="unit_type">
+      <mat-option value="BANNER">BANNER</mat-option>
+      <mat-option value="INTERSTITIAL">INTERSTITIAL</mat-option>
+      <mat-option value="REWARDED">REWARDED</mat-option>
+      <mat-option value="REWARDED_INTERSTITIAL">REWARDED_INTERSTITIAL</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle [checked]="false" formControlName="is_active">
+    وضعیت
+  </mat-slide-toggle>
+
+
+  <div class="flex justify-between">
+    <button mat-raised-button color="primary">ثبت</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+  </div>
+</form>

@@ -31,13 +31,19 @@ export class TokenInterceptor implements HttpInterceptor {
         if (request.method !== 'GET') {
           if (event instanceof HttpResponse && event.status === 200) {
             const result = event.body as any
-            if (result.status === 200)
-              this.toast.success(result?.message ? result?.message : 'عملیات با موفقیت انجام شد.');
-            else if (result.status === 401)
-              this.mainService.logout()
-            else
-              this.toast.error(result?.message ? result?.message : 'عملیات انجام نشد.');
+            // if (result.status === 200)
+            //   this.toast.success(result?.message ? result?.message : 'عملیات با موفقیت انجام شد.');
+            // else if (result.status === 401)
+            //   this.mainService.logout()
+            // else
+            //   this.toast.error(result?.message ? result?.message : 'عملیات انجام نشد.');
 
+          }
+        } else if (request.method == 'GET') {
+          if (event instanceof HttpResponse && event.status === 200) {
+            const result = event.body as any
+            if (result?.message)
+              this.toast.success(result?.message);
           }
         }
       })
