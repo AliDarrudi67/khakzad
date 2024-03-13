@@ -16,6 +16,7 @@ import {UserFormComponent} from './user-form/user-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -23,22 +24,23 @@ import {MatDialogModule} from "@angular/material/dialog";
     UserContainerComponent,
     UserFormComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    BidiModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule,
-    SharedModule,
-    MatSlideToggleModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatDialogModule
-  ]
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        BidiModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        SharedModule,
+        MatSlideToggleModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatDialogModule,
+        MatTooltipModule
+    ]
 })
 export class UserModule {
 }

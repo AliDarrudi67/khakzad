@@ -44,34 +44,6 @@
         <td mat-cell *matCellDef="let element"> {{element.api_key}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="youtube_channel">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          کانال یوتیوب
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.youtube_channel}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="support_telegram_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          ای دی تلگرام
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.support_telegram_id}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="google_play_url">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          گوگل پلی
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.google_play_url}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="privacy_url">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          لینک امنیتی
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.privacy_url}} </td>
-      </ng-container>
-
       <ng-container matColumnDef="is_active">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           وضعیت
@@ -87,37 +59,37 @@
         </th>
         <td mat-cell *matCellDef="let element">
           <div class="flex gap-2">
-            <app-icon [icon]="'edit'" class="cursor-pointer" (click)="showForm(element)"></app-icon>
-            <a [routerLink]="'setting/'+element?.id">
-              سرورها
+            <app-icon [icon]="'edit'" matTooltip="ویرایش" class="cursor-pointer" (click)="showForm(element)"></app-icon>
+            <a [routerLink]="'setting/'+element?.id" matTooltip="سرورها">
+              <app-icon icon="server"></app-icon>
             </a>
-            <a class="cursor-pointer" (click)="viewUsers(element)">
-              کاربران
+            <a class="cursor-pointer" (click)="viewUsers(element)" matTooltip="کاربران">
+              <app-icon icon="users"></app-icon>
             </a>
-            <a class="cursor-pointer" [routerLink]="'config/'+element?.id">
-              پیکربندی
+            <a class="cursor-pointer" [routerLink]="'config/'+element?.id" matTooltip="پیکربندی">
+              <app-icon icon="setting"></app-icon>
             </a>
-            <a class="cursor-pointer" [routerLink]="'version/'+element?.id">
-              ورژن ها
+            <a class="cursor-pointer" [routerLink]="'version/'+element?.id" matTooltip="ورژن ها">
+              <app-icon icon="versions"></app-icon>
             </a>
-            <a class="cursor-pointer" [routerLink]="'network/'+element?.id">
-              شبکه ها
+            <a class="cursor-pointer" [routerLink]="'network/'+element?.id" matTooltip="شبکه ها">
+              <app-icon icon="network"></app-icon>
             </a>
           </div>
         </td>
       </ng-container>
 
-<!--      <ng-container matColumnDef="op">-->
-<!--        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">-->
-<!--          عملیات-->
-<!--        </th>-->
-<!--        <td mat-cell *matCellDef="let element">-->
-<!--          <div class="flex gap-2">-->
-<!--            <app-icon [icon]="'details'" class="cursor-pointer" (click)="applicationDetails()"></app-icon>-->
-<!--            <app-icon [icon]="'setting'" class="cursor-pointer" routerLink="setting/1"></app-icon>-->
-<!--          </div>-->
-<!--        </td>-->
-<!--      </ng-container>-->
+      <!--      <ng-container matColumnDef="op">-->
+      <!--        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">-->
+      <!--          عملیات-->
+      <!--        </th>-->
+      <!--        <td mat-cell *matCellDef="let element">-->
+      <!--          <div class="flex gap-2">-->
+      <!--            <app-icon [icon]="'details'" class="cursor-pointer" (click)="applicationDetails()"></app-icon>-->
+      <!--            <app-icon [icon]="'setting'" class="cursor-pointer" routerLink="setting/1"></app-icon>-->
+      <!--          </div>-->
+      <!--        </td>-->
+      <!--      </ng-container>-->
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

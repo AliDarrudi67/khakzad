@@ -28,11 +28,14 @@ export class TokenInterceptor implements HttpInterceptor {
     });
     return next.handle(this.clonedRequest).pipe(
       tap((event) => {
+        console.log(request)
+        console.log(event)
         if (request.method !== 'GET') {
-          if (event instanceof HttpResponse && event.status === 200) {
+          if (event instanceof HttpResponse && (event.status === 200 || event.status === 201)) {
             const result = event.body as any
-            // if (result.status === 200)
-            //   this.toast.success(result?.message ? result?.message : 'عملیات با موفقیت انجام شد.');
+            console.log(result)
+            if (result.status === 200 || result.status === 201)
+              this.toast.success(result?.message ? result?.message : 'عملیات با موفقیت انجام شد.');
             // else if (result.status === 401)
             //   this.mainService.logout()
             // else

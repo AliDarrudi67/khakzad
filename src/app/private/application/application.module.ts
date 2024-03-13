@@ -18,6 +18,7 @@ import { ApplicationFormComponent } from './application-form/application-form.co
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -26,23 +27,24 @@ import {MatSelectModule} from "@angular/material/select";
     ApplicationDetailsComponent,
     ApplicationFormComponent
   ],
-  imports: [
-    CommonModule,
-    ApplicationRoutingModule,
-    BidiModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule,
-    SharedModule,
-    MatDialogModule,
-    MatSlideToggleModule,
-    FormsModule,
-    MatOptionModule,
-    MatSelectModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        ApplicationRoutingModule,
+        BidiModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        SharedModule,
+        MatDialogModule,
+        MatSlideToggleModule,
+        FormsModule,
+        MatOptionModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatTooltipModule
+    ]
 })
 export class ApplicationModule { }

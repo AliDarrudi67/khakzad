@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private mainService: MainService,
-    private router:Router
+    private router: Router
   ) {
     this.groupForm()
   }
@@ -40,7 +40,10 @@ export class LoginComponent {
           if (response?.status == 200) {
             this.mainService.roles.set(response?.data?.roles)
             localStorage.setItem('token', response?.data?.access_token)
-            this.router.navigate(['/dashboard']).then()
+            if (response?.data?.roles.includes('admin'))
+              this.router.navigate(['/dashboard/applications']).then()
+            else if (response?.data?.roles.includes('super_admin'))
+              this.router.navigate(['/dashboard/users']).then()
           }
         }
       )

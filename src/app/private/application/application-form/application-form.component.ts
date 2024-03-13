@@ -13,6 +13,7 @@ export class ApplicationFormComponent {
   form!: FormGroup
   formStatus = 'add'
   users:any[]=[]
+  filteredUsers:any[]=[]
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,7 +66,13 @@ export class ApplicationFormComponent {
     this.mainService.get(ApiEndpoints.user.list).subscribe(
       (response)=>{
         this.users=response?.data
+        this.filteredUsers=response?.data
       }
     )
+  }
+
+  onKey($event:any) {
+    const keyword=$event.target.value
+    this.filteredUsers=this.users.filter(item=>item?.first_name.indexOf(keyword)>=0 || item?.last_name.indexOf(keyword)>=0)
   }
 }

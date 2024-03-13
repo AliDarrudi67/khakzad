@@ -15,7 +15,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./application-container.component.scss']
 })
 export class ApplicationContainerComponent {
-  displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'youtube_channel', 'support_telegram_id', 'google_play_url', 'privacy_url', 'is_active', 'op'];
+  displayedColumns: string[] = ['en_app_name', 'per_app_name', 'package_name', 'api_key', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
   roles: any[] = []
   userId = '';

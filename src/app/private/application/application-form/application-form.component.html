@@ -2,7 +2,8 @@
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>انتخاب کاربر</mat-label>
     <mat-select formControlName="user_id">
-      <mat-option *ngFor="let item of users" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>
+      <input class="w-full" placeholder ="جستجو " (keyup)="onKey($event)">
+      <mat-option *ngFor="let item of filteredUsers" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>
     </mat-select>
   </mat-form-field>
 
