@@ -1,40 +1,22 @@
-<section class="flex justify-end">
-  <div class="w-[300px]">
+<section class="flex justify-end h-[100vh] overflow-auto" >
+  <div class="lg:block sidebarParent fixed right-0 lg:relative lg:h-[100vh]" [ngClass]="showMenu?'showSidebar':'hideSidebar'">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="flex-1">
+  <div class="flex-1 overflow-auto">
     <div id="header" class="p-3 bg">
-      <div class="flex justify-between mx-[50px]">
-        <ul class="flex gap-3 items-center">
+      <div class="flex flex-col lg:flex-row justify-center items-center lg:justify-between lg:mx-[50px]">
+        <ul class="flex gap-3 items-center border-b mb-2 pb-2 lg:border-0 lg:mb-0 lg:pb-0">
           <app-icon [icon]="'calendarTwo'"></app-icon>
           <span>{{today}}</span>
           <app-icon [icon]="'clock'"></app-icon>
           <span>{{time}}</span>
         </ul>
 
-        <mat-form-field appearance="outline" dir="rtl" class="relative">
-          <mat-label>جستجو...</mat-label>
-          <input matInput/>
-          <app-icon [icon]="'search'" class="absolute left-0 top-[14px]"></app-icon>
-        </mat-form-field>
-<!--        <ul class="flex gap-2 items-center">-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              <app-icon [icon]="'faFlag'"></app-icon>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              <app-icon [icon]="'enFlag'"></app-icon>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </ul>-->
-
         <ul class="flex gap-2 items-center">
           <button mat-button [matMenuTriggerFor]="menu" class="border">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'account'"></app-icon>
-              <span>حساب کاربری</span>
+              <span class="hidden lg:block">حساب کاربری</span>
             </p>
           </button>
           <mat-menu #menu="matMenu" dir="rtl">
@@ -45,7 +27,7 @@
           <button mat-button [matMenuTriggerFor]="menuLang" class="border">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'faFlag'"></app-icon>
-              <span>فارسی</span>
+              <span class="hidden lg:block">فارسی</span>
             </p>
           </button>
           <mat-menu #menuLang="matMenu" dir="rtl">
@@ -56,7 +38,13 @@
           <button mat-button class="border" (click)="logout()">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'logout'"></app-icon>
-              <span>خروج</span>
+              <span class="hidden lg:block">خروج</span>
+            </p>
+          </button>
+
+          <button mat-button class="border block lg:hidden" (click)="showSidebar()">
+            <p class="flex gap-2 items-center">
+              <app-icon [icon]="'menu'"></app-icon>
             </p>
           </button>
         </ul>

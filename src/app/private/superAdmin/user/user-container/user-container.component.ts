@@ -98,7 +98,8 @@ export class UserContainerComponent {
     const dialog = this.matDialog.open(ApplicationFormComponent, dialogConfig)
     dialog.afterClosed().subscribe(
       (response) => {
-        this.router.navigate(['/dashboard/applications'])
+        if (response?.result)
+          this.router.navigate(['/dashboard/applications'])
       }
     )
   }

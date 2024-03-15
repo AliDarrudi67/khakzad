@@ -12,7 +12,7 @@ export class MainService {
   defaultDialogConfig = {
     disableClose: true,
     autoFocus: false,
-    minWidth: '360px',
+    minWidth: '340px',
     maxHeight: '80vh',
     panelClass: 'custom-dialog',
     data: {}
@@ -1234,6 +1234,7 @@ export class MainService {
 
   roles = signal([])
   userInfo = signal<any>({})
+  showSidebar = signal<boolean>(true)
 
   constructor(
     private http: HttpClient,

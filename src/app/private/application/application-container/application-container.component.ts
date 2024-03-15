@@ -54,18 +54,28 @@ export class ApplicationContainerComponent {
 
   getItems() {
     console.log(this.roles)
-    let path='';
-    if(this.roles.includes('super_admin')){
-      if(this.userApplicationsId){
-        path=ApiEndpoints.application.userApplications(this.userApplicationsId)
-      }else{
-        path=ApiEndpoints.application.list
-      }
-    }else if(this.roles.includes('admin')){
-       path=ApiEndpoints.admin.application.list
+    let path = '';
+
+    if (this.userApplicationsId) {
+      path = ApiEndpoints.application.userApplications(this.userApplicationsId)
+    } else if(this.roles.includes('super_admin')){
+      path=ApiEndpoints.application.list
     }else{
-      path=ApiEndpoints.user.application.list
+      path=ApiEndpoints.admin.application.list
     }
+
+    // if(this.roles.includes('super_admin')){
+    //   if(this.userApplicationsId){
+    //     path=ApiEndpoints.application.userApplications(this.userApplicationsId)
+    //   }else{
+    //     path=ApiEndpoints.application.list
+    //   }
+    // }else if(this.roles.includes('admin')){
+    //   path=ApiEndpoints.admin.application.list
+    // }else{
+    //   path=ApiEndpoints.user.application.list
+    // }
+
     this.mainService.get(path).subscribe(
       (response) => {
         this.dataSource.sort = this.sort;

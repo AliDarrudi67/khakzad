@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, effect} from '@angular/core';
 import * as moment from "jalali-moment";
 import {MainService} from "../../../core/services/main.service";
 
@@ -11,13 +11,18 @@ export class DashboardContainerComponent {
   today = '';
   time = '';
   date: any
+  showMenu = true;
 
   constructor(
-    private mainService:MainService
+    public mainService: MainService
   ) {
     this.today = moment(new Date()).locale('fa').format('dddd YYYY/MM/DD');
     this.timeInterval()
   }
+
+  getSidebarStatus = effect(() => {
+    this.showMenu = this.mainService.showSidebar()
+  })
 
   timeInterval() {
     this.getTime()
@@ -37,5 +42,9 @@ export class DashboardContainerComponent {
 
   logout() {
     this.mainService.logout()
+  }
+
+  showSidebar() {
+    this.mainService.showSidebar.set(!this.mainService.showSidebar())
   }
 }

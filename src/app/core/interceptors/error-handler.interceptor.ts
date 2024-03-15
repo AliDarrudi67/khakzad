@@ -27,9 +27,8 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
 
   handleHttpError(error: HttpErrorResponse, request: any) {
     let message: any
-    console.log(error)
     if (error?.error?.message != null || error?.error?.errors != null) {
-      message = error.error.message?error.error.message:error.error.errors;
+      message = error.error.message ? error.error.message : error.error.errors;
       if (typeof message !== 'string') {
         message.forEach((item: string) => {
           this.toast.error(item)
@@ -39,7 +38,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
       }
     }
 
-    if (error.status === 401)
+    if (error.status === 401 && request.url.indexOf('login') < 0)
       this.mainService.logout()
   }
 }
