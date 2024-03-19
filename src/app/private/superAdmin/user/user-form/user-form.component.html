@@ -1,40 +1,40 @@
-<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
-    <mat-label>نام کاربری</mat-label>
+    <mat-label>{{translate.instant('username')}}</mat-label>
     <input matInput formControlName="username">
   </mat-form-field>
 
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
-    <mat-label>ایمیل</mat-label>
+    <mat-label>{{translate.instant('email')}}</mat-label>
     <input matInput formControlName="email">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>نام </mat-label>
+    <mat-label>{{translate.instant('name')}}</mat-label>
     <input matInput formControlName="first_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>نام خانوادگی</mat-label>
+    <mat-label>{{translate.instant('lastName')}}</mat-label>
     <input matInput formControlName="last_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>سطح دسترسی</mat-label>
+    <mat-label>{{translate.instant('permission')}}</mat-label>
     <mat-select formControlName="roles" multiple>
-      <mat-option value="user">کاربر</mat-option>
-      <mat-option value="admin">ادمین</mat-option>
-      <mat-option value="super_admin">سوپر ادمین</mat-option>
+      <mat-option value="user">{{translate.instant('user')}}</mat-option>
+      <mat-option value="admin">{{translate.instant('admin')}}</mat-option>
+      <mat-option value="super_admin">{{translate.instant('superAdmin')}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="outline" class="relative" *ngIf="formStatus==='add'">
-    <mat-label>رمز عبور</mat-label>
+    <mat-label>{{translate.instant('password')}}</mat-label>
     <input matInput [type]="passwordType" formControlName="password">
     <app-icon [icon]="'showPassword'" (click)="switchPasswordType(passwordType)" class="absolute top-[16px] left-0"></app-icon>
   </mat-form-field>
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">ثبت</button>
-    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>

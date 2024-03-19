@@ -1,4 +1,4 @@
-<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline">
     <mat-label>version_code</mat-label>
     <input matInput formControlName="version_code">
@@ -15,21 +15,21 @@
   </mat-form-field>
 
   <mat-slide-toggle [checked]="false" formControlName="is_force_update">
-    فورس اپدیت
+    {{translate.instant('forceUpdate')}}
   </mat-slide-toggle>
   <mat-slide-toggle [checked]="false" formControlName="is_initial_version">
-    نسخه init
+    {{translate.instant('initialVersion')}}
   </mat-slide-toggle>
   <mat-slide-toggle [checked]="false" formControlName="is_play_store_download">
-    دانلود پلی استور
+    {{translate.instant('downloadPlayStore')}}
   </mat-slide-toggle>
   <mat-slide-toggle [checked]="false" formControlName="is_active">
-    وضعیت
+    {{translate.instant('status')}}
   </mat-slide-toggle>
 
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">ثبت</button>
-    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>

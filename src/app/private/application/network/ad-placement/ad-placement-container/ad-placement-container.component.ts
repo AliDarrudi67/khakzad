@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiEndpoints} from "../../../../../core/config/apiEndpoints";
 import {AdPlacementFormComponent} from "../ad-placement-form/ad-placement-form.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-ad-placement-container',
@@ -19,6 +20,9 @@ export class AdPlacementContainerComponent {
   dataSource = new MatTableDataSource();
   appId = ''
   networkId = ''
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,6 +30,7 @@ export class AdPlacementContainerComponent {
   constructor(
     public mainService: MainService,
     private dialog: MatDialog,
+    public translate:TranslateService,
     private router: Router,
     private route: ActivatedRoute,
     private matDialog: MatDialog

@@ -5,6 +5,7 @@ import {ToastrService} from "ngx-toastr";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {MatTableDataSource} from "@angular/material/table";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-config-form',
@@ -15,9 +16,13 @@ export class ConfigFormComponent {
   form!: FormGroup
   formStatus = 'add'
   versions:any[]=[]
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private formBuilder: FormBuilder,
+    public translate:TranslateService,
     private mainService: MainService,
     private toast: ToastrService,
     private matDialogRef: MatDialogRef<ConfigFormComponent>,

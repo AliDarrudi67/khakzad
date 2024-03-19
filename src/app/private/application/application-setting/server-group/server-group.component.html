@@ -1,13 +1,13 @@
 <app-card>
   <div class="flex flex-col gap-3">
     <div class="flex justify-between">
-      <h1>لیست</h1>
-      <button mat-raised-button color="primary" (click)="showForm()"> جدید</button>
+      <h1>{{translate.instant('list')}}</h1>
+      <button mat-raised-button color="primary" (click)="showForm()">{{translate.instant('new')}}</button>
     </div>
 
     <form dir="rtl">
       <mat-form-field appearance="outline">
-        <mat-label>جستجو...</mat-label>
+        <mat-label>{{translate.instant('new')}}...</mat-label>
         <input matInput (keyup)="applyFilter($event)" #input>
       </mat-form-field>
     </form>
@@ -17,14 +17,14 @@
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          نام
+          {{translate.instant('name')}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="is_active">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          وضعیت
+          {{translate.instant('status')}}
         </th>
         <td mat-cell *matCellDef="let element">
           <mat-slide-toggle [checked]="element.is_active" (change)="changeServerGroupStatus(element,$event)"></mat-slide-toggle>
@@ -34,7 +34,7 @@
 
       <ng-container matColumnDef="op">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          عملیات
+          {{translate.instant('operation')}}
         </th>
         <td mat-cell *matCellDef="let element">
           <div class="flex gap-2">

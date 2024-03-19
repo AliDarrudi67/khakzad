@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../core/services/main.service";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 import {ToastrService} from "ngx-toastr";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-change-password',
@@ -14,8 +15,11 @@ export class ChangePasswordComponent {
   passwordType = 'password';
   confirmPasswordType = 'password';
   form!: FormGroup
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
   constructor(
+    public translate:TranslateService,
     private formBuilder: FormBuilder,
     private toast:ToastrService,
     private mainService: MainService
@@ -62,10 +66,10 @@ export class ChangePasswordComponent {
     const confirm_new_password=this.form.get('confirm_new_password')?.value
 
     if(current_password?.length<8 || new_password?.length<8 || confirm_new_password?.length<8){
-      this.toast.error('برای هر فیلد حداقل 8 رقم وارد کنید.')
+      this.toast.error(this.translate.instant('atLeast8Fields'))
       return false
     }else if(new_password!==confirm_new_password){
-      this.toast.error('رمز عبور جدید و تکرار آن یکی نیست.')
+      this.toast.error(this.translate.instant('passwordAndConfirmationInNotEqual'))
       return false
     }
     return true

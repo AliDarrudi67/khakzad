@@ -8,6 +8,7 @@ import {MainService} from "../../../core/services/main.service";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 import {ApplicationFormComponent} from "../application-form/application-form.component";
 import {ActivatedRoute} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-application-container',
@@ -20,9 +21,13 @@ export class ApplicationContainerComponent {
   roles: any[] = []
   userId = '';
   userApplicationsId = ''
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private mainService: MainService,
+    public translate:TranslateService,
     private route: ActivatedRoute,
     private dialog: MatDialog
   ) {

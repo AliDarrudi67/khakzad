@@ -1,30 +1,29 @@
 <app-card>
   <section class="p-5">
-    <h1 class="font-bold text-[18px]">ویرایش اطلاعات</h1>
+    <h1 class="font-bold text-[18px]">{{translate.instant('editInfo')}}</h1>
 
-    <form dir="rtl" class="flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()">
+    <form [dir]="direction" class="flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()">
       <div>
         <img src="/assets/img/avatar.jpg" alt="" class="mx-auto rounded-full avatar"/>
       </div>
-      <h2 class="text-center">مدیر سایت</h2>
 
       <mat-form-field appearance="outline" class="pointer-events-none opacity-50">
-        <mat-label>نام کاربری</mat-label>
+        <mat-label>{{translate.instant('username')}}</mat-label>
         <input matInput formControlName="username" [disabled]="true" [readonly]="true">
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="pointer-events-none opacity-50">
-        <mat-label>ایمیل</mat-label>
+        <mat-label>{{translate.instant('email')}}</mat-label>
         <input matInput formControlName="email" [disabled]="true" [readonly]="true">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>نام</mat-label>
+        <mat-label>{{translate.instant('name')}}</mat-label>
         <input matInput formControlName="first_name">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>نام خانوادگی</mat-label>
+        <mat-label>{{translate.instant('lastName')}}</mat-label>
         <input matInput formControlName="last_name">
       </mat-form-field>
 
@@ -44,7 +43,7 @@
 <!--      </mat-form-field>-->
 
       <div>
-        <button mat-raised-button color="primary">بروزرسانی</button>
+        <button mat-raised-button color="primary">{{translate.instant('update')}}</button>
       </div>
     </form>
   </section>

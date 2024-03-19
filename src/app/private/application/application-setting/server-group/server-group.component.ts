@@ -8,6 +8,7 @@ import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {ConfirmDialogComponent} from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
 import {ActivatedRoute} from "@angular/router";
 import {ServerGroupFormComponent} from "../server-group-form/server-group-form.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-server-group',
@@ -21,9 +22,13 @@ export class ServerGroupComponent {
   appId = ''
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private mainService: MainService,
+    public translate:TranslateService,
     private dialog: MatDialog,
     private route: ActivatedRoute
   ) {

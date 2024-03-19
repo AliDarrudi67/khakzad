@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../core/services/main.service";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 import {Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,13 @@ import {Router} from "@angular/router";
 export class LoginComponent {
   form!: FormGroup
   passwordType = 'password';
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
   constructor(
     private formBuilder: FormBuilder,
-    private mainService: MainService,
+    public mainService: MainService,
+    public translate: TranslateService,
     private router: Router
   ) {
     this.groupForm()
@@ -48,5 +52,9 @@ export class LoginComponent {
         }
       )
     }
+  }
+
+  changeLang(lang: string) {
+    this.mainService.changeLang(lang)
   }
 }

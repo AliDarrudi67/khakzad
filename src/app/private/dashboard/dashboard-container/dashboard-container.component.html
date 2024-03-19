@@ -1,5 +1,6 @@
-<section class="flex justify-end h-[100vh] overflow-auto" >
-  <div class="lg:block sidebarParent fixed right-0 lg:relative lg:h-[100vh]" [ngClass]="showMenu?'showSidebar':'hideSidebar'">
+<section class="flex justify-end h-[100vh] overflow-auto">
+  <div class="lg:block sidebarParent fixed right-0 lg:relative lg:h-[100vh]"
+       [ngClass]="showMenu?'showSidebar':'hideSidebar'">
     <app-sidebar></app-sidebar>
   </div>
   <div class="flex-1 overflow-auto">
@@ -16,37 +17,40 @@
           <button mat-button [matMenuTriggerFor]="menu" class="border">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'account'"></app-icon>
-              <span class="hidden lg:block">حساب کاربری</span>
+              <span class="hidden lg:block">{{translate.instant('userAccount')}}</span>
             </p>
           </button>
           <mat-menu #menu="matMenu" dir="rtl">
-            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/changePassword">تغییر رمز عبور</button>
-            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/profile">اطلاعات شخصی</button>
+            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/changePassword">{{translate.instant('changePassword')}}</button>
+            <button mat-menu-item dir="rtl" routerLink="/dashboard/user/profile">{{translate.instant('personalInfo')}}</button>
           </mat-menu>
 
           <button mat-button [matMenuTriggerFor]="menuLang" class="border">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'faFlag'"></app-icon>
-              <span class="hidden lg:block">فارسی</span>
+              <span class="hidden lg:block">{{translate.instant('persian')}}</span>
             </p>
           </button>
           <mat-menu #menuLang="matMenu" dir="rtl">
-            <button mat-menu-item dir="rtl">انگلیسی</button>
-            <button mat-menu-item dir="rtl">فارسی</button>
+            <button mat-menu-item dir="rtl" (click)="changeLang('en')">{{translate.instant('english')}}</button>
+            <button mat-menu-item dir="rtl" (click)="changeLang('fa')">{{translate.instant('persian')}}</button>
           </mat-menu>
 
           <button mat-button class="border" (click)="logout()">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'logout'"></app-icon>
-              <span class="hidden lg:block">خروج</span>
+              <span class="hidden lg:block">{{translate.instant('logout')}}</span>
             </p>
           </button>
 
-          <button mat-button class="border block lg:hidden" (click)="showSidebar()">
-            <p class="flex gap-2 items-center">
-              <app-icon [icon]="'menu'"></app-icon>
-            </p>
-          </button>
+          <div class="block lg:hidden">
+            <button mat-button class="border" (click)="showSidebar()">
+              <p class="flex gap-2 items-center">
+                <app-icon [icon]="'menu'"></app-icon>
+              </p>
+            </button>
+          </div>
+
         </ul>
       </div>
     </div>

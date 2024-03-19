@@ -1,12 +1,12 @@
 <app-card>
   <section class="flex flex-col gap-3">
-    <h1 class="border-b pb-2">تنظیمات اپلیکیشن</h1>
+    <h1 class="border-b pb-2">{{translate.instant('applicationConfig')}}</h1>
     <mat-tab-group>
-      <mat-tab label="گروه سرورها">
+      <mat-tab label="{{translate.instant('serverGroup')}}">
         <app-server-group></app-server-group>
       </mat-tab>
 
-      <mat-tab label="سرورها">
+      <mat-tab label="{{translate.instant('servers')}}">
         <app-server></app-server>
       </mat-tab>
 

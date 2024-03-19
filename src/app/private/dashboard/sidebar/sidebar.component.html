@@ -14,14 +14,14 @@
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active" *ngIf="roles.includes('super_admin') || roles.includes('admin')">
       <a routerLink="/dashboard/users" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'usersWhite'"></app-icon>
-        <span>کاربران</span>
+        <span>{{translate.instant('users')}}</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>
     <li class="p-2 pe-8 ps-8 flex justify-between" routerLinkActive="active">
       <a routerLink="/dashboard/applications" class="flex gap-2 items-center w-full">
         <app-icon [icon]="'application'"></app-icon>
-        <span>اپلیکیشن ها</span>
+        <span>{{translate.instant('applications')}}</span>
       </a>
       <app-icon [icon]="'chevronLeft'"></app-icon>
     </li>

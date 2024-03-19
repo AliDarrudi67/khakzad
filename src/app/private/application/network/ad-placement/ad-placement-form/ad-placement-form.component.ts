@@ -4,6 +4,7 @@ import {MainService} from "../../../../../core/services/main.service";
 import {ToastrService} from "ngx-toastr";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiEndpoints} from "../../../../../core/config/apiEndpoints";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-ad-placement-form',
@@ -14,10 +15,14 @@ export class AdPlacementFormComponent {
   form!: FormGroup
   formStatus = 'add'
   oldValues: any
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private formBuilder: FormBuilder,
     public mainService: MainService,
+    public translate:TranslateService,
     private toast: ToastrService,
     private matDialogRef: MatDialogRef<AdPlacementFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

@@ -23,7 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
     this.clonedRequest = request.clone({
       setHeaders: {
         Authorization: `Bearer ${localStorage.getItem('token')!}`,
-        'Accept-Language': 'fa',
+        'Accept-Language': localStorage.getItem('lang') ?? 'fa',
       },
     });
     return next.handle(this.clonedRequest).pipe(

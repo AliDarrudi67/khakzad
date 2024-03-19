@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../core/services/main.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-application-form',
@@ -14,8 +15,12 @@ export class ApplicationFormComponent {
   formStatus = 'add'
   users:any[]=[]
   filteredUsers:any[]=[]
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
+    public translate:TranslateService,
     private formBuilder: FormBuilder,
     private mainService: MainService,
     private matDialogRef: MatDialogRef<ApplicationFormComponent>,

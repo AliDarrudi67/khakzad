@@ -1,49 +1,49 @@
-<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
-    <mat-label>انتخاب کاربر</mat-label>
+    <mat-label>{{translate.instant('user')}}</mat-label>
     <mat-select formControlName="user_id">
-      <input class="w-full" placeholder ="جستجو " (keyup)="onKey($event)">
+      <input class="w-full" placeholder ="{{translate.instant('search')}} " (keyup)="onKey($event)">
       <mat-option *ngFor="let item of filteredUsers" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>نام انگلیسی</mat-label>
+    <mat-label>{{translate.instant('englishName')}}</mat-label>
     <input matInput formControlName="en_app_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>نام فارسی</mat-label>
+    <mat-label>{{translate.instant('persianName')}}</mat-label>
     <input matInput formControlName="per_app_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>نام پکیج</mat-label>
+    <mat-label>{{translate.instant('packageName')}}</mat-label>
     <input matInput formControlName="package_name" [readonly]="data?.id" [disabled]="data?.id" [ngClass]="data?.id?'pointer-events-none opacity-50':''">
   </mat-form-field>
 
    <mat-form-field appearance="outline">
-    <mat-label>کانال تلگرام</mat-label>
+    <mat-label>{{translate.instant('telegramChanel')}}</mat-label>
     <input matInput formControlName="telegram_channel">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>کانال یوتیوب</mat-label>
+    <mat-label>{{translate.instant('youtubeChanel')}}</mat-label>
     <input matInput formControlName="youtube_channel">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>لینک امنیتی</mat-label>
+    <mat-label>{{translate.instant('securityLink')}}</mat-label>
     <input matInput formControlName="privacy_url">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>لینک گوگل پلی</mat-label>
+    <mat-label>{{translate.instant('googlePlayLink')}}</mat-label>
     <input matInput formControlName="google_play_url">
   </mat-form-field>
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">ثبت</button>
-    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>

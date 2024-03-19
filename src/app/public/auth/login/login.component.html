@@ -1,24 +1,29 @@
 <div class="body h-screen flex flex-col items-center justify-center ">
   <form [formGroup]="form" (ngSubmit)="submitForm()"
         class="login bg-white rounded flex flex-col lg:flex-row justify-between gap-5 w-11/12 lg:w-6/12 mx-auto p-5"
-        dir="rtl">
+        [dir]="direction">
     <div class="flex flex-col gap-3  lg:w-full">
-      <h2>ورود به پنل مدیریت</h2>
+      <h2>{{translate.instant('login')}}</h2>
       <mat-form-field appearance="outline" class="w-full">
-        <mat-label>ایمیل یا نام کاربری</mat-label>
-        <input dir="ltr" class="!pl-6" matInput formControlName="username"/>
+        <mat-label>{{translate.instant('username')}}</mat-label>
+        <input dir="ltr" matInput formControlName="username"/>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="w-full relative">
-        <mat-label>رمز عبور</mat-label>
+        <mat-label>{{translate.instant('password')}}</mat-label>
         <input dir="ltr" class="!pl-6" matInput [type]="passwordType" formControlName="password"/>
         <app-icon [icon]="'showPassword'" (click)="switchPasswordType(passwordType)" class="absolute top-[16px] left-0"></app-icon>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="w-full">ورود</button>
+      <button mat-raised-button color="primary" class="w-full">{{translate.instant('login')}}</button>
+
+      <div class="flex items-center gap-2 cursor-pointer">
+        <app-icon [icon]="'faFlag'" (click)="changeLang('fa')"></app-icon>
+        <app-icon [icon]="'enFlag'" (click)="changeLang('en')"></app-icon>
+      </div>
     </div>
 
-    <div class="flex justify-center items-center lg:border-r lg:w-50">
+    <div class="flex justify-center items-center lg:w-50" [ngClass]="direction==='rtl'?'lg:border-r':'lg:border-l'">
       <img src="/assets/img/blue-logo.330a666.svg" class="w-full max-w-[200px]"/>
     </div>
   </form>

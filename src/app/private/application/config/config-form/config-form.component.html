@@ -1,4 +1,4 @@
-<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
+<form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline">
     <mat-label>disconnect_delay_seconds</mat-label>
     <input matInput formControlName="disconnect_delay_seconds">
@@ -10,22 +10,22 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>ورژن</mat-label>
+    <mat-label>{{translate.instant('version')}}</mat-label>
     <mat-select formControlName="latest_app_version_id">
       <mat-option *ngFor="let item of versions" [value]="item?.id">{{item?.version_name}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-slide-toggle [checked]="false" formControlName="is_ads_enabled">
-    فعال سازی تبلیغات
+    {{translate.instant('enableAds')}}
   </mat-slide-toggle>
 
   <mat-slide-toggle [checked]="false" formControlName="disable_old_versions">
-    غیرفعال کردن ورژن های قدیم
+    {{translate.instant('disableOldAds')}}
   </mat-slide-toggle>
 
   <mat-slide-toggle [checked]="false" formControlName="is_force_update_enabled">
-    فورس اپدیت
+    {{translate.instant('forceUpdate')}}
   </mat-slide-toggle>
 
   <mat-slide-toggle [checked]="false" formControlName="encrypt_configs">
@@ -33,7 +33,7 @@
   </mat-slide-toggle>
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">ثبت</button>
-    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>

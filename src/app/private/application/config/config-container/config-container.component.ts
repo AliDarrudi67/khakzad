@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {ConfigFormComponent} from "../config-form/config-form.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-config-container',
@@ -20,9 +21,12 @@ export class ConfigContainerComponent {
   appId = ''
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
   constructor(
     private mainService: MainService,
+    public translate:TranslateService,
     private dialog: MatDialog,
     private route: ActivatedRoute
   ) {

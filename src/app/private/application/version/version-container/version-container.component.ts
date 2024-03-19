@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {VersionFormComponent} from "../version-form/version-form.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-version-container',
@@ -18,6 +19,9 @@ export class VersionContainerComponent {
   displayedColumns: string[] = ['version_code', 'version_name', 'is_force_update', 'is_initial_version', 'download_url', 'is_play_store_download', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
   appId = ''
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,6 +29,7 @@ export class VersionContainerComponent {
   constructor(
     public mainService: MainService,
     private dialog: MatDialog,
+    public translate:TranslateService,
     private router: Router,
     private route: ActivatedRoute,
     private matDialog: MatDialog

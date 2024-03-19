@@ -19,6 +19,8 @@ export class MainService {
   }
   public language: string = "fa";
   public timezone: string = "asia/Tehran";
+  lang = signal<string>('')
+  direction = signal<any>('')
   countryCodes = [
     {
       name: "Afghanistan",
@@ -1332,5 +1334,10 @@ export class MainService {
         });
       }
     });
+  }
+
+  changeLang(lang: string) {
+    localStorage.setItem('lang', lang)
+    location.reload()
   }
 }

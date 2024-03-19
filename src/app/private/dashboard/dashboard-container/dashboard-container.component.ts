@@ -1,6 +1,7 @@
 import {Component, effect} from '@angular/core';
 import * as moment from "jalali-moment";
 import {MainService} from "../../../core/services/main.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard-container',
@@ -12,11 +13,15 @@ export class DashboardContainerComponent {
   time = '';
   date: any
   showMenu = true;
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
-    public mainService: MainService
+    public mainService: MainService,
+    public translate:TranslateService,
   ) {
-    this.today = moment(new Date()).locale('fa').format('dddd YYYY/MM/DD');
+    this.today = moment(new Date()).locale(this.lang).format('dddd YYYY/MM/DD');
     this.timeInterval()
   }
 
@@ -46,5 +51,9 @@ export class DashboardContainerComponent {
 
   showSidebar() {
     this.mainService.showSidebar.set(!this.mainService.showSidebar())
+  }
+
+  changeLang(lang: string) {
+    this.mainService.changeLang(lang)
   }
 }

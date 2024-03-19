@@ -4,6 +4,7 @@ import {MainService} from "../../../../core/services/main.service";
 import {ToastrService} from "ngx-toastr";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-server-form',
@@ -14,9 +15,13 @@ export class ServerFormComponent {
   form!: FormGroup
   formStatus = 'add'
   serverGroups: any[] = []
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private formBuilder: FormBuilder,
+    public translate:TranslateService,
     public mainService: MainService,
     private toast: ToastrService,
     private matDialogRef: MatDialogRef<ServerFormComponent>,

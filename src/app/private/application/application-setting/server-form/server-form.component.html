@@ -1,6 +1,6 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" dir="rtl">
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
-    <mat-label>گروه سرور</mat-label>
+    <mat-label>{{translate.instant('serverGroup')}}</mat-label>
     <mat-select formControlName="server_group_id">
       <mat-option *ngFor="let item of serverGroups"
                   [value]="item?.id">{{item?.name}}</mat-option>
@@ -8,7 +8,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>کد کشور</mat-label>
+    <mat-label>{{translate.instant('countryCode')}}</mat-label>
     <mat-select formControlName="country_code">
       <mat-option *ngFor="let item of mainService.countryCodes"
                   [value]="item?.code">{{item?.code + '-' + item?.name}}</mat-option>
@@ -51,7 +51,7 @@
   </div>
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">ثبت</button>
-    <button type="button" mat-raised-button color="accent" mat-dialog-close>بستن</button>
+    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>

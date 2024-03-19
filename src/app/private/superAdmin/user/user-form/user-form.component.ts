@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MainService} from "../../../../core/services/main.service";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-user-form',
@@ -13,10 +14,14 @@ export class UserFormComponent {
   form!: FormGroup
   formStatus = 'add'
   passwordType = 'password';
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
     private formBuilder: FormBuilder,
     private mainService: MainService,
+    public translate:TranslateService,
     private matDialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {

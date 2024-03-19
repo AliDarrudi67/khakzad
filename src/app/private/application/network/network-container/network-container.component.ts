@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiEndpoints} from "../../../../core/config/apiEndpoints";
 import {NetworkFormComponent} from "../network-form/network-form.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-network-container',
@@ -18,12 +19,16 @@ export class NetworkContainerComponent {
   displayedColumns: string[] = ['ad_network', 'is_active', 'op'];
   dataSource = new MatTableDataSource();
   appId = ''
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     public mainService: MainService,
+    public translate:TranslateService,
     private dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,

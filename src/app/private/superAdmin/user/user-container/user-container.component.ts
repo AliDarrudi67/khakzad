@@ -9,6 +9,7 @@ import {UserFormComponent} from "../user-form/user-form.component";
 import {ConfirmDialogComponent} from "../../../../shared/components/confirm-dialog/confirm-dialog.component";
 import {ApplicationFormComponent} from "../../../application/application-form/application-form.component";
 import {Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-user-container',
@@ -19,6 +20,8 @@ export class UserContainerComponent {
   users: any[] = []
   displayedColumns: string[] = ['first_name', 'last_name', 'roles', 'email', 'username', 'is_active', 'created_at', 'op'];
   dataSource = new MatTableDataSource();
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -27,6 +30,7 @@ export class UserContainerComponent {
     public mainService: MainService,
     private dialog: MatDialog,
     private router: Router,
+    public translate:TranslateService,
     private matDialog: MatDialog
   ) {
     this.getUsers()

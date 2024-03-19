@@ -2,6 +2,7 @@ import {Component, effect} from '@angular/core';
 import {Router} from "@angular/router";
 import {MainService} from "../../../core/services/main.service";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-sidebar',
@@ -12,9 +13,12 @@ export class SidebarComponent {
   url = '';
   roles: any[] = []
   userName = '';
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
   constructor(
     private router: Router,
+    public translate:TranslateService,
     public mainService: MainService
   ) {
     this.roles = this.mainService.roles()

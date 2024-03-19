@@ -1,26 +1,26 @@
 <section class="flex flex-col gap-3 p-5" dir="rtl">
-  <button mat-raised-button color="primary" (click)="showForm=true" *ngIf="!showForm">افزودن کاربر به اپلیکیشن</button>
+  <button mat-raised-button color="primary" (click)="showForm=true" *ngIf="!showForm">{{translate.instant('addUserToApp')}}</button>
 
   <form [formGroup]="form" (ngSubmit)="submitForm()" *ngIf="showForm">
     <mat-form-field appearance="outline" class="w-full">
-      <mat-label>انتخاب کاربر</mat-label>
+      <mat-label>{{translate.instant('user')}}</mat-label>
       <mat-select formControlName="user_id">
-        <input class="w-full" placeholder ="جستجو " (keyup)="onKey($event)">
+        <input class="w-full" placeholder ="{{translate.instant('search')}} " (keyup)="onKey($event)">
         <mat-option *ngFor="let item of filteredUsers"
                     [value]="item?.id">{{item?.first_name + ' ' + item?.last_name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" class="mt-3">ثبت</button>
+    <button mat-raised-button color="primary" class="mt-3">{{translate.instant('register')}}</button>
   </form>
 
   <div class="overflow-auto border">
     <table class="table w-full" dir="rtl">
       <thead>
       <tr>
-        <th>نام</th>
-        <th>نام خانوادگی</th>
-        <th>ایمیل</th>
+        <th>{{translate.instant('name')}}</th>
+        <th>{{translate.instant('lastName')}}</th>
+        <th>{{translate.instant('email')}}</th>
       </tr>
       </thead>
       <tbody>
@@ -39,5 +39,5 @@
     </table>
   </div>
 
-  <button mat-raised-button color="accent" mat-dialog-close>بستن</button>
+  <button mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
 </section>

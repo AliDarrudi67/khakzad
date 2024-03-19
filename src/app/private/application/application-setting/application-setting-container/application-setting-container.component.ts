@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-application-setting-container',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./application-setting-container.component.scss']
 })
 export class ApplicationSettingContainerComponent {
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
+constructor(
+  public translate:TranslateService,
+) {
+}
 }

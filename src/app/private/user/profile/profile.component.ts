@@ -2,6 +2,7 @@ import {Component, effect} from '@angular/core';
 import {MainService} from "../../../core/services/main.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiEndpoints} from "../../../core/config/apiEndpoints";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +12,12 @@ import {ApiEndpoints} from "../../../core/config/apiEndpoints";
 export class ProfileComponent {
   userInfo: any
   form!: FormGroup
+  lang = localStorage.getItem('lang') ?? 'fa';
+  direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
+
 
   constructor(
+    public translate:TranslateService,
     private mainService: MainService,
     private formBuilder: FormBuilder
   ) {
