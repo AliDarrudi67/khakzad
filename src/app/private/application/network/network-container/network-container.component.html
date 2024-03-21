@@ -1,6 +1,6 @@
 <app-card>
   <div class="flex flex-col gap-3">
-    <div class="flex justify-between">
+    <div class="flex justify-between" [ngClass]="direction==='rtl'?'':'flex-row-reverse'">
       <h1>{{translate.instant('list')}}</h1>
       <button mat-raised-button color="primary" (click)="networkForm({})">{{translate.instant('new')}}</button>
     </div>
@@ -41,7 +41,9 @@
             <div class="flex gap-2">
               <app-icon [icon]="'edit'" class="cursor-pointer" (click)="networkForm(element)"></app-icon>
               <app-icon [icon]="'delete'" class="cursor-pointer"></app-icon>
-              <a [routerLink]="'ad-placement/'+element?.id">{{translate.instant('ads')}}</a>
+              <a [routerLink]="'ad-placement/'+element?.id">
+                <app-icon icon="ads"></app-icon>
+              </a>
             </div>
           </td>
         </ng-container>

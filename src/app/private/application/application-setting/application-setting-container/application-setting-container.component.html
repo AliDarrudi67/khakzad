@@ -1,6 +1,6 @@
 <app-card>
   <section class="flex flex-col gap-3">
-    <h1 class="border-b pb-2">{{translate.instant('applicationConfig')}}</h1>
+    <h1 class="border-b pb-2" [ngClass]="direction==='rtl'?'':'text-left'">{{translate.instant('applicationConfig')}}</h1>
     <mat-tab-group>
       <mat-tab label="{{translate.instant('serverGroup')}}">
         <app-server-group></app-server-group>

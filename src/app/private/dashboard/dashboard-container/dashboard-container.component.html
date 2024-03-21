@@ -1,6 +1,6 @@
-<section class="flex justify-end h-[100vh] overflow-auto">
-  <div class="lg:block sidebarParent fixed right-0 lg:relative lg:h-[100vh]"
-       [ngClass]="showMenu?'showSidebar':'hideSidebar'">
+<section class="flex justify-end h-[100vh] overflow-auto" [ngClass]="direction==='rtl'?'':'flex-row-reverse'">
+  <div class="lg:block sidebarParent fixed lg:relative lg:h-[100vh]"
+       [ngClass]="showMenu?'showSidebar':'hideSidebar'" [class]="direction==='rtl'?'right-0':'left-0'">
     <app-sidebar></app-sidebar>
   </div>
   <div class="flex-1 overflow-auto">

@@ -150,3 +150,15 @@ th.mat-sort-header-sorted {
     white-space: nowrap;
   }
 }
+.ltrBody{
+  #sidebar{
+    border-right: 3px dashed #fff;
+    border-left: none !important;
+  }
+  table{
+    direction: ltr;
+    td{
+      text-align: left !important;
+    }
+  }
+}

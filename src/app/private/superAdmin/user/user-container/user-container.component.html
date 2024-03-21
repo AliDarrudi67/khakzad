@@ -1,13 +1,13 @@
 <app-card>
   <div class="flex flex-col gap-3">
-    <div class="flex justify-between">
+    <div class="flex justify-between" [ngClass]="direction==='rtl'?'':'flex-row-reverse'">
       <h1>{{translate.instant('userList')}}</h1>
       <section>
         <button mat-raised-button color="primary" (click)="userForm()">{{translate.instant('addNewUser')}}</button>
       </section>
     </div>
 
-    <form dir="rtl">
+    <form [dir]="direction">
       <mat-form-field appearance="outline">
         <mat-label>{{translate.instant('search')}}...</mat-label>
         <input matInput (keyup)="applyFilter($event)" #input>

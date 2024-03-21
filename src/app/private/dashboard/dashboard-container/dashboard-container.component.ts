@@ -16,7 +16,6 @@ export class DashboardContainerComponent {
   lang = localStorage.getItem('lang') ?? 'fa';
   direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
-
   constructor(
     public mainService: MainService,
     public translate:TranslateService,
