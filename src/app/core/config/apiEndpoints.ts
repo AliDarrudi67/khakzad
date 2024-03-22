@@ -22,7 +22,8 @@ export const ApiEndpoints = {
     block: (id: string) => `app/${id}/deactivate`,
     unblock: (id: string) => `app/${id}/activate`,
     edit: (id: string) => `app/${id}`,
-    users: (id: string) => `app/${id}/user-list`
+    users: (id: string) => `app/${id}/user-list`,
+    removeUser: (appId:string,userId: string) => `app/${appId}/user/${userId}/remove-user`
   },
   serverGroup: {
     list: (id: string) => `app/${id}/server/group/list`,

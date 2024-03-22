@@ -21,6 +21,7 @@
         <th>{{translate.instant('name')}}</th>
         <th>{{translate.instant('lastName')}}</th>
         <th>{{translate.instant('email')}}</th>
+        <th>{{translate.instant('operation')}}</th>
       </tr>
       </thead>
       <tbody>
@@ -33,6 +34,9 @@
         </td>
         <td>
           <p>{{item?.email}}</p>
+        </td>
+      <td>
+          <app-icon icon="delete" (click)="removeUser(item?.id)"></app-icon>
         </td>
       </tr>
       </tbody>

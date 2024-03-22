@@ -21,7 +21,7 @@ export class ApplicationDetailsComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    public translate:TranslateService,
+    public translate: TranslateService,
     private mainService: MainService,
     private matDialogRef: MatDialogRef<ApplicationDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -50,14 +50,26 @@ export class ApplicationDetailsComponent {
     if (this.form.valid) {
       this.mainService.post(ApiEndpoints.admin.application.addUserToApp(this.data?.appId), this.form.value).subscribe(
         (response) => {
-          this.matDialogRef.close({result:true})
+          this.matDialogRef.close({result: true})
         }
       )
     }
   }
 
-  onKey($event:any) {
-    const keyword=$event.target.value
-    this.filteredUsers=this.users.filter(item=>item?.first_name.indexOf(keyword)>=0 || item?.last_name.indexOf(keyword)>=0)
+  onKey($event: any) {
+    const keyword = $event.target.value
+    this.filteredUsers = this.users.filter(item => item?.first_name.indexOf(keyword) >= 0 || item?.last_name.indexOf(keyword) >= 0)
+  }
+
+  removeUser(userId: string) {
+    this.mainService.delete(ApiEndpoints.application.removeUser(this.data?.appId, userId)).subscribe(
+      (response) => {
+        this.mainService.get(ApiEndpoints.application.users(this.data?.appId)).subscribe(
+          (response) => {
+            this.data.users = response?.data
+          }
+        )
+      }
+    )
   }
 }
