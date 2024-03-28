@@ -13,14 +13,14 @@ import {TranslateService} from "@ngx-translate/core";
 export class ApplicationFormComponent {
   form!: FormGroup
   formStatus = 'add'
-  users:any[]=[]
-  filteredUsers:any[]=[]
+  users: any[] = []
+  filteredUsers: any[] = []
   lang = localStorage.getItem('lang') ?? 'fa';
   direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';
 
 
   constructor(
-    public translate:TranslateService,
+    public translate: TranslateService,
     private formBuilder: FormBuilder,
     private mainService: MainService,
     private matDialogRef: MatDialogRef<ApplicationFormComponent>,
@@ -39,7 +39,7 @@ export class ApplicationFormComponent {
       package_name: [data?.package_name, Validators.required],
       telegram_channel: [data?.telegram_channel],
       youtube_channel: [data?.youtube_channel],
-      privacy_url: [data?.privacy_url,Validators.required],
+      privacy_url: [data?.privacy_url, [Validators.required,Validators.pattern('https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)')]],
       google_play_url: [data?.google_play_url],
       ...(this.formStatus === 'add' && {
         user_id: [data?.user_id],
@@ -69,15 +69,24 @@ export class ApplicationFormComponent {
 
   getUsers() {
     this.mainService.get(ApiEndpoints.user.list).subscribe(
-      (response)=>{
-        this.users=response?.data
-        this.filteredUsers=response?.data
+      (response) => {
+        this.users = response?.data
+        this.filteredUsers = response?.data
       }
     )
   }
 
-  onKey($event:any) {
-    const keyword=$event.target.value
-    this.filteredUsers=this.users.filter(item=>item?.first_name.indexOf(keyword)>=0 || item?.last_name.indexOf(keyword)>=0)
+  onKey($event: any) {
+    const keyword = $event.target.value
+    this.filteredUsers = this.users.filter(item => item?.first_name.indexOf(keyword) >= 0 || item?.last_name.indexOf(keyword) >= 0)
+  }
+
+  focusSearch() {
+    setTimeout(
+      () => {
+        let element: HTMLElement = document.getElementById('search') as HTMLElement;
+        element.focus();
+      }, 500
+    )
   }
 }

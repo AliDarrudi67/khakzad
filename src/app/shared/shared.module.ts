@@ -6,6 +6,7 @@ import { PersianDatePipe } from './pipes/persian-date.pipe';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
+import { NumericInputDirective } from './directives/numeric-input.directive';
 
 
 
@@ -14,12 +15,14 @@ import {MatDialogModule} from "@angular/material/dialog";
         IconComponent,
         CardComponent,
         PersianDatePipe,
-        ConfirmDialogComponent
+        ConfirmDialogComponent,
+        NumericInputDirective
     ],
     exports: [
         IconComponent,
         CardComponent,
-        PersianDatePipe
+        PersianDatePipe,
+        NumericInputDirective
     ],
   imports: [
     CommonModule,

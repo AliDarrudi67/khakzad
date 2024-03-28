@@ -18,8 +18,8 @@
       <mat-option value="REWARDED_INTERSTITIAL">REWARDED_INTERSTITIAL</mat-option>
     </mat-select>
   </mat-form-field>
-
-  <mat-slide-toggle [checked]="false" formControlName="is_active">
+{{data?.item?.is_active}}
+  <mat-slide-toggle [checked]="data?.item?.is_active" formControlName="is_active">
     {{translate.instant('status')}}
   </mat-slide-toggle>
 

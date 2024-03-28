@@ -1,16 +1,16 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline">
-    <mat-label>version_code</mat-label>
+    <mat-label>{{translate.instant('version code')}}</mat-label>
     <input matInput formControlName="version_code">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>version_name</mat-label>
+    <mat-label>{{translate.instant('version name')}}</mat-label>
     <input matInput formControlName="version_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>download_url</mat-label>
+    <mat-label>{{translate.instant('download url')}}</mat-label>
     <input matInput formControlName="download_url">
   </mat-form-field>
 

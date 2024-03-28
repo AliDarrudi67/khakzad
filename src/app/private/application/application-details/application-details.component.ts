@@ -72,4 +72,13 @@ export class ApplicationDetailsComponent {
       }
     )
   }
+
+  focusSearch() {
+    setTimeout(
+      () => {
+        let element: HTMLElement = document.getElementById('search') as HTMLElement;
+        element.focus();
+      }, 500
+    )
+  }
 }

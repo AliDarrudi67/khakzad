@@ -1,8 +1,8 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>{{translate.instant('user')}}</mat-label>
-    <mat-select formControlName="user_id">
-      <input class="w-full" placeholder ="{{translate.instant('search')}} " (keyup)="onKey($event)">
+    <mat-select formControlName="user_id" (click)="focusSearch()">
+      <input id="search" class="w-full p-3 border" placeholder ="{{translate.instant('search')}} " (keyup)="onKey($event)">
       <mat-option *ngFor="let item of filteredUsers" [value]="item?.id">{{item?.first_name+' '+item?.last_name}}</mat-option>
     </mat-select>
   </mat-form-field>

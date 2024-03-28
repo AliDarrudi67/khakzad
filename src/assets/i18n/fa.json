@@ -70,5 +70,12 @@
   "downloadAddress": "ادرس دانلود",
   "initialVersion": "نسخه initial",
   "downloadPlayStore": "دانلود پلی استور",
-  "ads": "تبلیغات"
+  "ads": "تبلیغات",
+  "disconnect_delay_seconds": "زمان انتظار قطع اتصال",
+  "connect_delay_seconds": "زمان انتظار اتصال",
+  "disable_old_versions": "غیر فعال سازی نسخه های قدیمی",
+  "encrypt_configs": "مزنگاری کانفیگ ها",
+  "version code": "کد نسخه",
+  "version name": "نام نسخه",
+  "download link": "لینک دانلود"
 }

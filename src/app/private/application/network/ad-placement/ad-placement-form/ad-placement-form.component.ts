@@ -38,7 +38,7 @@ export class AdPlacementFormComponent {
       unit_type: [data?.item?.unit_type, Validators.required],
       interval_second: [data?.item?.interval_second, Validators.required],
       ad_network_id: [data?.networkId, Validators.required],
-      is_active: [data?.item?.is_active ? data?.item?.is_active : true, Validators.required]
+      is_active: [data?.item?.is_active, Validators.required]
     })
     this.oldValues = {...this.form.value}
   }

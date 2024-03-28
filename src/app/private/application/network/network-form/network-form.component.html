@@ -16,6 +16,11 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field appearance="outline">
+    <mat-label>{{translate.instant('appId')}}</mat-label>
+    <input matInput formControlName="app_id">
+  </mat-form-field>
+
   <mat-slide-toggle [checked]="false" formControlName="is_active">
     {{translate.instant('status')}}
   </mat-slide-toggle>

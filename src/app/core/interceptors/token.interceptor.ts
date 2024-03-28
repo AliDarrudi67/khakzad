@@ -31,6 +31,7 @@ export class TokenInterceptor implements HttpInterceptor {
         if (request.method !== 'GET') {
           if (event instanceof HttpResponse && (event.status === 200 || event.status === 201)) {
             const result = event.body as any
+            console.log(result)
             if (result.status === 200 || result.status === 201)
               this.toast.success(result?.message ? result?.message : 'عملیات با موفقیت انجام شد.');
             // else if (result.status === 401)

@@ -70,5 +70,12 @@
   "downloadAddress": "Download address",
   "initialVersion": "Initial version",
   "downloadPlayStore": "Download play store",
-  "ads": "Ads"
+  "ads": "Ads",
+  "disconnect_delay_seconds": "disconnect delay seconds",
+  "connect_delay_seconds": "connect delay seconds",
+  "disable_old_versions": "disable old versions",
+  "encrypt_configs": "encrypt configs",
+  "version code": "Version code",
+  "version name": "Version name",
+  "download link": "Download link"
 }

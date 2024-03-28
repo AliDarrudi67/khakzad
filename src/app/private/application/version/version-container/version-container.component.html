@@ -42,7 +42,7 @@
             {{translate.instant('forceUpdate')}}
           </th>
           <td mat-cell *matCellDef="let element">
-            <mat-slide-toggle [checked]="element.is_force_update"></mat-slide-toggle>
+            <mat-slide-toggle disabled [checked]="element.is_force_update"></mat-slide-toggle>
           </td>
         </ng-container>
 
@@ -51,7 +51,7 @@
             {{translate.instant('initialVersion')}}
           </th>
           <td mat-cell *matCellDef="let element">
-            <mat-slide-toggle [checked]="element.is_initial_version"></mat-slide-toggle>
+            <mat-slide-toggle disabled [checked]="element.is_initial_version"></mat-slide-toggle>
           </td>
         </ng-container>
 
@@ -60,7 +60,7 @@
              playStore
           </th>
           <td mat-cell *matCellDef="let element">
-            <mat-slide-toggle [checked]="element.is_play_store_download"></mat-slide-toggle>
+            <mat-slide-toggle disabled [checked]="element.is_play_store_download"></mat-slide-toggle>
           </td>
         </ng-container>
 

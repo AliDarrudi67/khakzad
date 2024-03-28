@@ -36,6 +36,7 @@ export class NetworkFormComponent {
     this.form = this.formBuilder.group({
       ad_network: [data?.item?.ad_network, Validators.required],
       ad_network_app_id: [data?.appId, Validators.required],
+      app_id: [data?.app_id, Validators.required],
       is_active: [data?.item?.is_active ? data?.item?.is_active : true, Validators.required]
     })
     this.oldValues = {...this.form.value}
