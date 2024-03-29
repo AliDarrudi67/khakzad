@@ -22,7 +22,7 @@ export class VersionFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     public mainService: MainService,
-    public translate:TranslateService,
+    public translate: TranslateService,
     private toast: ToastrService,
     private matDialogRef: MatDialogRef<VersionFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -36,11 +36,11 @@ export class VersionFormComponent {
     this.form = this.formBuilder.group({
       version_code: [data?.item?.version_code, Validators.required],
       version_name: [data?.item?.version_name, Validators.required],
-      is_force_update: [data?.item?.is_force_update ? data?.item?.is_force_update : true, Validators.required],
-      is_initial_version: [data?.item?.is_initial_version ? data?.item?.is_initial_version : true, Validators.required],
-      download_url: [data?.item?.download_url, [Validators.required,Validators.pattern('https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)')]],
-      is_play_store_download: [data?.item?.is_play_store_download ? data?.item?.is_play_store_download : true, Validators.required],
-      is_active: [data?.item?.is_active ? data?.item?.is_active : true, Validators.required]
+      is_force_update: [data?.item?.is_force_update ? data?.item?.is_force_update : false, Validators.required],
+      is_initial_version: [data?.item?.is_initial_version ? data?.item?.is_initial_version : false, Validators.required],
+      download_url: [data?.item?.download_url, [Validators.required, Validators.pattern('https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)')]],
+      is_play_store_download: [data?.item?.is_play_store_download ? data?.item?.is_play_store_download : false, Validators.required],
+      is_active: [data?.item?.is_active ? data?.item?.is_active : false, Validators.required]
     })
     this.oldValues = {...this.form.value}
   }
