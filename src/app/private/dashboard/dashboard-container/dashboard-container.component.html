@@ -13,7 +13,7 @@
           <span>{{time}}</span>
         </ul>
 
-        <ul class="flex gap-2 items-center">
+        <ul class="flex gap-2 items-center" [ngClass]="direction==='ltr'?'flex-row-reverse':''">
           <button mat-button [matMenuTriggerFor]="menu" class="border">
             <p class="flex gap-2 items-center">
               <app-icon [icon]="'account'"></app-icon>
@@ -27,8 +27,8 @@
 
           <button mat-button [matMenuTriggerFor]="menuLang" class="border">
             <p class="flex gap-2 items-center">
-              <app-icon [icon]="'faFlag'"></app-icon>
-              <span class="hidden lg:block">{{translate.instant('persian')}}</span>
+              <app-icon [icon]="lang+'Flag'"></app-icon>
+              <span class="hidden lg:block">{{translate.instant(lang)}}</span>
             </p>
           </button>
           <mat-menu #menuLang="matMenu" dir="rtl">

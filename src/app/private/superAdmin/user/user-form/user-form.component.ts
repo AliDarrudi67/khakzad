@@ -67,4 +67,21 @@ export class UserFormComponent {
     this.passwordType = type === 'password' ? 'text' : 'password'
   }
 
+  onKeyUp(event: any) {
+    const input = event.target.value;
+    const regex = /^[a-zA-Z0-9_.]*$/;
+    if (!regex.test(input)) {
+      // اگر ورودی با الگوی مشخص شده مطابقت نداشته باشد، از ورودی غیرمجاز جلوگیری کنید
+      event.target.value = input.replace(/[^a-zA-Z0-9_.]/g, '');
+    }
+  }
+
+  onKeyUpEmail(event: any) {
+    const input = event.target.value;
+    const regex = /^[a-zA-Z0-9_.@]*$/;
+    if (!regex.test(input)) {
+      // اگر ورودی با الگوی مشخص شده مطابقت نداشته باشد، از ورودی غیرمجاز جلوگیری کنید
+      event.target.value = input.replace(/[^a-zA-Z0-9_.@]/g, '');
+    }
+  }
 }

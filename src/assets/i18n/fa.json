@@ -77,5 +77,9 @@
   "encrypt_configs": "مزنگاری کانفیگ ها",
   "version code": "کد نسخه",
   "version name": "نام نسخه",
-  "download link": "لینک دانلود"
+  "download link": "لینک دانلود",
+  "fa": "فارسی",
+  "en": "انگلیسی",
+  "updated_at": "تاریخ ویرایش",
+  "save": "ذخیره"
 }

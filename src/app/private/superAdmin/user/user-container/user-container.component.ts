@@ -18,7 +18,7 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class UserContainerComponent {
   users: any[] = []
-  displayedColumns: string[] = ['first_name', 'last_name', 'roles', 'email', 'username', 'is_active', 'created_at', 'op'];
+  displayedColumns: string[] = ['first_name', 'last_name', 'roles', 'email', 'username', 'is_active', 'created_at','updated_at', 'op'];
   dataSource = new MatTableDataSource();
   lang = localStorage.getItem('lang') ?? 'fa';
   direction: any = this.lang === 'fa' ? 'rtl' : 'ltr';

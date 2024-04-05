@@ -1,12 +1,12 @@
 <form class="p-5 flex flex-col gap-3" [formGroup]="form" (ngSubmit)="submitForm()" [dir]="direction">
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>{{translate.instant('username')}}</mat-label>
-    <input matInput formControlName="username">
+    <input matInput formControlName="username" (keyup)="onKeyUp($event)" dir="ltr">
   </mat-form-field>
 
   <mat-form-field appearance="outline" *ngIf="formStatus==='add'">
     <mat-label>{{translate.instant('email')}}</mat-label>
-    <input matInput formControlName="email">
+    <input matInput formControlName="email" (keyup)="onKeyUpEmail($event)" dir="ltr">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -30,11 +30,11 @@
   <mat-form-field appearance="outline" class="relative" *ngIf="formStatus==='add'">
     <mat-label>{{translate.instant('password')}}</mat-label>
     <input matInput [type]="passwordType" formControlName="password">
-    <app-icon [icon]="'showPassword'" (click)="switchPasswordType(passwordType)" class="absolute top-[16px] left-0"></app-icon>
+    <app-icon [icon]="'showPassword'" (click)="switchPasswordType(passwordType)" class="absolute top-[16px]" [ngClass]="direction==='rtl'?'left-0':'right-0'"></app-icon>
   </mat-form-field>
 
   <div class="flex justify-between">
-    <button mat-raised-button color="primary">{{translate.instant('register')}}</button>
+    <button mat-raised-button color="primary">{{translate.instant('save')}}</button>
     <button type="button" mat-raised-button color="accent" mat-dialog-close>{{translate.instant('close')}}</button>
   </div>
 </form>
